@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, lazy } from 'react';
+import SubNav from "../components/SubNav";
 
 const sprint1Documents = {
     marketResearch: [
@@ -274,15 +275,18 @@ const individualContributions = [
 ];
 
 function Sprint1() {
+    const subNavLinks = [
+        { id: 'market-research', label: 'Market Research' },
+        { id: 'business-strategy', label: 'Business Strategy' },
+        { id: 'project-charter', label: 'Project Charter' },
+        { id: 'individual-contributions', label: 'Individual Contributions' }
+    ];
+
     return (
         <main className="sprint-page">
             {/* Sprint 1 Sub-Navigation */}
-            <nav className="sprint-subnav">
-                <a href="#market-research">Market Research</a>
-                <a href="#business-strategy">Business Strategy</a>
-                <a href="#project-charter">Project Charter</a>
-                <a href="#individual-contributions">Individual Contributions</a>
-            </nav>
+            <SubNav links={subNavLinks} />
+            
             <div className="sprint-header">
                 <h1>Sprint 1</h1>
                 <p>
