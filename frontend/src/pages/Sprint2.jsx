@@ -12,7 +12,8 @@ function Sprint2() {
         { id: 'business-case', label: 'Business Case' },
         { id: 'estimation-appendix', label: 'Estimation Appendix' },
         { id: 'roi-analysis', label: 'ROI Analysis' },
-        { id: 'budget-estimation', label: 'Budget Estimation' }
+        { id: 'budget-estimation', label: 'Budget Estimation' },
+        { id: 'ai-use-disclosure', label: 'AI Use Disclosure' }
     ];
 
     return (
@@ -704,6 +705,72 @@ function Sprint2() {
                             expected to take 6-12 months, support 1,000-2,000 active users at launch, and the planned 
                             staffing and third-party costs remain within the estimated ranges.
                         </p>
+                    </div>
+                </section>
+            </div>
+
+            <div className="sprint-content">
+                {/* AI Use Disclosure */}
+                <section id="ai-use-disclosure" className="sprint-section">
+                    <div className="section-heading">
+                        <h2>AI Use Disclosure</h2>
+                        <a
+                            href="/documents/sprint2/Sprint2AIUse.pdf"
+                            download="Sprint2AIUse.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>AI Use Policy</h3>
+                        <p>AI use on the portal follows the CS 4390/5388 syllabus.</p>
+                        
+                        <h4>AI is permitted for:</h4>
+                        <ul className="contribution-bullets">
+                            <li>Generating initial drafts of PM artifacts for team review and revision</li>
+                            <li>Suggesting risk categories, stakeholder types, or estimation approaches that the team then evaluates</li>
+                            <li>Summarizing or restructuring content the team has already produced</li>
+                            <li>Grammar and clarity checks</li>
+                            <li>Generating alternative framings for comparison</li>
+                        </ul>
+
+                        <h4>AI is not permitted for:</h4>
+                        <ul className="contribution-bullets">
+                            <li>The individual reflection or individual estimation memo</li>
+                            <li>Any exam response</li>
+                            <li>The go/no-go reasoning and justification in any sprint deliverable</li>
+                        </ul>
+                        
+                        <h4>Disclosure requirement:</h4>
+                        <p>Every sprint contribution statement must include an AI use disclosure: which tool was used, at which stage of the PM AI Protocol, and what the team changed or rejected from the AI output. A page you cannot defend in the final Q&A is treated as if you did not produce it, whether or not AI was involved.</p>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Sprint 2 AI Use Disclosures</h3>
+                        
+                        <div className="contribution-card mb-4" style={{ marginBottom: "20px" }}>
+                            <h4 style={{ marginBottom: "15px" }}>Template Generation</h4>
+                            <div className="ai-disclosure-details">
+                                <p><strong>AI Tool Used:</strong> ChatGPT</p>
+                                <p><strong>PM AI Protocol Stage:</strong> Drafting and Restructuring</p>
+                                <p><strong>Purpose of AI Use:</strong> Used to create an initial template for the Building the Budget deliverable.</p>
+                                <p><strong>Changes or Rejected Output:</strong> AI was not used for the final content itself, only the structural template.</p>
+                            </div>
+                        </div>
+
+                        <div className="contribution-card">
+                            <h4 style={{ marginBottom: "15px" }}>Website Implementation</h4>
+                            <div className="ai-disclosure-details">
+                                <p><strong>AI Tool Used:</strong> Antigravity (Agentic AI)</p>
+                                <p><strong>PM AI Protocol Stage:</strong> Uploading work</p>
+                                <p><strong>Purpose of AI Use:</strong> Used to transfer document content directly to the website and to add new sections to the React site.</p>
+                                <p><strong>Changes or Rejected Output:</strong> Antigravity was strictly used for formatting and migrating existing content, not generating new PM content.</p>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
