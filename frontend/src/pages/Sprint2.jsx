@@ -13,6 +13,7 @@ function Sprint2() {
         { id: 'estimation-appendix', label: 'Estimation Appendix' },
         { id: 'roi-analysis', label: 'ROI Analysis' },
         { id: 'budget-estimation', label: 'Budget Estimation' },
+        { id: 'change-log', label: 'Change Log'},
         { id: 'ai-use-disclosure', label: 'AI Use Disclosure' }
     ];
 
@@ -708,6 +709,179 @@ function Sprint2() {
                             expected to take 6-12 months, support 1,000-2,000 active users at launch, and the planned 
                             staffing and third-party costs remain within the estimated ranges.
                         </p>
+                    </div>
+                </section>
+            </div>
+
+            <div className="sprint-content">
+                <section id='change-log' className="sprint-section">
+                    <div className="section-heading">
+                        <h2>Sprint Change Log</h2>
+                        <a
+                            href="/documents/sprint2/Sprint2_Change_Log.pdf"
+                            download="Sprint2_Change_Log.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+
+                    <div className="sprint-topic">
+
+                    <h3>1. Change Log Header</h3>
+                    <table className="table table-bordered">
+                        <tbody>
+                        <tr><th>Project</th><td>SkillUp</td></tr>
+                        <tr><th>Sprint</th><td>Sprint 2</td></tr>
+                        <tr><th>Prior version</th><td>Project Charter v1.0 (09/15/2026), Market Research (09/21/2026), Strategy-to-Project Chain</td></tr>
+                        <tr><th>Date of this version</th><td>October 5, 2026</td></tr>
+                        <tr><th>Logged by</th><td>Team 3</td></tr>
+                        <tr><th>Reviewed by</th><td>Team 3</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2. Change Summaries</h3>
+                    <table className="table table-bordered">
+                        <thead>
+                        <tr><th>ID</th><th>Area</th><th>What changed</th><th>Reason type</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>CL-2-00</td>
+                            <td>Assumptions</td>
+                            <td>No prior content revised; 10 new cost and delivery assumptions introduced</td>
+                            <td>New information</td>
+                            <td>Active</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>3. Change Entries</h3>
+                    <h4>CL-2-00: No revisions to prior sprint deliverables</h4>
+                    <table className="table table-bordered">
+                        <tbody>
+                        <tr><th>Date decided</th><td>October 5, 2026</td></tr>
+                        <tr><th>Decided by</th><td>Team 3</td></tr>
+                        <tr><th>Status</th><td>Active</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        This sprint added new work (the one-page budget for the User Portfolio Management and Analysis slice)
+                        but did not revise any content from the Project Charter, Market Research, or Strategy-to-Project Chain.
+                        All prior documents remain as submitted. The charter’s assumptions describe user behavior; this
+                        sprint’s assumptions describe cost and delivery, so none of them contradict each other.
+                    </p>
+
+                    <h4>New assumptions introduced this sprint</h4>
+                    <table className="table table-bordered">
+                        <thead>
+                        <tr><th>Assumption</th><th>Introduced in</th><th>Relation to prior documents</th><th>Why it was needed</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Budget covers the User Portfolio Management and Analysis slice only</td>
+                            <td>Budget §1</td>
+                            <td>Draws on charter scope (Log Activities, Progress Tracking, Goal settings) and the research’s achievement-portfolio pillar; choosing one slice is new</td>
+                            <td>Defines what the budget covers</td>
+                        </tr>
+                        <tr>
+                            <td>Platform is delivered as an iOS app, Android app, and website</td>
+                            <td>Budget §1</td>
+                            <td>Not stated in any prior document</td>
+                            <td>Drives platform-specific development and testing effort</td>
+                        </tr>
+                        <tr>
+                            <td>1,000–2,000 active users at launch</td>
+                            <td>Budget §1</td>
+                            <td>Charter success criteria describe user growth without a number</td>
+                            <td>Sizes hosting and the user-load risk</td>
+                        </tr>
+                        <tr>
+                            <td>6–12-month overall development timeline</td>
+                            <td>Budget §1</td>
+                            <td>Charter only says the project finishes before the deadline provided</td>
+                            <td>Places the slice within the project schedule</td>
+                        </tr>
+                        <tr>
+                            <td>Slice runs 2 months within that timeline</td>
+                            <td>Budget §5, §10</td>
+                            <td>New</td>
+                            <td>Basis for staffing plan and time-phasing</td>
+                        </tr>
+                        <tr>
+                            <td>5 team members, partially allocated to the slice</td>
+                            <td>Budget §1, §2</td>
+                            <td>Team of 5 matches the research roster; partial allocation is new</td>
+                            <td>Basis for FTE-months</td>
+                        </tr>
+                        <tr>
+                            <td>160 nominal / 130 productive hours per FTE-month</td>
+                            <td>Budget §4</td>
+                            <td>New</td>
+                            <td>Converts hours to FTE-months</td>
+                        </tr>
+                        <tr>
+                            <td>Loaded rate of $10,400 per FTE-month ($80 per productive hour)</td>
+                            <td>Budget §6 and §7</td>
+                            <td>New</td>
+                            <td>Basis for labor cost</td>
+                        </tr>
+                        <tr>
+                            <td>Project-wide licenses and shared costs excluded from the slice</td>
+                            <td>Budget non-labor</td>
+                            <td>New</td>
+                            <td>Keeps the slice to its direct costs</td>
+                        </tr>
+                        <tr>
+                            <td>Support at 0.20 FTE; operating costs scoped to the slice’s share</td>
+                            <td>Budget §8</td>
+                            <td>New</td>
+                            <td>Basis for annual operating cost</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Budget items that trace to prior documents</h4>
+                    <table className="table table-bordered">
+                        <thead>
+                        <tr><th>Budget item</th><th>Prior source</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Team of 5 people</td>
+                            <td>Market Research team roster; Charter constraint that all work uses existing team members</td>
+                        </tr>
+                        <tr>
+                            <td>Security and compliance tools ($3,200) and security rework risk</td>
+                            <td>Charter constraint: protect users’ account and progress information</td>
+                        </tr>
+                        <tr>
+                            <td>Slice features: activity tracking, progress reporting, goals</td>
+                            <td>Charter scope (Log Activities, Progress Tracking, Goal settings); Strategy doc’s achievement portfolio</td>
+                        </tr>
+                        <tr>
+                            <td>Budgeting one slice rather than every feature</td>
+                            <td>Charter feature constraint: not all features will be in the first version</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Downstream impact</h4>
+                    <table className="table table-bordered">
+                        <thead>
+                        <tr><th>Affected page or document</th><th>What changed there</th><th>Updated?</th></tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>None</td>
+                            <td>No prior pages or documents were affected. New assumptions apply to future sprint estimates.</td>
+                            <td>N/A</td>
+                        </tr>
+                        </tbody>
+                    </table>
                     </div>
                 </section>
             </div>
