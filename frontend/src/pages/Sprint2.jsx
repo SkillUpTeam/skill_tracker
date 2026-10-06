@@ -10,6 +10,8 @@ const sprint2Documents = {
 function Sprint2() {
     const subNavLinks =[
         { id: 'business-case', label: 'Business Case' },
+        { id: 'project-estimation-starter', label: 'Project Estimation Starter' },
+        { id: 'lesson-9-activity', label: 'Lesson 9 Activity' },
         { id: 'estimation-appendix', label: 'Estimation Appendix' },
         { id: 'roi-analysis', label: 'ROI Analysis' },
         { id: 'budget-estimation', label: 'Budget Estimation' },
@@ -43,6 +45,644 @@ function Sprint2() {
                         <h3>Go/No-Go Recommendation</h3>
                         <p>Our team has decided to proceed with SkillUp after determining that the project has the potential to reach a broad audience. Because SkillUp is designed to provide a personalized experience, it can appeal to users with a variety of recreational interests. Additionally, our interviewees shared common struggles related to staying motivated and tracking their progress, indicating that the platform could address meaningful user's needs. </p>
                         <p>However, for the initial release, we decided to “Go” with a controlled initial scope by focusing on the core features of the platform. One of the main features is a personal portfolio where users can maintain a centralized archive of their recreational activities, accomplishments, and experiences while also tracking and visualizing their progress over time. </p>
+                    </div>
+                </section>
+            </div>
+
+            <div className="sprint-content">
+                {/* Project Estimation Starter */}
+                <section id="project-estimation-starter" className="sprint-section">
+                    <div className="section-heading">
+                        <h2>Project Estimation Starter</h2>
+                        <a
+                            href="/documents/sprint2/ProjectEstimationStarter.pdf"
+                            download="ProjectEstimationStarter.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>A First Look at Your Project's Size</h3>
+                        <p><strong>Team:</strong> 3 &nbsp;&nbsp;&nbsp; <strong>Project:</strong> SkillUp</p>
+                        <p>Work through every step together as a team. Have your Sprint 1 charter open (scope boundary and stakeholder map) and your interview notes. Everything you write here becomes the starting point for today's user stories and for the two estimates in Part 2.</p>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 1. List what Release 1 must do (as a team)</h3>
+                        <p>Start from the "in scope" items in your charter and the strongest needs from your interviews. Write 5 to 8 capabilities as what the system must do, not how. Then mark the hidden work each one will need using the key below.</p>
+                        <p><strong>Hidden work key:</strong> T = Testing S = Security or privacy I = Integration with other systems D = Data (collection, cleaning, migration) H = Hosting and deployment U = Usability and accessibility O = Documentation or training</p>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Capability (what, not how)</th>
+                                    <th>Evidence (charter or interview)</th>
+                                    <th>Hidden work</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>A user can record recreational activities they have completed</td>
+                                    <td>Project Charter, Interview 2 in Phase 2</td>
+                                    <td>T, S, D, U</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>A user can track their progress across recreational activities through a personalized portfolio.</td>
+                                    <td>Project Charter, Interview 2 in Phase 1</td>
+                                    <td>T, S, D, U</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>A user can find resources that can help them start or improve in a recreational activity</td>
+                                    <td>Project Charter, Interview 5 in Phase 2</td>
+                                    <td>S, I, D, U</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Instructors can create lessons and provide resources for recreational activities</td>
+                                    <td>Project Charter</td>
+                                    <td>T, S, D, U, O</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>A user can connect with other users based on shared recreational activities.</td>
+                                    <td>Project Charter, Interview 8 in Phase 2</td>
+                                    <td>T, S, I, D, U</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>A user can find an instructor and request to book a s lesson</td>
+                                    <td>Project Charter, Interview 4 in Phase 2</td>
+                                    <td>T, S, I, D, U</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>A user can discover recreational activities and events.</td>
+                                    <td>Project Charter, Interview 4 in Phase 2</td>
+                                    <td>T, S, I, D, U</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>A user can set personalized goals for their recreational activities and track progress toward them..</td>
+                                    <td>Project Charter, Interview 4 in Phase 1</td>
+                                    <td>T, S, D, U</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 2. Take the outside view: your own experience (as a team)</h3>
+                        <p>As a team, pick the most similar thing any of you has built before: a class project, internship feature, hackathon app, or side project.</p>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>What was it?</td>
+                                    <td>A journal/mood tracker mobile app.</td>
+                                </tr>
+                                <tr>
+                                    <td>How long was it expected to take?</td>
+                                    <td>It was expected to take about 2 weeks.</td>
+                                </tr>
+                                <tr>
+                                    <td>How long did it take?</td>
+                                    <td>It took the full 2 weeks.</td>
+                                </tr>
+                                <tr>
+                                    <td>What took longer than expected?</td>
+                                    <td>Figuring out how modal views and sheets work in SwiftUI.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 3. Take the outside view: similar products (as a team, web search)</h3>
+                        <p>Divide the searching, then decide together. Find three real products that solve a problem close to yours. Include at least one small product (a startup or an app from a small team) and at least one big product (a large company platform or a government system). For each, find out how long it took to reach its first public release, what went well, and what went wrong.</p>
+                        <p><strong>How to find the timeline and the story</strong></p>
+                        <ol>
+                            <li>Launch announcements, company blogs, and founder interviews often say when building started and when the product first went public.</li>
+                            <li>Press coverage, app store version histories, and the Internet Archive's Wayback Machine help confirm first release dates.</li>
+                            <li>Postmortems, conference talks, and, for government systems, GAO and Inspector General reports explain what worked and what did not.</li>
+                            <li>Measure from the start of development to the first public release, and write down what that first release included. A limited first version and a full launch are different numbers.</li>
+                            <li>Every date and figure needs a source you can link. If you cannot find one, write "unknown." AI tools may suggest products to look at, but they are not a source.</li>
+                        </ol>
+
+                        <h4>Step 3 worksheet: similar products</h4>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Product A (small)</th>
+                                    <th>Product B (big)</th>
+                                    <th>Product C (your choice)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Product and company</strong></td>
+                                    <td>Everyday.app</td>
+                                    <td>Skill Share</td>
+                                    <td>Strava, Inc</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Why it is similar to your project</strong></td>
+                                    <td>Everyday.app and SkillUp allow users to track their activities, establish personal goals and monitor their progress. Everyday seems to focus more on habits rather than recreational activities and does not offer any resourcces.</td>
+                                    <td>This product offers learning resources with a paywall, while ours offers them for free or through instructors.</td>
+                                    <td>Strava and SkillUp allow users to record recreational activities, track personal progress, set goals, and connect with people with similar interests. Strava focuses primarily on physical activities, while SkillUp expands to many more recreational activities.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Development started</strong></td>
+                                    <td>Development started early 2017.</td>
+                                    <td>Skill Share started development in November 2010.</td>
+                                    <td>Development started between 2007-2008.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>First public release</strong></td>
+                                    <td>It became publicly available in March 2017.</td>
+                                    <td>Skill Share's online platform launched in April of 2011.</td>
+                                    <td>Strava early beta version opened in May 2009.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Time to first release</strong></td>
+                                    <td>It took approximately 3 weeks to develop the first working version. But unconfirmed development to first release.</td>
+                                    <td>Time period between development and launch is roughly 6 months.</td>
+                                    <td>Approximately 1-2 years.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What the first release included</strong></td>
+                                    <td>Habit tracker that allowed users to record daily habits and see their progress on a board.</td>
+                                    <td>The site included only offline courses, which only connected users to local classes near them. Did not allow users to take courses online with video calls or plain video lectures.</td>
+                                    <td>First release focuses on cycling and had a website where users could upload GPS ativity data, track their performance, and compare results with other cyclists.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Team size, if known</strong></td>
+                                    <td>One developer</td>
+                                    <td>There were 2 co-founding members when development started.</td>
+                                    <td>There were 6 founding members.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What worked</strong></td>
+                                    <td>The developer focused on essential features and kept application simple. This allowed him to create first working version in 3 weeks. He also shared the app online which helped receive feedback.</td>
+                                    <td>Testing their concept early using a strategy called Minimum Viable Product, where they sold classes through an event hosting site to see if people would actually buy into it.</td>
+                                    <td>Testing early prototype with cycling leaderboards and testing with small groups of athletes.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What did not work</strong></td>
+                                    <td>After being shared on reddit the server struggled to handle the increase in traffic.</td>
+                                    <td>Their initial launch did not originally have their online courses; they allowed users to enroll in local sessions through the website. This did not work due to scaling issues and market reach. Users had to be in specific geological locations to attend the courses, while instructors had to find locations for the class to be in.</td>
+                                    <td>Founders had the idea in the 1990s, but available technology was insufficient. GPS were uncommon, and smartphones did not exist. These limitations delayed the development of Strava.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sources (links)</strong></td>
+                                    <td>
+                                        <a href="https://everyday.app/" target="_blank" rel="noopener noreferrer">https://everyday.app/</a><br />
+                                        <a href="https://everyday.app/blog/everydaycheck-interview-on-indiehackers/" target="_blank" rel="noopener noreferrer">https://everyday.app/blog/everydaycheck-interview-on-indiehackers/</a>
+                                    </td>
+                                    <td>
+                                        Website itself (<a href="https://www.skillshare.com/" target="_blank" rel="noopener noreferrer">SkillShare</a>), News article from (<a href="#" target="_blank" rel="noopener noreferrer">Article</a>). Techcrunch Article (<a href="#" target="_blank" rel="noopener noreferrer">Article</a>), Fox Businees (<a href="#" target="_blank" rel="noopener noreferrer">Article</a>), Harvard Platform (<a href="#" target="_blank" rel="noopener noreferrer">Article</a>), Mixergy (<a href="#" target="_blank" rel="noopener noreferrer">Article</a>)
+                                    </td>
+                                    <td><a href="https://research.contrary.com/company/strava" target="_blank" rel="noopener noreferrer">https://research.contrary.com/company/strava</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 4. Compare (as a team)</h3>
+                        <ol>
+                            <li>
+                                <strong>Look at the hidden-work column in Step 1. Which letter appears most often? Did any of your similar products struggle with that same kind of work?</strong>
+                                <p>The most often letters are S, D, and U<br />The ones that appear similar are Steps 1, 2, and 8 with T, S, D, and U.<br />Others that appear similar are Steps 5, 6, and 7 with T, S, I, D, and U</p>
+                            </li>
+                            <li>
+                                <strong>How long did your similar products take to reach a first release, and with how many people? What does that suggest about the first release of your project?</strong>
+                                <p>The simpler similar product, Everyday.app, took about three weeks to reach its first release and was developed by one person. The next product, Skillshare, took about six months to reach its first release and was initially developed by two people. The last product, Strava, took approximately one to two years to reach its first release and was founded by six members. This suggests that based on the complexity and planned features of our project, it would be beneficial to release an MVP and focus on the most important features.</p>
+                            </li>
+                            <li>
+                                <strong>Name one practice from the "what worked" rows your team will copy, and one mistake from the "what did not work" rows you will avoid.</strong>
+                                <p>The thing that worked was Practice A where they focused on the essential features and application for the app that was able to launch in 3 weeks and what not worked was Practice A after sharing it on Reddit the server struggled to hand the amount of increased traffic</p>
+                            </li>
+                        </ol>
+                        
+                        <div className="highlight-box" style={{ marginTop: "20px", padding: "15px", backgroundColor: "var(--light-bg, #f8f9fa)", borderRadius: "8px", borderLeft: "4px solid var(--primary-color, #0056b3)" }}>
+                            <p style={{ margin: 0, fontWeight: "500", fontSize: "1.1rem" }}>Our comparables suggest a first release would take <span style={{ textDecoration: "underline", fontWeight: "bold" }}>6</span> to <span style={{ textDecoration: "underline", fontWeight: "bold" }}>12</span> months with a team of <span style={{ textDecoration: "underline", fontWeight: "bold" }}>5</span>.</p>
+                            <p style={{ margin: "10px 0 0 0", fontStyle: "italic", color: "var(--text-muted, #6c757d)" }}>Keep this sheet. You will use Step 1 to write user stories, and Steps 2 and 3 give you comparators for analogous estimation in Part 2.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div className="sprint-content">
+                {/* Lesson 9 Activity */}
+                <section id="lesson-9-activity" className="sprint-section">
+                    <div className="section-heading">
+                        <h2>Lesson 9 Activity: Estimate One Slice of Your Project</h2>
+                        <a
+                            href="/documents/sprint2/Lesson9Activity.pdf"
+                            download="Lesson9Activity.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <p><strong>Team:</strong> 3 &nbsp;&nbsp;&nbsp; <strong>Project:</strong> SkillUp</p>
+                        <h3>What this activity is for</h3>
+                        <p>Your Sprint 2 business case has to answer a question every sponsor asks: how much work would this take, and what would it cost? You are not going to build the system in this course. You are doing what a project manager does before a project is approved: estimating the work so a decision can be made.</p>
+                        <p>Estimating a whole project at once hides mistakes. So you will start small. Pick one or two major parts of your project, called a slice, and estimate only that slice. A small slice lets you count everything, check every number, and see clearly where your assumptions matter.</p>
+                        <p>You will estimate the same slice twice, using two methods that start from different information. Then you will compare the two answers, explain why they differ, and present a range with your assumptions written down. That range becomes the Estimation Appendix on your Sprint 2 portal page.</p>
+
+                        <h3>How the activity fits together</h3>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>What you do</th>
+                                    <th>What you end up with</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Pick your slice</td>
+                                    <td>One or two major parts of your project, with their stories, screens, and data listed</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Choose two estimation methods</td>
+                                    <td>Two methods that use different starting information</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Estimate the slice with each method</td>
+                                    <td>Two effort estimates, both in team hours</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Check the estimates for team size</td>
+                                    <td>Confidence that coordination costs are included</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Compare the two estimates</td>
+                                    <td>A written explanation of why they differ</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Present the result</td>
+                                    <td>A dated range, in hours, dollars, and weeks, ready for the business case</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 1. Pick your slice</h3>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Our slice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Slice name (one or two major parts)</strong></td>
+                                    <td>User Portfolio Management and Analysis</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Why we chose it</strong></td>
+                                    <td>This slice is our core use system that glues together every other critical subsystem in our project for it to work together to achieve the projects' goal.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Screens or forms where users enter data</strong></td>
+                                    <td>User will have a portfolio where they can see all their activities. Users will have a screen to record new recreational activities.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reports, results, or lookups users see</strong></td>
+                                    <td>Report on progress per activity. Users can look up their past reports.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Data the slice stores</strong></td>
+                                    <td>Recreational Activities (photos, description, date/time, duration)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Other systems it connects to</strong></td>
+                                    <td>Certificates, instructors</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Out of the slice (not included)</strong></td>
+                                    <td>Social Aspect Slice</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Stories in the slice</h4>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>User story</th>
+                                    <th>MoSCoW</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>As a user, I want to record my recreational activities so that I can track my journey.</td>
+                                    <td>Must</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>As a user, I want to track my progress for individual recreational activities so that I can see my improvement over time.</td>
+                                    <td>Must</td>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td>As a user, I want to view my progress and accomplishments across all of my recreational activities in one place so that I do not have to track them separately.</td>
+                                    <td>Should</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td>As a user, I want to customize my portfolio so that I can personalize it to fit my preferences.</td>
+                                    <td>Could</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>As a user, I want to set personalized goals so that I can track my progress toward achieving them.</td>
+                                    <td>Should</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total points</strong></td>
+                                    <td></td>
+                                    <td><strong>31</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 2. Choose two methods</h3>
+                        <p><strong>Our two methods:</strong> 1. Analogous 2. Story points to cost</p>
+                        <p><strong>Why these two use different starting information:</strong> Analogous uses estimates from a similar real product, while Story points to cost is based on our own estimate of the project's work. One uses real data while the other is an assumption of our team's effort and velocity.</p>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 3. Estimate the slice</h3>
+                        
+                        <h4>Story Points:</h4>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Input</th>
+                                    <th>Value</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Slice points</td>
+                                    <td>31</td>
+                                    <td>From your Step 1 story table</td>
+                                </tr>
+                                <tr>
+                                    <td>Team size</td>
+                                    <td>5</td>
+                                    <td>Five or six at most</td>
+                                </tr>
+                                <tr>
+                                    <td>Hours per person per sprint</td>
+                                    <td>40</td>
+                                    <td>State your assumption</td>
+                                </tr>
+                                <tr>
+                                    <td>Velocity: low / middle / high</td>
+                                    <td>15 / 19 / 25</td>
+                                    <td>Assumptions until you have sprint data</td>
+                                </tr>
+                                <tr>
+                                    <td>Sprints needed (low to high velocity)</td>
+                                    <td>2.07 / 1.63 / 1.24</td>
+                                    <td>Slice points ÷ velocity</td>
+                                </tr>
+                                <tr>
+                                    <td>Effort in hours (low to high)</td>
+                                    <td>414 / 326 / 248</td>
+                                    <td>Sprints × team size × hours per person per sprint</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>3D. Analogous</h4>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Comparable product, team size, and time to first release</strong></td>
+                                    <td>Everyday.app, 1 developer, approximately 3 weeks to first working version.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Person-months (team size × months)</strong></td>
+                                    <td>1 * ¾ = 0.75</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Fraction of their release our slice matches (low to high), and why</strong></td>
+                                    <td>Low: 1, High: 1.5. Our slice contains the core functionality of Everyday's initial release which includes recording activities and viewing progress, but it adds functionality such as progress by individual recreational activity, a portfolio with customization, and personalized goals. Because our slice contains more features than Everyday's initial release, we are doing all (1) or more (1.5). We estimate our slice to be the same size and 50% larger than Everyday.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Team size adjustment and why</strong></td>
+                                    <td>We plan to add 20% more time for coordination due to having 5 team members compared to the individual developer.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Adjusted effort in hours (low to high)</strong></td>
+                                    <td>Low: 0.75 * 1 = .75 person-months<br />High: .75 * 1.5 = 1.125 person-months<br />Assuming 160 hours per person month<br />Low: 0.75 * 160 = 120 hours<br />HIgh: 1.125 * 160 = 180 hours<br />Apply 20% for coordination<br />Low: 144 hours<br />High: 216 hours</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Confidence (low, medium, high) and why</strong></td>
+                                    <td>Low confidence because Everyday.app is similar to the core functionality of our slice. However, its initial release was developed by one person, while our team has five members, and our slice includes additional functionality. The 20% coordination adjustment and the estimated slice size are assumptions, so the final effort could vary.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 4. Check your estimates for team size</h3>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Check</th>
+                                    <th>Yes / No</th>
+                                    <th>Why it matters</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Our team is five or six people at most.</td>
+                                    <td>Yes</td>
+                                    <td>Beyond six, split into two teams.</td>
+                                </tr>
+                                <tr>
+                                    <td>We counted our communication paths: n(n − 1) ÷ 2 = __10__</td>
+                                    <td>Yes</td>
+                                    <td>Five people share 10 paths; ten share 45.</td>
+                                </tr>
+                                <tr>
+                                    <td>We added explicit work for integrating the pieces of the slice.</td>
+                                    <td>Yes</td>
+                                    <td>Breaking work into pieces hides the cost of putting it back together.</td>
+                                </tr>
+                                <tr>
+                                    <td>We did not assume that more people means proportionally more output.</td>
+                                    <td>Yes</td>
+                                    <td>Coordination grows faster than headcount.</td>
+                                </tr>
+                                <tr>
+                                    <td>We estimated for the team we have.</td>
+                                    <td>Yes</td>
+                                    <td>Not for a larger team we wish we had.</td>
+                                </tr>
+                                <tr>
+                                    <td>We adjusted, not copied, timelines from much larger teams.</td>
+                                    <td>Yes</td>
+                                    <td>Their effort includes their coordination costs.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 5. Compare your two estimates</h3>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Method 1</th>
+                                    <th>Method 2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Method</strong></td>
+                                    <td>Analogous</td>
+                                    <td>Story Points</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Estimate in hours (low to high)</strong></td>
+                                    <td>144 hrs. - 216 hrs.</td>
+                                    <td>248 hrs - 414 hrs</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Middle value in hours</strong></td>
+                                    <td>180 hours</td>
+                                    <td>326 Hours</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Input that drives it most</strong></td>
+                                    <td>The slice compared with the Everyday app</td>
+                                    <td>Velocity (low, middle, high)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Is that input measured or assumed?</strong></td>
+                                    <td>Assumed</td>
+                                    <td>Assumed, we do not have sprint data to help measure.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><strong>Gap:</strong> larger middle value ÷ smaller middle value = <strong>1.81</strong></p>
+
+                        <h4>Questions to answer</h4>
+                        <ol>
+                            <li>
+                                <strong>Do your two methods depend on the same assumption? If so, their agreement proves little.</strong>
+                                <p>No they start from different information</p>
+                            </li>
+                            <li>
+                                <strong>Which single input moves the answer most? Try changing it and see.</strong>
+                                <p>Assumed velocity seems to be a major contributor to estimate</p>
+                            </li>
+                            <li>
+                                <strong>What information would narrow the gap, and when could you get it?</strong>
+                                <p>Knowing the actual team velocity once we finish the first sprint</p>
+                            </li>
+                        </ol>
+
+                        <h4>Our explanation of the gap</h4>
+                        <p>Both methods depend on different information. Analogue mainly focuses on the Everyday.app and how it compares to our time slice while Story Points mainly has its own story points and assumed velocity. For now, we don't have sprint data yet, so we don't have an answer to that yet. Once our team completes a sprint, we can use our actual velocity to make a more accurate estimation and help narrow done gaps between the two methods.</p>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Step 6. Present the estimate</h3>
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Field</th>
+                                    <th>Our estimate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Slice estimated</strong></td>
+                                    <td>User Portfolio Management and Analysis</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Range in hours (low to high)</strong></td>
+                                    <td>144 – 414 hrs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Expected hours: (O + 4M + P) ÷ 6, and why we chose M</strong></td>
+                                    <td>(144 + 4(253) + 414) / 6 = 262 hrs.<br />We chose M as 253 because it's the middle average between the two middle values of both methods.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cost range and loaded rate used</strong></td>
+                                    <td>$60/hour<br />We estimated this from the average market value of a software engineer.<br />Cost range would be $7,200 low, $13,100 expected, and $20,700 high.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Calendar estimate in weeks, and hours per week assumed</strong></td>
+                                    <td>Assuming 5 team members × 20 hours per person per week = 100 team hours/week, the range is approximately 1.4–4.1 weeks, with the expected 262 hours taking approximately 2.6 weeks.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Methods used</strong></td>
+                                    <td>Analogous and story points</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Key assumptions</strong></td>
+                                    <td>The 20% additional effort<br />Story Point velocity is assumed at 15/19/25 points per sprint<br />Each members works 40 hours per week</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Team size assumed</strong></td>
+                                    <td>5</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>What would change this estimate</strong></td>
+                                    <td>Changes to the slice or scope, actual team velocity of each sprint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Date of this estimate</strong></td>
+                                    <td>09/29/26</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
             </div>
