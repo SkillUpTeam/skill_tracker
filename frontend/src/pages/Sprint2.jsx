@@ -34,12 +34,15 @@ function Sprint2() {
 
                     <div className="sprint-topic">
                         <h3>Value Analysis</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>SkillUp is aimed at people who enjoy recreational activities but need a centralized platform where they can track their progress, accomplishments, and contributions in one place. People can sometimes have difficulty staying motivated or consistently participating in their hobbies because they are unable to easily quantify or visualize their progress. </p>
+                        <p>With SkillUp, users can increase their engagement in recreational activities while having access to a platform where they can showcase their experiences, track their progress, connect with others, and continue learning. By providing these features in one centralized platform, SkillUp encourages users to remain active and motivated as they develop their skills and pursue their interests. </p>
+                        <p>SkillUp also gives users the opportunity to connect with experienced instructors, take courses, and obtain certifications, all with the goal of expanding their knowledge and developing new skills. In addition to providing value to users, these features create potential monetary value for the platform through partnerships with instructors, organizations, sponsors, and other outside contributors. SkillUp can provide these partners with a platform to promote their products, courses, and services to users who are already interested in recreational activities and skill development. </p>
                     </div>
 
                     <div className="sprint-topic">
                         <h3>Go/No-Go Recommendation</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Our team has decided to proceed with SkillUp after determining that the project has the potential to reach a broad audience. Because SkillUp is designed to provide a personalized experience, it can appeal to users with a variety of recreational interests. Additionally, our interviewees shared common struggles related to staying motivated and tracking their progress, indicating that the platform could address meaningful user's needs. </p>
+                        <p>However, for the initial release, we decided to “Go” with a controlled initial scope by focusing on the core features of the platform. One of the main features is a personal portfolio where users can maintain a centralized archive of their recreational activities, accomplishments, and experiences while also tracking and visualizing their progress over time. </p>
                     </div>
                 </section>
             </div>
