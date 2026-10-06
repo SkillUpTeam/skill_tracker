@@ -846,6 +846,27 @@ function Sprint2() {
                     <div className="section-heading">
                         <h2>ROI Analysis</h2>
                     </div>
+
+                    <div className="sprint-topic">
+                        <h3>Total Investment & Financial Baseline</h3>
+                        <p>To evaluate the financial viability for the SkillUp User Portfolio Management Slice, we added all development expenses, contingency reserves, and management reserves from the project budget:</p>
+                        <ul>
+                            <li>Base Build Estimate (Labor + Non-Labor): $28,836</li>
+                            <li>Cost Baseline (With the Contingency Reserve): $31,286</li>
+                            <li>Total Budget Request (Total Investment Cost): $32,850 (this includes the 5% management reserve)</li>
+                            <li>Annual Operating Cost (Post-Launch Support & Hosting): $35,760 / year</li>
+                        </ul>
+                    </div>
+
+                    <div className="sprint-topic">
+                        <h3>Projected Returns</h3>
+                        <p>Even though the main purpose of SkillUp is to solve user motivation and progress-tracking challenges, the platform will generate monetary value with external partnerships and monetization features:</p>
+                        <ul>
+                            <li>Instructor & Course Commissions: Revenue splits from third-party instructors offering specialized courses, training content, and certifications through the platform.</li>
+                            <li>Sponsored Content & Promotions: Paid promotional placements for organizations, equipment manufacturers, and outside contributors targeting active recreational users.</li>
+                            <li>Data Monetization: Selling trend data and hobbyist analytics to equipment manufacturers, event organizers, and market researchers looking to understand recreational trends among the expected launch base of 1,000 to 2,000 active users.</li>
+                        </ul>
+                    </div>
                 </section>
             </div>
 
