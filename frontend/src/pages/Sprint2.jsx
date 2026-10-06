@@ -33,6 +33,15 @@ function Sprint2() {
                 <section id="business-case" className="sprint-section">
                     <div className="section-heading">
                         <h2>Business Case</h2>
+                        <a
+                            href="/documents/sprint2/Sprint2_Analysis.pdf"
+                            download="Sprint2_Analysis.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
                     </div>
 
                     <div className="sprint-topic">
@@ -693,6 +702,15 @@ function Sprint2() {
                 <section id="estimation-appendix" className="sprint-section">
                     <div className="section-heading">
                         <h2>Estimation Appendix</h2>
+                        <a
+                            href="/documents/sprint2/Sprint2_Analysis.pdf"
+                            download="Sprint2_Analysis.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
                     </div>
 
                     <div className="sprint-topic">
@@ -845,6 +863,15 @@ function Sprint2() {
                 <section id="roi-analysis" className="sprint-section">
                     <div className="section-heading">
                         <h2>ROI Analysis</h2>
+                        <a
+                            href="/documents/sprint2/Sprint2_Analysis.pdf"
+                            download="Sprint2_Analysis.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                        >
+                            Download PDF
+                        </a>
                     </div>
 
                     <div className="sprint-topic">
