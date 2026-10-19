@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect, lazy } from 'react';
 import SubNav from "../components/SubNav";
+import SprintModeToggle from "../components/SprintModeToggle";
+import Sprint1PresentationView from "../components/presentation/Sprint1PresentationView";
 
 const sprint1Documents = {
     marketResearch: [
@@ -275,6 +277,14 @@ const individualContributions = [
 ];
 
 function Sprint1() {
+    const [viewMode, setViewMode] = useState(() => {
+        return localStorage.getItem('sprint_view_mode') || 'presentation';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('sprint_view_mode', viewMode);
+    }, [viewMode]);
+
     const subNavLinks = [
         { id: 'market-research', label: 'Market Research' },
         { id: 'business-strategy', label: 'Business Strategy' },
@@ -284,10 +294,10 @@ function Sprint1() {
 
     return (
         <main className="sprint-page">
-            {/* Sprint 1 Sub-Navigation */}
-            <SubNav links={subNavLinks} />
+            {/* Sprint 1 Sub-Navigation (shown in Document Mode) */}
+            {viewMode === 'document' && <SubNav links={subNavLinks} />}
             
-            <div className="sprint-header">
+            <div className="sprint-header" style={{ paddingBottom: '1rem' }}>
                 <h1>Sprint 1</h1>
                 <p>
                     Explore our market research, business strategy,
@@ -295,7 +305,17 @@ function Sprint1() {
                 </p>
             </div>
 
-            <div className="sprint-content">
+            {/* View Mode Switcher */}
+            <SprintModeToggle 
+                mode={viewMode}
+                setMode={setViewMode}
+            />
+
+            {viewMode === 'presentation' ? (
+                <Sprint1PresentationView />
+            ) : (
+                <div className="sprint-content">
+
 
                 {/* Market Research */}
                 <section id="market-research" className="sprint-section">
@@ -820,7 +840,8 @@ function Sprint1() {
                     </div>
                 </section>
 
-            </div>
+                </div>
+            )}
         </main>
     );
 }

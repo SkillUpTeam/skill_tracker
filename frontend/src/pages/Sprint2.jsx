@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SubNav from "../components/SubNav";
+import SprintModeToggle from "../components/SprintModeToggle";
+import Sprint2PresentationView from "../components/presentation/Sprint2PresentationView";
 
 const sprint2Documents = {
     businessCase: {},
@@ -8,6 +10,14 @@ const sprint2Documents = {
 }
 
 function Sprint2() {
+    const [viewMode, setViewMode] = useState(() => {
+        return localStorage.getItem('sprint_view_mode') || 'presentation';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('sprint_view_mode', viewMode);
+    }, [viewMode]);
+
     const subNavLinks =[
         { id: 'business-case', label: 'Business Case' },
         { id: 'project-estimation-starter', label: 'Project Estimation Starter' },
@@ -21,13 +31,27 @@ function Sprint2() {
 
     return (
         <main className="sprint-page">
-            {/* Sprint 2 Sub-Navigation */}
-            <SubNav links={subNavLinks} />
+            {/* Sprint 2 Sub-Navigation (shown in Document Mode) */}
+            {viewMode === 'document' && <SubNav links={subNavLinks} />}
 
-            <div className="sprint-header">
+            <div className="sprint-header" style={{ paddingBottom: '1rem' }}>
                 <h1>Sprint 2</h1>
+                <p>
+                    Explore our business case, project estimation starter, estimation appendix,
+                    ROI analysis, budget estimation, change log, and AI use disclosure for Sprint 2.
+                </p>
             </div>
 
+            {/* View Mode Switcher */}
+            <SprintModeToggle 
+                mode={viewMode}
+                setMode={setViewMode}
+            />
+
+            {viewMode === 'presentation' ? (
+                <Sprint2PresentationView />
+            ) : (
+                <>
             <div className="sprint-content">
                 {/* Business Case */}
                 <section id="business-case" className="sprint-section">
@@ -1639,6 +1663,8 @@ function Sprint2() {
                     </div>
                 </section>
             </div>
+            </>
+            )}
         </main>
     );
 }
