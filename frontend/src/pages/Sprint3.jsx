@@ -800,15 +800,15 @@ function Sprint3() {
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Ease of use</strong></td>
-                                                    <td></td>
+                                                    <td>Adding and recording activities are easy to use. However, navigating the website was somewhat confusing, as some processes felt repetitive while others lead to dead ends with no clear next steps. Also, the user interface feels outdated.</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Key findings</strong></td>
-                                                    <td></td>
+                                                    <td>One of the main features is being able to discover nearby events and activities through the map. For tracking activities, users can revisit and edit previously recorded activities, adjust their visibility settings, and upload related photoes or other media.</td>
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Observed Friction</strong></td>
-                                                    <td></td>
+                                                    <td>The free version offers limited functionality. Most additional features, such as interactive map and more customizable features such as goals, requires users to upgrade to a paid subscription. </td>
                                                 </tr>
                                             </tbody>
                                         </table>
