@@ -13,16 +13,36 @@ function Sprint3() {
         localStorage.setItem('sprint_view_mode', viewMode);
     }, [viewMode]);
 
-    // Collapsible states for Interview Notes section in documents view
-    const [isInterviewSectionOpen, setIsInterviewSectionOpen] = useState(true);
-    const [openInterviews, setOpenInterviews] = useState({
-        interview1: true,
-        interview2: true,
-        interview3: true
+    // Section-level and individual member states for Interview Notes
+    const [openInterviewSections, setOpenInterviewSections] = useState({
+        isaac: true,
+        karina: true,
+        juan: true,
+        ricardo: true
     });
 
-    // Collapsible state for Contradiction Memo section in documents view
-    const [isContradictionMemoOpen, setIsContradictionMemoOpen] = useState(true);
+    // Individual interview card states keyed by member and interview ID
+    const [openInterviews, setOpenInterviews] = useState({
+        isaac_1: true,
+        isaac_2: true,
+        isaac_3: true,
+        karina_1: true,
+        karina_2: true,
+        karina_3: true,
+        juan_1: true,
+        juan_2: true,
+        juan_3: true,
+        ricardo_1: true,
+        ricardo_2: true,
+        ricardo_3: true
+    });
+
+    // Collapsible states for Contradiction Memo section in documents view
+    const [openContradictionMemos, setOpenContradictionMemos] = useState({
+        isaac: true,
+        karina: true,
+        juan: true
+    });
 
     // Collapsible state for AI Use Disclosure section in documents view
     const [isAiDisclosureOpen, setIsAiDisclosureOpen] = useState(true);
@@ -33,21 +53,63 @@ function Sprint3() {
     // Collapsible state for Competitive Landscape section in documents view
     const [isCompetitiveLandscapeOpen, setIsCompetitiveLandscapeOpen] = useState(true);
 
-    const toggleInterview = (key) => {
-        setOpenInterviews(prev => ({
+    const toggleInterviewSection = (memberKey) => {
+        setOpenInterviewSections(prev => ({
             ...prev,
-            [key]: !prev[key]
+            [memberKey]: !prev[memberKey]
         }));
     };
 
-    const areAllInterviewsOpen = openInterviews.interview1 && openInterviews.interview2 && openInterviews.interview3;
+    const toggleInterviewCard = (cardKey) => {
+        setOpenInterviews(prev => ({
+            ...prev,
+            [cardKey]: !prev[cardKey]
+        }));
+    };
+
+    const areAllInterviewsOpen =
+        Object.values(openInterviews).every(Boolean) &&
+        Object.values(openInterviewSections).every(Boolean);
 
     const toggleAllInterviews = () => {
         const nextState = !areAllInterviewsOpen;
+        setOpenInterviewSections({
+            isaac: nextState,
+            karina: nextState,
+            juan: nextState,
+            ricardo: nextState
+        });
         setOpenInterviews({
-            interview1: nextState,
-            interview2: nextState,
-            interview3: nextState
+            isaac_1: nextState,
+            isaac_2: nextState,
+            isaac_3: nextState,
+            karina_1: nextState,
+            karina_2: nextState,
+            karina_3: nextState,
+            juan_1: nextState,
+            juan_2: nextState,
+            juan_3: nextState,
+            ricardo_1: nextState,
+            ricardo_2: nextState,
+            ricardo_3: nextState
+        });
+    };
+
+    const toggleContradictionMemo = (memberKey) => {
+        setOpenContradictionMemos(prev => ({
+            ...prev,
+            [memberKey]: !prev[memberKey]
+        }));
+    };
+
+    const areAllContradictionsOpen = Object.values(openContradictionMemos).every(Boolean);
+
+    const toggleAllContradictionMemos = () => {
+        const nextState = !areAllContradictionsOpen;
+        setOpenContradictionMemos({
+            isaac: nextState,
+            karina: nextState,
+            juan: nextState
         });
     };
 
@@ -821,19 +883,39 @@ function Sprint3() {
                     {/* Section 4: Interview Notes (Collapsible in Documents View) */}
                     <div className="sprint-content">
                         <section id="interview-notes" className="sprint-section">
-                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                            {/* Main Section Header with Section-level Expand/Collapse All */}
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem', borderBottom: '1px solid rgba(124, 58, 237, 0.15)', paddingBottom: '1.25rem' }}>
                                 <div>
-                                    <h2>Interview Notes - Isaac</h2>
+                                    <h2>Interview Notes</h2>
+                                    <p style={{ color: 'var(--text-secondary)', margin: '0.35rem 0 0 0', fontSize: '0.95rem' }}>
+                                        Firsthand customer discovery interview notes from team members Isaac Padilla, Karina Rivera, Juan Reyna, and Ricardo Morales.
+                                    </p>
                                 </div>
                                 <div className="collapsible-header-actions">
                                     <button
                                         type="button"
-                                        onClick={() => setIsInterviewSectionOpen(prev => !prev)}
+                                        onClick={toggleAllInterviews}
                                         className="collapsible-toggle-btn"
-                                        aria-expanded={isInterviewSectionOpen}
-                                        aria-controls="interview-notes-content"
                                     >
-                                        {isInterviewSectionOpen ? (
+                                        <ChevronsUpDown size={16} />
+                                        <span>{areAllInterviewsOpen ? 'Collapse All' : 'Expand All'}</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Interview Notes - Isaac</h3>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleInterviewSection('isaac')}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={openInterviewSections.isaac}
+                                        aria-controls="interview-notes-content-isaac"
+                                    >
+                                        {openInterviewSections.isaac ? (
                                             <>
                                                 <EyeOff size={16} />
                                                 <span>Collapse Section</span>
@@ -845,17 +927,6 @@ function Sprint3() {
                                             </>
                                         )}
                                     </button>
-
-                                    {isInterviewSectionOpen && (
-                                        <button
-                                            type="button"
-                                            onClick={toggleAllInterviews}
-                                            className="collapsible-toggle-btn"
-                                        >
-                                            <ChevronsUpDown size={16} />
-                                            <span>{areAllInterviewsOpen ? 'Collapse All' : 'Expand All'}</span>
-                                        </button>
-                                    )}
 
                                     <a
                                         href="/documents/sprint3/Interview Notes - Isaac Padilla.pdf"
@@ -870,21 +941,21 @@ function Sprint3() {
                             </div>
 
                             {/* Collapsible Notice Box when section is collapsed */}
-                            {!isInterviewSectionOpen ? (
+                            {!openInterviewSections.isaac ? (
                                 <div
                                     className="collapsed-notice-box"
-                                    onClick={() => setIsInterviewSectionOpen(true)}
+                                    onClick={() => toggleInterviewSection('isaac')}
                                     role="button"
                                     tabIndex={0}
-                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsInterviewSectionOpen(true); }}
-                                    aria-label="Expand Interview Notes section"
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleInterviewSection('isaac'); }}
+                                    aria-label="Expand Isaac's Interview Notes section"
                                 >
                                     <div>
                                         <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
-                                            Interview Notes Section Collapsed
+                                            Isaac&apos;s Interview Notes Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view 3 participant interviews (Boxing & Recreational Sports, Piano & Jewelry Making, Golf).
+                                            Click to expand and view 3 participant interviews by Isaac Padilla (Boxing &amp; Recreational Sports, Piano &amp; Jewelry Making, Golf).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
@@ -893,25 +964,25 @@ function Sprint3() {
                                     </span>
                                 </div>
                             ) : (
-                                <div id="interview-notes-content" style={{ marginTop: '1.5rem' }}>
+                                <div id="interview-notes-content-isaac" style={{ marginTop: '1.5rem', marginBottom: '3rem' }}>
                                     {/* Interview 1 */}
                                     <div className="interview-card-accordion">
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview1')}
-                                            aria-expanded={openInterviews.interview1}
+                                            onClick={() => toggleInterviewCard('isaac_1')}
+                                            aria-expanded={openInterviews.isaac_1}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
                                                 <span className="interview-pill-badge">12 Behaviors • 6 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.isaac_1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview1 && (
+                                        {openInterviews.isaac_1 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -951,19 +1022,19 @@ function Sprint3() {
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview2')}
-                                            aria-expanded={openInterviews.interview2}
+                                            onClick={() => toggleInterviewCard('isaac_2')}
+                                            aria-expanded={openInterviews.isaac_2}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
                                                 <span className="interview-pill-badge">11 Behaviors • 8 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.isaac_2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview2 && (
+                                        {openInterviews.isaac_2 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1004,19 +1075,19 @@ function Sprint3() {
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview3')}
-                                            aria-expanded={openInterviews.interview3}
+                                            onClick={() => toggleInterviewCard('isaac_3')}
+                                            aria-expanded={openInterviews.isaac_3}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 3 - Golf</h3>
                                                 <span className="interview-pill-badge">16 Behaviors • 3 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.isaac_3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview3 && (
+                                        {openInterviews.isaac_3 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1054,19 +1125,19 @@ function Sprint3() {
                                 </div>
                             )}
 
-                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
                                 <div>
-                                    <h2>Interview Notes - Karina</h2>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Interview Notes - Karina</h3>
                                 </div>
                                 <div className="collapsible-header-actions">
                                     <button
                                         type="button"
-                                        onClick={() => setIsInterviewSectionOpen(prev => !prev)}
+                                        onClick={() => toggleInterviewSection('karina')}
                                         className="collapsible-toggle-btn"
-                                        aria-expanded={isInterviewSectionOpen}
-                                        aria-controls="interview-notes-content"
+                                        aria-expanded={openInterviewSections.karina}
+                                        aria-controls="interview-notes-content-karina"
                                     >
-                                        {isInterviewSectionOpen ? (
+                                        {openInterviewSections.karina ? (
                                             <>
                                                 <EyeOff size={16} />
                                                 <span>Collapse Section</span>
@@ -1078,17 +1149,6 @@ function Sprint3() {
                                             </>
                                         )}
                                     </button>
-
-                                    {isInterviewSectionOpen && (
-                                        <button
-                                            type="button"
-                                            onClick={toggleAllInterviews}
-                                            className="collapsible-toggle-btn"
-                                        >
-                                            <ChevronsUpDown size={16} />
-                                            <span>{areAllInterviewsOpen ? 'Collapse All' : 'Expand All'}</span>
-                                        </button>
-                                    )}
 
                                     <a
                                         href="/documents/sprint3/Karina Rivera Interview Notes.pdf"
@@ -1103,21 +1163,21 @@ function Sprint3() {
                             </div>
 
                             {/* Collapsible Notice Box when section is collapsed */}
-                            {!isInterviewSectionOpen ? (
+                            {!openInterviewSections.karina ? (
                                 <div
                                     className="collapsed-notice-box"
-                                    onClick={() => setIsInterviewSectionOpen(true)}
+                                    onClick={() => toggleInterviewSection('karina')}
                                     role="button"
                                     tabIndex={0}
-                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsInterviewSectionOpen(true); }}
-                                    aria-label="Expand Interview Notes section"
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleInterviewSection('karina'); }}
+                                    aria-label="Expand Karina's Interview Notes section"
                                 >
                                     <div>
                                         <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
-                                            Interview Notes Section Collapsed
+                                            Karina&apos;s Interview Notes Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view 3 participant interviews (Boxing & Recreational Sports, Piano & Jewelry Making, Golf).
+                                            Click to expand and view 3 participant interviews by Karina Rivera (Boxing &amp; Recreational Sports, Piano &amp; Jewelry Making, Golf).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
@@ -1126,25 +1186,25 @@ function Sprint3() {
                                     </span>
                                 </div>
                             ) : (
-                                <div id="interview-notes-content" style={{ marginTop: '1.5rem' }}>
+                                <div id="interview-notes-content-karina" style={{ marginTop: '1.5rem', marginBottom: '3rem' }}>
                                     {/* Interview 1 */}
                                     <div className="interview-card-accordion">
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview1')}
-                                            aria-expanded={openInterviews.interview1}
+                                            onClick={() => toggleInterviewCard('karina_1')}
+                                            aria-expanded={openInterviews.karina_1}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
                                                 <span className="interview-pill-badge">12 Behaviors • 4 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.karina_1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview1 && (
+                                        {openInterviews.karina_1 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1182,19 +1242,19 @@ function Sprint3() {
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview2')}
-                                            aria-expanded={openInterviews.interview2}
+                                            onClick={() => toggleInterviewCard('karina_2')}
+                                            aria-expanded={openInterviews.karina_2}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
                                                 <span className="interview-pill-badge">19 Behaviors • 2 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.karina_2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview2 && (
+                                        {openInterviews.karina_2 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1237,19 +1297,19 @@ function Sprint3() {
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview3')}
-                                            aria-expanded={openInterviews.interview3}
+                                            onClick={() => toggleInterviewCard('karina_3')}
+                                            aria-expanded={openInterviews.karina_3}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 3 - Golf</h3>
                                                 <span className="interview-pill-badge">21 Behaviors • 1 Opinion</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.karina_3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview3 && (
+                                        {openInterviews.karina_3 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1290,19 +1350,19 @@ function Sprint3() {
                                 </div>
                             )}
 
-                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
                                 <div>
-                                    <h2>Interview Notes - Juan</h2>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Interview Notes - Juan</h3>
                                 </div>
                                 <div className="collapsible-header-actions">
                                     <button
                                         type="button"
-                                        onClick={() => setIsInterviewSectionOpen(prev => !prev)}
+                                        onClick={() => toggleInterviewSection('juan')}
                                         className="collapsible-toggle-btn"
-                                        aria-expanded={isInterviewSectionOpen}
-                                        aria-controls="interview-notes-content"
+                                        aria-expanded={openInterviewSections.juan}
+                                        aria-controls="interview-notes-content-juan"
                                     >
-                                        {isInterviewSectionOpen ? (
+                                        {openInterviewSections.juan ? (
                                             <>
                                                 <EyeOff size={16} />
                                                 <span>Collapse Section</span>
@@ -1314,17 +1374,6 @@ function Sprint3() {
                                             </>
                                         )}
                                     </button>
-
-                                    {isInterviewSectionOpen && (
-                                        <button
-                                            type="button"
-                                            onClick={toggleAllInterviews}
-                                            className="collapsible-toggle-btn"
-                                        >
-                                            <ChevronsUpDown size={16} />
-                                            <span>{areAllInterviewsOpen ? 'Collapse All' : 'Expand All'}</span>
-                                        </button>
-                                    )}
 
                                     <a
                                         href="/documents/sprint3/InterviewNotes_Juan.pdf"
@@ -1339,21 +1388,21 @@ function Sprint3() {
                             </div>
 
                             {/* Collapsible Notice Box when section is collapsed */}
-                            {!isInterviewSectionOpen ? (
+                            {!openInterviewSections.juan ? (
                                 <div
                                     className="collapsed-notice-box"
-                                    onClick={() => setIsInterviewSectionOpen(true)}
+                                    onClick={() => toggleInterviewSection('juan')}
                                     role="button"
                                     tabIndex={0}
-                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsInterviewSectionOpen(true); }}
-                                    aria-label="Expand Interview Notes section"
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleInterviewSection('juan'); }}
+                                    aria-label="Expand Juan's Interview Notes section"
                                 >
                                     <div>
                                         <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
-                                            Interview Notes Section Collapsed
+                                            Juan&apos;s Interview Notes Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view 3 participant interviews (Boxing & Recreational Sports, Piano & Jewelry Making, Golf).
+                                            Click to expand and view 3 participant interviews by Juan Reyna (Boxing &amp; Recreational Sports, Piano &amp; Jewelry Making, Golf).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
@@ -1362,25 +1411,25 @@ function Sprint3() {
                                     </span>
                                 </div>
                             ) : (
-                                <div id="interview-notes-content" style={{ marginTop: '1.5rem' }}>
+                                <div id="interview-notes-content-juan" style={{ marginTop: '1.5rem', marginBottom: '3rem' }}>
                                     {/* Interview 1 */}
                                     <div className="interview-card-accordion">
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview1')}
-                                            aria-expanded={openInterviews.interview1}
+                                            onClick={() => toggleInterviewCard('juan_1')}
+                                            aria-expanded={openInterviews.juan_1}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
                                                 <span className="interview-pill-badge">10 Behaviors • 6 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.juan_1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview1 && (
+                                        {openInterviews.juan_1 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1418,19 +1467,19 @@ function Sprint3() {
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview2')}
-                                            aria-expanded={openInterviews.interview2}
+                                            onClick={() => toggleInterviewCard('juan_2')}
+                                            aria-expanded={openInterviews.juan_2}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
                                                 <span className="interview-pill-badge">8 Behaviors • 4 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.juan_2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview2 && (
+                                        {openInterviews.juan_2 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1464,19 +1513,19 @@ function Sprint3() {
                                         <button
                                             type="button"
                                             className="interview-card-header"
-                                            onClick={() => toggleInterview('interview3')}
-                                            aria-expanded={openInterviews.interview3}
+                                            onClick={() => toggleInterviewCard('juan_3')}
+                                            aria-expanded={openInterviews.juan_3}
                                         >
                                             <div className="interview-title-group">
                                                 <h3 className="interview-card-title">Interview 3 - Golf</h3>
                                                 <span className="interview-pill-badge">16 Behaviors • 2 Opinions</span>
                                             </div>
                                             <span className="interview-chevron-icon">
-                                                {openInterviews.interview3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                                {openInterviews.juan_3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </span>
                                         </button>
 
-                                        {openInterviews.interview3 && (
+                                        {openInterviews.juan_3 && (
                                             <div className="interview-card-body">
                                                 <div className="interview-subgroup">
                                                     <h4 className="interview-subgroup-title">Behaviors</h4>
@@ -1512,25 +1561,248 @@ function Sprint3() {
                                     </div>
                                 </div>
                             )}
+
+                            {/* Ricardo Morales's Interview Notes */}
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
+                                <div>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Interview Notes - Ricardo</h3>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleInterviewSection('ricardo')}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={openInterviewSections.ricardo}
+                                        aria-controls="interview-notes-content-ricardo"
+                                    >
+                                        {openInterviewSections.ricardo ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint3/Interviews - Ricardo Morales.pdf"
+                                        download="Interviews - Ricardo Morales.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Collapsible Notice Box when section is collapsed */}
+                            {!openInterviewSections.ricardo ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => toggleInterviewSection('ricardo')}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleInterviewSection('ricardo'); }}
+                                    aria-label="Expand Ricardo's Interview Notes section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Ricardo&apos;s Interview Notes Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view 3 participant interviews by Ricardo Morales (Boxing &amp; Recreational Sports, Piano &amp; Jewelry Making, Golf).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Notes</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="interview-notes-content-ricardo" style={{ marginTop: '1.5rem', marginBottom: '3rem' }}>
+                                    {/* Interview 1 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterviewCard('ricardo_1')}
+                                            aria-expanded={openInterviews.ricardo_1}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
+                                                <span className="interview-pill-badge">5 Behaviors • 3 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.ricardo_1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.ricardo_1 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>1. Screening:</strong> Engaged in football and boxing. Started participating last month.</li>
+                                                        <li><strong>2. Last-Time Story:</strong> Went to a recreational building to box with friends. Put bands on his hands with the help of the coach, which took a long time. Practiced on bean bags in groups while in a straight position, switching to improve. Relies on repetition for practice.</li>
+                                                        <li><strong>3. Alternatives:</strong> Does not document progress, relying solely on physical repetition and physical milestones.</li>
+                                                        <li><strong>4. Switching Story:</strong> None recorded.</li>
+                                                        <li><strong>5. Money and Time:</strong> Bought hand bands for boxing. Paid for the boxing sessions.</li>
+                                                        <li><strong>6. Closing:</strong> Recalled seeing two people (one named Sam) during a session who never returned.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>1. Screening:</strong> None recorded.</li>
+                                                        <li><strong>2. Last-Time Story:</strong> Hates doing weights because he finds them tiring. Gauges his improvement by his ability to dodge and defend better in soccer, and move better in boxing. Believes a marker of progress would be if he can &ldquo;break&rdquo; someone&apos;s jaw. Doesn&apos;t feel the need to keep track of results.</li>
+                                                        <li><strong>3. Alternatives:</strong> None recorded.</li>
+                                                        <li><strong>4. Switching Story:</strong> Really does not want to leave the activity. Feels there is some difficulty, but could not name a specific reason that would cause him to stop.</li>
+                                                        <li><strong>5. Money and Time:</strong> None recorded.</li>
+                                                        <li><strong>6. Closing:</strong> Feels the atmosphere is usually casual. Believes this training approach works for people who are hard on themselves, but thinks it is usually better in public.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 2 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterviewCard('ricardo_2')}
+                                            aria-expanded={openInterviews.ricardo_2}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
+                                                <span className="interview-pill-badge">5 Behaviors • 4 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.ricardo_2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.ricardo_2 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>1. Screening:</strong> Played the piano and participated in cheerleading. Participated in an end-of-year concert a few months ago. Made jewelry for her mother.</li>
+                                                        <li><strong>2. Last-Time Story:</strong> Practiced the piano. Played at her grandmother&apos;s place and alongside her friends. Asks other people for feedback to see if she is improving. Watched videos, saw things in person with a friend, and shared her notes. Tracks zero of her progress. Saved a video of the performance in her phone gallery.</li>
+                                                        <li><strong>3. Alternatives:</strong> Uses gallery videos and shares notes with friends to remember activities.</li>
+                                                        <li><strong>4. Switching Story:</strong> Keeps her progress and activities to herself.</li>
+                                                        <li><strong>5. Money and Time:</strong> None recorded.</li>
+                                                        <li><strong>6. Closing:</strong> Navigated coordinating what to wear (likely for cheerleading uniforms).</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>1. Screening:</strong> Is currently considering taking a drawing course.</li>
+                                                        <li><strong>2. Last-Time Story:</strong> Made the jewelry for her mother simply because she liked it. Finds it hard to know if she is actually improving or how long improvement will take. Feels that writing things down causes her to forget a lot.</li>
+                                                        <li><strong>3. Alternatives:</strong> Believes her friend is much better at tracking progress, which she thinks makes it easier for that friend to know if they are getting better or not.</li>
+                                                        <li><strong>4. Switching Story:</strong> Considered using an app to track progress but decided not to. Prefers keeping things to herself because she feels less pressure. Is considering sharing her activities with more people in the future. Feels she is getting more creative.</li>
+                                                        <li><strong>5. Money and Time:</strong> None recorded.</li>
+                                                        <li><strong>6. Closing:</strong> None recorded.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 3 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterviewCard('ricardo_3')}
+                                            aria-expanded={openInterviews.ricardo_3}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 3 - Golf</h3>
+                                                <span className="interview-pill-badge">6 Behaviors • 4 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.ricardo_3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.ricardo_3 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>1. Screening:</strong> Participated in golfing and went to the movies recently. Last played 2 months ago.</li>
+                                                        <li><strong>2. Last-Time Story:</strong> Picked a golf course, selected a tee time, and chose between 8 or 19 holes. Went to the driving range to practice. Recorded videos of his swing from previous sessions. Uses a paid app to track how many times he hits the ball and to keep his score.</li>
+                                                        <li><strong>3. Alternatives:</strong> Looks at outside resources for golfing. Uses special apps designed for practicing on actual golf courses to track his progress.</li>
+                                                        <li><strong>4. Switching Story:</strong> Stopped his boxing membership.</li>
+                                                        <li><strong>5. Money and Time:</strong> Goes to the driving range on a week-by-week basis. Paid for a subscription for his golf tracking app.</li>
+                                                        <li><strong>6. Closing:</strong> Golfs with a group of people.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>1. Screening:</strong> None recorded.</li>
+                                                        <li><strong>2. Last-Time Story:</strong> Believes improvement comes through practice and adjusting his swing by comparing two different videos. Prefers to keep track of things in his mind rather than formally documenting everything.</li>
+                                                        <li><strong>3. Alternatives:</strong> Couldn&apos;t think of tracking anything else at the moment.</li>
+                                                        <li><strong>4. Switching Story:</strong> Considered getting golf lessons to improve, but feels he hasn&apos;t done it yet due to the time commitment. Feels work was the reason he had to stop his boxing membership.</li>
+                                                        <li><strong>5. Money and Time:</strong> Feels the time he spends depends entirely on how often he goes to the driving range.</li>
+                                                        <li><strong>6. Closing:</strong> Knows a few other people who golf. Could not think of anything else to add to the interview.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     </div>
 
                     {/* Section 5: Contradiction Memo (Collapsible in Documents View) */}
                     <div className="sprint-content">
                         <section id="contradiction-memo" className="sprint-section">
-                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                            {/* Main Section Header with Section-level Expand/Collapse All */}
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem', borderBottom: '1px solid rgba(124, 58, 237, 0.15)', paddingBottom: '1.25rem' }}>
                                 <div>
-                                    <h2>Contradiction Memo - Isaac</h2>
+                                    <h2>Contradiction Memo</h2>
+                                    <p style={{ color: 'var(--text-secondary)', margin: '0.35rem 0 0 0', fontSize: '0.95rem' }}>
+                                        Analysis of contradictions between initial business assumptions and customer discovery findings by team members Isaac Padilla, Karina Rivera, and Juan Reyna.
+                                    </p>
                                 </div>
                                 <div className="collapsible-header-actions">
                                     <button
                                         type="button"
-                                        onClick={() => setIsContradictionMemoOpen(prev => !prev)}
+                                        onClick={toggleAllContradictionMemos}
                                         className="collapsible-toggle-btn"
-                                        aria-expanded={isContradictionMemoOpen}
-                                        aria-controls="contradiction-memo-content"
                                     >
-                                        {isContradictionMemoOpen ? (
+                                        <ChevronsUpDown size={16} />
+                                        <span>{areAllContradictionsOpen ? 'Collapse All' : 'Expand All'}</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Contradiction Memo - Isaac</h3>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleContradictionMemo('isaac')}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={openContradictionMemos.isaac}
+                                        aria-controls="contradiction-memo-content-isaac"
+                                    >
+                                        {openContradictionMemos.isaac ? (
                                             <>
                                                 <EyeOff size={16} />
                                                 <span>Collapse Section</span>
@@ -1556,18 +1828,18 @@ function Sprint3() {
                             </div>
 
                             {/* Collapsible Notice Box when section is collapsed */}
-                            {!isContradictionMemoOpen ? (
+                            {!openContradictionMemos.isaac ? (
                                 <div
                                     className="collapsed-notice-box"
-                                    onClick={() => setIsContradictionMemoOpen(true)}
+                                    onClick={() => toggleContradictionMemo('isaac')}
                                     role="button"
                                     tabIndex={0}
-                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsContradictionMemoOpen(true); }}
-                                    aria-label="Expand Contradiction Memo section"
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleContradictionMemo('isaac'); }}
+                                    aria-label="Expand Isaac's Contradiction Memo section"
                                 >
                                     <div>
                                         <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
-                                            Contradiction Memo Section Collapsed
+                                            Isaac&apos;s Contradiction Memo Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                                             Click to expand and view the Contradiction Memo by Isaac Padilla (October 18, 2026).
@@ -1579,7 +1851,7 @@ function Sprint3() {
                                     </span>
                                 </div>
                             ) : (
-                                <div id="contradiction-memo-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                <div id="contradiction-memo-content-isaac" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
                                     <div style={{
                                         display: 'flex',
                                         gap: '1.5rem',
@@ -1635,19 +1907,19 @@ function Sprint3() {
                                 </div>
                             )}
 
-                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
                                 <div>
-                                    <h2>Contradiction Memo - Karina</h2>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Contradiction Memo - Karina</h3>
                                 </div>
                                 <div className="collapsible-header-actions">
                                     <button
                                         type="button"
-                                        onClick={() => setIsContradictionMemoOpen(prev => !prev)}
+                                        onClick={() => toggleContradictionMemo('karina')}
                                         className="collapsible-toggle-btn"
-                                        aria-expanded={isContradictionMemoOpen}
-                                        aria-controls="contradiction-memo-content"
+                                        aria-expanded={openContradictionMemos.karina}
+                                        aria-controls="contradiction-memo-content-karina"
                                     >
-                                        {isContradictionMemoOpen ? (
+                                        {openContradictionMemos.karina ? (
                                             <>
                                                 <EyeOff size={16} />
                                                 <span>Collapse Section</span>
@@ -1673,21 +1945,21 @@ function Sprint3() {
                             </div>
 
                             {/* Collapsible Notice Box when section is collapsed */}
-                            {!isContradictionMemoOpen ? (
+                            {!openContradictionMemos.karina ? (
                                 <div
                                     className="collapsed-notice-box"
-                                    onClick={() => setIsContradictionMemoOpen(true)}
+                                    onClick={() => toggleContradictionMemo('karina')}
                                     role="button"
                                     tabIndex={0}
-                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsContradictionMemoOpen(true); }}
-                                    aria-label="Expand Contradiction Memo section"
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleContradictionMemo('karina'); }}
+                                    aria-label="Expand Karina's Contradiction Memo section"
                                 >
                                     <div>
                                         <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
-                                            Contradiction Memo Section Collapsed
+                                            Karina&apos;s Contradiction Memo Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view the Contradiction Memo by Isaac Padilla (October 18, 2026).
+                                            Click to expand and view the Contradiction Memo by Karina Rivera (October 18, 2026).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
@@ -1696,7 +1968,7 @@ function Sprint3() {
                                     </span>
                                 </div>
                             ) : (
-                                <div id="contradiction-memo-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                <div id="contradiction-memo-content-karina" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
                                     <div style={{
                                         display: 'flex',
                                         gap: '1.5rem',
@@ -1740,19 +2012,19 @@ function Sprint3() {
                                 </div>
                             )}
 
-                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
                                 <div>
-                                    <h2>Contradiction Memo - Juan</h2>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Contradiction Memo - Juan</h3>
                                 </div>
                                 <div className="collapsible-header-actions">
                                     <button
                                         type="button"
-                                        onClick={() => setIsContradictionMemoOpen(prev => !prev)}
+                                        onClick={() => toggleContradictionMemo('juan')}
                                         className="collapsible-toggle-btn"
-                                        aria-expanded={isContradictionMemoOpen}
-                                        aria-controls="contradiction-memo-content"
+                                        aria-expanded={openContradictionMemos.juan}
+                                        aria-controls="contradiction-memo-content-juan"
                                     >
-                                        {isContradictionMemoOpen ? (
+                                        {openContradictionMemos.juan ? (
                                             <>
                                                 <EyeOff size={16} />
                                                 <span>Collapse Section</span>
@@ -1778,18 +2050,18 @@ function Sprint3() {
                             </div>
 
                             {/* Collapsible Notice Box when section is collapsed */}
-                            {!isContradictionMemoOpen ? (
+                            {!openContradictionMemos.juan ? (
                                 <div
                                     className="collapsed-notice-box"
-                                    onClick={() => setIsContradictionMemoOpen(true)}
+                                    onClick={() => toggleContradictionMemo('juan')}
                                     role="button"
                                     tabIndex={0}
-                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsContradictionMemoOpen(true); }}
-                                    aria-label="Expand Contradiction Memo section"
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleContradictionMemo('juan'); }}
+                                    aria-label="Expand Juan's Contradiction Memo section"
                                 >
                                     <div>
                                         <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
-                                            Contradiction Memo Section Collapsed
+                                            Juan&apos;s Contradiction Memo Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                                             Click to expand and view the Contradiction Memo by Juan Reyna (October 19, 2026).
@@ -1801,7 +2073,7 @@ function Sprint3() {
                                     </span>
                                 </div>
                             ) : (
-                                <div id="contradiction-memo-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                <div id="contradiction-memo-content-juan" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
                                     <div style={{
                                         display: 'flex',
                                         gap: '1.5rem',
