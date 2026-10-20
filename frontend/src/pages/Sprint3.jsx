@@ -1053,6 +1053,242 @@ function Sprint3() {
                                     </div>
                                 </div>
                             )}
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Interview Notes - Karina</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsInterviewSectionOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isInterviewSectionOpen}
+                                        aria-controls="interview-notes-content"
+                                    >
+                                        {isInterviewSectionOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    {isInterviewSectionOpen && (
+                                        <button
+                                            type="button"
+                                            onClick={toggleAllInterviews}
+                                            className="collapsible-toggle-btn"
+                                        >
+                                            <ChevronsUpDown size={16} />
+                                            <span>{areAllInterviewsOpen ? 'Collapse All' : 'Expand All'}</span>
+                                        </button>
+                                    )}
+
+                                    <a
+                                        href="/documents/sprint3/Karina Rivera Interview Notes.pdf"
+                                        download="Karina Rivera Interview Notes.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Collapsible Notice Box when section is collapsed */}
+                            {!isInterviewSectionOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsInterviewSectionOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsInterviewSectionOpen(true); }}
+                                    aria-label="Expand Interview Notes section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Interview Notes Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view 3 participant interviews (Boxing & Recreational Sports, Piano & Jewelry Making, Golf).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Notes</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="interview-notes-content" style={{ marginTop: '1.5rem' }}>
+                                    {/* Interview 1 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterview('interview1')}
+                                            aria-expanded={openInterviews.interview1}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
+                                                <span className="interview-pill-badge">12 Behaviors • 4 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.interview1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.interview1 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Question 1: What hobbies or recreational activities have you participated in recently? “Tochito (flag football), soccer and a bit of boxing. I mostly do physical activities.” </li>
+                                                        <li>Question 2: How recently have you participated in those activities? Are you currently doing them at the moment, or were they something you did before? “Last month, I haven’t done them since last month. I have been busy with school work.” </li>
+                                                        <li>Question 3 (Follow-up to Q2): How was it the last time you participated? Where did you go to, what happened when you got there, how do you set up? “I usually do it in Juarez. They’re usually like small centers where you could play sports. If not I just go with my friends to play tochito.” “There’s boxing trainers next to where I live when I do boxing.”</li>
+                                                        <li>Question 4 (Follow-up to Q3): How do you find out about those locations, do you see them on the street, or online? “In the street. The recreational places where I play tochito and soccer were recommended by a friend.” “The boxing is near where I live.”</li>
+                                                        <li>Question 5 (Follow-up to Q4): Have you recommended those places to a friend? “Not really.”</li>
+                                                        <li>Question 6 (Follow-up to Q5): Would you recommend those places to a friend? “I’m gatekeeping, and I have people. I don’t like waiting.” </li>
+                                                        <li>Question 7: Has there been anything that let you know that you are actually getting better or improving? “In Toshito I’m able to dodge pretty well, and in soccer I’m defense, so I guess I was getting better at that. For box, I just have to be able to kind of move, but we mostly train resistance and HIITs.”</li>
+                                                        <li>Question 8: You mentioned you have a trainer, so how does the trainer give you feedback on your performance? “They usually put us in groups and make us do different activities.” “When I’m on the bean bags they usually correct my posture when I’m punching.” “After an our we switch [activities].” “They make us do planks for the last 15 minutes.”</li>
+                                                        <li>Question 9 (Follow-up to Q8): And for all those activities that you do for example planks, do you have a way to keep track of how much you did those activities? “Not really, we mostly do five rounds of each and if you are done before everyone else is done, you do it again.” </li>
+                                                        <li>Question 10 (Follow-up to Q4): Are those classes free? “No, I usually pay for those.” </li>
+                                                        <li>Question 13: For all these sports, did you ever get any achievement, recognitions or any trophies? “No, Tochito and soccer I usually do them because it’s fun.”</li>
+                                                        <li>Question 15: What are some specific tools, or equipment that you needed to get yourself in order to participate in those recreational activities? “We have to buy [hand] wraps.” The rest of the equipment, like the gloves and weights were provided.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Question 11: If there was a way to actually track, that you could actually see your improvement, for example, through statistics. How would that look like to you? “Like an app that can track steps. But I don’t really see how it could show how much I have improved. If I see it physically.“ If they see it physically they associate it with improvement. “But usually I don’t really keep track.”</li>
+                                                        <li>Question 12: How many people have you seen that they went in but dropped out because they felt that they were not progressing? “Probably two, and I never saw them again.”</li>
+                                                        <li>Question 14: Were there any difficulties in getting into those recreational activities? Were there any struggles when you try to get into them for the first time? “I wouldn’t say no. For someone that would start at the beginning, like when it comes to hard physical training it could be hard to get into the rhythm of the stuff.” </li>
+                                                        <li>Question 16: Do you think it would make a difference if you were taking said classes with an instructor online? “I can definitely see it work for some people, but because it is more hands-on I prefer in person. But I can see it working for someone online as long as they have the materials to do it especially when it comes to physical activities like box because you need gloves, a punching bag and in some cases a training buddy.”</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 2 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterview('interview2')}
+                                            aria-expanded={openInterviews.interview2}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
+                                                <span className="interview-pill-badge">19 Behaviors • 2 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.interview2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.interview2 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Question 1: What hobbies or recreational activities have you participated in recently? “Lately I have been playing piano.” </li>
+                                                        <li>Question 2: When was the last time you participated in those activities? “It was a pretty long time ago, actually. Like, three months ago.” </li>
+                                                        <li>Question 3: The last time you participated in that activity, can you walk me through that? “I was part of the piano class, and we had a end of the year concert.”</li>
+                                                        <li>Question 4: For that activity, how did you know you were improving, or making progress? “At first I learned the piece, but I didn’t learn it all. So, next year I spent like a month working on it and I was able to get it.” </li>
+                                                        <li>Question 5: Did you record or document anything from that activity? “I think I did.” </li>
+                                                        <li>Question 6 (Follow-up to Q5): What was it that you recorded? “Me playing and a couple of my other friends playing.” </li>
+                                                        <li>Question 7 (Follow-up to Q6): And where did you keep that recording? “In photos [gallery].” </li>
+                                                        <li>Question 8: What methods or tools have you used to keep track of your activities or achievements? “Mostly by the amount I do. I also do jewlery, so it’s mostly by the amount I make.” </li>
+                                                        <li>Question 9 (Follow-up to Q8): And did you have any difficulties with that method of tracking? “Yeah it’s kind of hard to know if you are actually improving. I would rather see how long they last, or ask other people if I’m improving.”</li>
+                                                        <li>Question 11: For those activities, how much time did you spent documenting or reviewing your progress? “Zero. It’s mostly all in my head.”</li>
+                                                        <li>Question 12: Do you pay for any tools, subscriptions, or services to keep track of them? “No, but at one point I saw a piano app and I was considering it, but then I just didn’t do it.” </li>
+                                                        <li>Question 13: Do you know anyone else that participated in some activities that you like to do, that they do like to keep track of their activities? And if so, what do they keep track of? “I have one friend that she also played the piano. To keep track of her progress she records all of her time she plays and actually understands when she’s improving or not.” </li>
+                                                        <li>Question 15: What keeps you interested in participating in those activities? “To be able to wear it.”</li>
+                                                        <li>Question 16: Where do you find the resources to actually start getting into those activities, or to learn new techniques? “For piano, I actually found a spare keyboard under my grandma’s bed, so I just started playing it and started practicing. For jewlery, I was supposed to make these earring for my mom, and then she liked them, and I liked them. So she just bought more things for me, and I started getting more into it.” </li>
+                                                        <li>Question 17: Did anyone teach you jewlery or did you look it up online? “No, I kind of guessed.” </li>
+                                                        <li>Question 18: Would you ever consider online courses to learn more or for any other activity? “Yes, I also want to try learning drawing and see a bunch of courses.”</li>
+                                                        <li>Question 19: Have you ever wanted to share your progress to someone else? Or how do you usually share what you did with other people? “I really don’t share. I mostly keep it to myself because then I feel more pressured to do be better.” </li>
+                                                        <li>Question 20 (Follow-up to Q19): Is that something you would like to overcome, eventually start sharing to people? “Yes.” </li>
+                                                        <li>Question 21: With people that have shared with you, usually how do they share what they have accomplished with any recreational activity that they have participated in? “Friend shared videos and went to see her in person. She shared her notes [music sheet].”</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Question 10: For the current methods that you are using, what would stop you from using that methods? What do you think would help you track it better? “Probably writing it down. I don’t write down a lot of things, and I tend to forget like a lot.” </li>
+                                                        <li>Question 14: For the jewlery activity, how do you know that you are getting better? “Because I get more creative.” </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 3 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterview('interview3')}
+                                            aria-expanded={openInterviews.interview3}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 3 - Golf</h3>
+                                                <span className="interview-pill-badge">21 Behaviors • 1 Opinion</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.interview3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.interview3 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Question 1: What hobbies or recreational activities have you participated in recently? “Recently, for recreational activities I've been golfing. Aside from that, just leisure time, so, like, whether it's, like, going to the movies or just, like, staying at home.” </li>
+                                                        <li>Question 2: When was the last time you participated in one of those activities? “Like two months ago.”</li>
+                                                        <li>Question 3: Can you walk me through the last time you participated in said activity? “I pick up, of course that I want to go to, and then I just schedule a teatime is what it's called. And then you just show up on time so you don't get a penalty fee. People usually have the option of playing nine holes or 18, and I played 18 that day.”</li>
+                                                        <li>Question 4 (Follow-up to Q3): How do you schedule it? “You just call the golf course, or you could do it online, just depending on what services the golf course offers. Or also just showing up in person.”  </li>
+                                                        <li>Question 5: How did you recognize or knew you were improving or actually making progress? “Just through practice. If I don't go play golf, I'll also go to a local driving range, just to go hit some balls, and just practicing on the swings.”</li>
+                                                        <li>Question 6: Do you keep track of how much progress you've made? “Not really, just through memory and comparing previous times I’ve gone golfing, or going to the range. If anything, I'll record myself, so I can get to see what it look like when I’m swinging.” </li>
+                                                        <li>Question 8: Do you use any methods or tools to help you for tracking apart from recording? “As far as practicing, no, but they do have like golf apps and like when you actually go to the gold courts, it will track like where your your ball goes and like how far you hit it. So I'll use statistics like that.”</li>
+                                                        <li>Question 9: Think about the last time you changed how you tracked your progress. What led to that change? Have you ever done any other sort of tracking for another activity? “I can't really say that I have.” </li>
+                                                        <li>Question 10: Have you ever thought of taking an online course or taking classes? “Yeah, I've definitely thought of doing golf lessons to improve my golf skills.” </li>
+                                                        <li>Question 11: Have you actually started your lesson? And if not, what has kept you from going into those lessons? “I haven’t done a lesson yet. For one, it would just be time.”</li>
+                                                        <li>Question 12: How much time do you spend comparing the recordings or seeing much process you have made through documented this? “It just depends on how often I go out to the driving range. So if anything, I would like to usually like to go like weekly at least, like at least once a week. So, if anything, I'll compare, like, from week to week.” </li>
+                                                        <li>Question 13: Have you paid for any tools, subscriptions, or services related to how you track stuff, or to let you know when you do your activities? “No, not really.”</li>
+                                                        <li>Question 14: Is there anything else about your experience we haven't discussed that you would like to share? “Not that I can think of right now.”</li>
+                                                        <li>Question 15: How did you get into your hobby? “I've always been interested in golf like as a spectator point of view. I just got into it for one of my brother's friends and he plays golf a lot, too. I just got some clubs one day then slowly but little, just started like going to the golf range and then getting onto the golf course and there whenever I can.” </li>
+                                                        <li>Question 16: Do you like sharing your accomplishments? “At least among people who do golf. I do have some family members who golf, I'll golf with them sometimes, and I have friends and we'll share how did we play that that day.</li>
+                                                        <li>Question 17: Do you if think there was app that will help track your progress, do you think you would use it? “Yeah, well I do use this one app that tracks when you actually playing golf on the golf course. It tracks how many times you hit the ball per hole, or, like, how far you hit it, and it will pretty much it'll give you your score for that date for that round of golf.” </li>
+                                                        <li>Question 18: Do you know anyone else who keeps track of their hobbies or recreational activities? “Yeah, as far as golf goes, yeah, for sure. Yeah, I know a few people, whether it's personally or non-personally.” </li>
+                                                        <li>Question 19 (Follow-up to Q18): And how does the tracking kind of look for them? “They do have tape subscription, so it comes, like, with more tools. For example how hard you're hitting in the ball, so they use the physics that goes into it.</li>
+                                                        <li>Question 20: Have you ever tried starting a new recreational activity, and you did want to but didn’t do it, what was the reason you didn’t start that activity or hobby? “I used to do boxing. I did get  a boxing membership after some time and then I just  stopped going, I didn't continue after.”</li>
+                                                        <li>Question 21 (Follow-up to Q19): What was the reason that you stopped going? “Just work got in the way.”</li>
+                                                        <li>Question 22: And do you ever look for any resources online that could help you? “Yeah, for sure like tutorial videos on YouTube or social media, like Instagram or wherever I can find it.”</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Question 7: What difficulties if any did you experience with this sort of tracking? “Looking at two different videos, I would say I’m I really progressing? Or being able to see any small details where I'm making an improvement or, trying to point out where, I need to adjust.”</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     </div>
 
