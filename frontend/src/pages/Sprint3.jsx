@@ -1764,6 +1764,16 @@ function Sprint3() {
                                             </>
                                         )}
                                     </button>
+
+                                    <a
+                                        href="/documents/sprint3/Contradiction Memo Juan Reyna.pdf"
+                                        download="Contradiction Memo Juan Reyna.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
                                 </div>
                             </div>
 
