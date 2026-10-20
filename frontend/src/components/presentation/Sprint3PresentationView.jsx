@@ -166,42 +166,42 @@ function Sprint3PresentationView() {
                                     <td><strong>Main Purpose</strong></td>
                                     <td>Fitness activity tracking.</td>
                                     <td>Online courses for learning skills.</td>
-                                    <td></td>
+                                    <td>Habit tracking and consistency building</td>
                                     <td>Informal progress tracking through their own habits and notes.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Strengths</strong></td>
                                     <td>Easy recording, statistics, community.</td>
                                     <td>Course access is simple. Instructions are clear. Certificate. 1-1 Sessions. Public discussion feed.</td>
-                                    <td></td>
+                                    <td>Simple interface, daily habit streaks, color-coded grid visualization, highly flexible for any custom habit (tracking only).</td>
                                     <td>No need for app, its more familiar to use.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Limitations</strong></td>
                                     <td>Only sports and fitness activities, payment for goal tracking.</td>
                                     <td>Paid subscription to access the courses. No progress tracking thrughout the course.</td>
-                                    <td></td>
+                                    <td>Focuses only on daily completion/streaks rather than measuring skill growth or technique improvement. Limited details per activity log. Heavily limited features in free version.</td>
                                     <td>Progress can be difficult to organize, compare and review over time.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Progress Tracking</strong></td>
                                     <td>Statistics, streaks, graphs.</td>
                                     <td>Minimal, the only progress tracking was project submission at the end of the course.</td>
-                                    <td></td>
+                                    <td>Streaks, daily board check-ins, consistency percentages, and color intensity gradients.</td>
                                     <td>Track by memory, recordings, photos in gallery, feedback by sharing by messages or in person</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Accomplishments</strong></td>
                                     <td>Badges by how many activities you have completed. Challenges and leaderboards</td>
                                     <td>Certificates of completion are earned at the end of the course and achievements with badges.</td>
-                                    <td></td>
+                                    <td>Streak milestones, streak recovery features, and daily consistency streaks</td>
                                     <td>Personal milestones, completed activities, and them analyzing their own session.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>SkillUp Opportunity</strong></td>
                                     <td style={{ color: 'var(--purple)', fontWeight: 600 }}>Track qualitative progress and larger range of activities</td>
                                     <td style={{ color: 'var(--purple)', fontWeight: 600 }}>Offer online courses as well, to encourage users to track their progress with SkillUp.</td>
-                                    <td></td>
+                                    <td style={{ color: 'var(--purple)', fontWeight: 600 }}>Visuals can be a good inspiration for some of our tracking systems.</td>
                                     <td style={{ color: 'var(--purple)', fontWeight: 600 }}>Organize progress, activities, and accomplishments in a centralized platform</td>
                                 </tr>
                             </tbody>
@@ -324,6 +324,63 @@ function Sprint3PresentationView() {
                                 <li><strong>Paywall frustration:</strong> SkillShare users who hit a paywall will or on a free tier will not be able to do anything. While SkillUp does allow usage of the app in the free tier.</li>
                                 <li><strong>No Progress Tracking or growth:</strong> During or Finishing a course doesn’t show whether the learner’s skill has improved. Skill Up's recordings, feedback and past accomplishments let users compare their work over their journey.</li>
                                 <li><strong>Using it alongside Skillshare:</strong> SkillUp doesn’t have to replace Skillshare. Users can track their progress in SkillUp while taking Skillshare courses, which makes it an easy first step that can lead to using SkillUp more over time.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    {/* Everyday Detailed Profile */}
+                    <div className="slide-card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div>
+                            <span style={{
+                                padding: '0.2rem 0.65rem',
+                                borderRadius: '6px',
+                                background: 'var(--purple)',
+                                color: '#ffffff',
+                                fontSize: '0.78rem',
+                                fontWeight: 800,
+                                textTransform: 'uppercase'
+                            }}>
+                                Indirect • Daily Habit Tracking & Consistency
+                            </span>
+                            <h4 style={{ margin: '0.65rem 0 0.25rem', fontSize: '1.25rem', color: 'var(--text-primary)' }}>
+                                Everyday Competitive Teardown
+                            </h4>
+                        </div>
+
+                        <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                            <p style={{ margin: 0 }}><strong>Strengths:</strong> Clean and simple interface, daily streak counters, visual color-coded boards, and easy habit logging across devices.</p>
+                            <p style={{ margin: 0 }}><strong>Limitations:</strong> Everyday.app focuses purely on binary habit completion (did you do it or not?) and streak maintenance. It does not allow users to track actual skill development, upload media/recordings to analyze technique, or receive feedback on performance.</p>
+                            <p style={{ margin: 0 }}><strong>Progress Tracking:</strong> Daily streak counters, visual calendar heatmaps, habit completion percentages, and historical consistency grids.</p>
+                            <p style={{ margin: 0 }}><strong>Accomplishments:</strong> Milestone badges for maintaining daily streaks (e.g., 7-day, 30-day, 100-day streaks).</p>
+                        </div>
+
+                        <div style={{
+                            padding: '1rem',
+                            borderRadius: '10px',
+                            background: 'rgba(124, 58, 237, 0.08)',
+                            borderLeft: '3px solid var(--purple)'
+                        }}>
+                            <strong style={{ display: 'block', fontSize: '0.88rem', color: 'var(--purple)', marginBottom: '0.3rem', textTransform: 'uppercase' }}>
+                                SkillUp Opportunity
+                            </strong>
+                            <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-primary)', lineHeight: 1.5 }}>
+                                Allows users to track qualitative skill development, upload performance recordings, and analyze technique over time rather than just counting daily habit streaks. SkillUp fills the gap for users who want to know how much better they are getting at a recreational activity, not just how often they do it.
+                            </p>
+                        </div>
+
+                        <div style={{
+                            padding: '1rem',
+                            borderRadius: '10px',
+                            background: 'var(--surface)',
+                            border: '1px solid rgba(124, 58, 237, 0.16)'
+                        }}>
+                            <strong style={{ display: 'block', fontSize: '0.88rem', color: 'var(--text-primary)', marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+                                Ranked Switching Triggers
+                            </strong>
+                            <ol style={{ margin: 0, paddingLeft: '1.25rem', fontSize: '0.87rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+                                <li><strong>Focus on Skill Growth vs. Streaks:</strong> Users realize that maintaining a daily streak does not mean their skills or techniques are actually improving. SkillUp allows them to track real progress through media uploads, journal entries, and side-by-side performance comparisons.</li>
+                                <li><strong>Lack of Detailed Activity Logs:</strong> Everyday.app only offers basic daily check-ins. Users looking to store media, detailed session notes, or qualitative feedback will switch to SkillUp for a centralized tracking hub.</li>
+                                <li><strong>Non-Daily Recreational Hobbies:</strong> Many recreational skills (like golf, boxing, or jewelry making) are practiced weekly or periodically rather than daily, making streak-based habit trackers frustrating or unmotivated when a streak breaks. SkillUp caters to flexible, non-linear hobby progression.</li>
                             </ol>
                         </div>
                     </div>

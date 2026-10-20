@@ -18,7 +18,8 @@ function Sprint3() {
         isaac: true,
         karina: true,
         juan: true,
-        ricardo: true
+        ricardo: true,
+        jonathan: true
     });
 
     // Individual interview card states keyed by member and interview ID
@@ -34,7 +35,10 @@ function Sprint3() {
         juan_3: true,
         ricardo_1: true,
         ricardo_2: true,
-        ricardo_3: true
+        ricardo_3: true,
+        jonathan_1: true,
+        jonathan_2: true,
+        jonathan_3: true
     });
 
     // Collapsible states for Contradiction Memo section in documents view
@@ -42,7 +46,8 @@ function Sprint3() {
         isaac: true,
         karina: true,
         juan: true,
-        ricardo: true
+        ricardo: true,
+        jonathan: true
     });
 
     // Collapsible state for AI Use Disclosure section in documents view
@@ -78,7 +83,8 @@ function Sprint3() {
             isaac: nextState,
             karina: nextState,
             juan: nextState,
-            ricardo: nextState
+            ricardo: nextState,
+            jonathan: nextState
         });
         setOpenInterviews({
             isaac_1: nextState,
@@ -92,7 +98,10 @@ function Sprint3() {
             juan_3: nextState,
             ricardo_1: nextState,
             ricardo_2: nextState,
-            ricardo_3: nextState
+            ricardo_3: nextState,
+            jonathan_1: nextState,
+            jonathan_2: nextState,
+            jonathan_3: nextState
         });
     };
 
@@ -200,7 +209,7 @@ function Sprint3() {
                                             Competitive Landscape Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view the competitor map, comparison matrix, Strava teardown, and Skillshare teardown.
+                                            Click to expand and view the competitor map, comparison matrix, Strava teardown, Skillshare teardown, and Everyday teardown.
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
@@ -265,42 +274,42 @@ function Sprint3() {
                                                         <td><strong>Main Purpose</strong></td>
                                                         <td>Fitness activity tracking.</td>
                                                         <td>Online courses for learning skills.</td>
-                                                        <td></td>
+                                                        <td>Habit tracking and consistency building</td>
                                                         <td>Informal progress tracking through their own habits and notes.</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Strengths</strong></td>
                                                         <td>Easy recording, statistics, community.</td>
                                                         <td>Course access is simple. Instructions are clear. Certificate. 1-1 Sessions. Public discussion feed.</td>
-                                                        <td></td>
+                                                        <td>Simple interface, daily habit streaks, color-coded grid visualization, highly flexible for any custom habit (tracking only).</td>
                                                         <td>No need for app, its more familiar to use.</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Limitations</strong></td>
                                                         <td>Only sports and fitness activities, payment for goal tracking.</td>
                                                         <td>Paid subscription to access the courses. No progress tracking thrughout the course.</td>
-                                                        <td></td>
+                                                        <td>Focuses only on daily completion/streaks rather than measuring skill growth or technique improvement. Limited details per activity log. Heavily limited features in free version.</td>
                                                         <td>Progress can be difficult to organize, compare and review over time.</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Progress Tracking</strong></td>
                                                         <td>Statistics, streaks, graphs.</td>
                                                         <td>Minimal, the only progress tracking was project submission at the end of the course.</td>
-                                                        <td></td>
+                                                        <td>Streaks, daily board check-ins, consistency percentages, and color intensity gradients.</td>
                                                         <td>Track by memory, recordings, photos in gallery, feedback by sharing by messages or in person</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Accomplishments</strong></td>
                                                         <td>Badges by how many activities you have completed. Challenges and leaderboards</td>
                                                         <td>Certificates of completion are earned at the end of the course and achievements with badges.</td>
-                                                        <td></td>
+                                                        <td>Streak milestones, streak recovery features, and daily consistency streaks</td>
                                                         <td>Personal milestones, completed activities, and them analyzing their own session.</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>SkillUp Opportunity</strong></td>
                                                         <td>Track qualitative progress and larger range of activities</td>
                                                         <td>Offer online courses as well, to encourage users to track their progress with SkillUp.</td>
-                                                        <td></td>
+                                                        <td>Visuals can be a good inspiration for some of our tracking systems.</td>
                                                         <td>Organize progress, activities, and accomplishments in a centralized platform</td>
                                                     </tr>
                                                 </tbody>
@@ -392,6 +401,51 @@ function Sprint3() {
                                                         1. Paywall frustration: SkillShare users who hit a paywall will or on a free tier will not be able to do anything. While SkillUp does allow usage of the app in the free tier.<br /><br />
                                                         2. No Progress Tracking or growth: During or Finishing a course doesn’t show whether the learner’s skill has improved. Skill Up's recordings, feedback and past accomplishments let users compare their work over their journey.<br /><br />
                                                         3. Using it alongside Skillshare: SkillUp doesn’t have to replace Skillshare. Users can track their progress in SkillUp while taking Skillshare courses, which makes it an easy first step that can lead to using SkillUp more over time.
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* Everyday Competitive Landscape */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Everyday Competitive Landscape</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Competitor Type</strong></td>
+                                                    <td>Indirect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Main Purpose</strong></td>
+                                                    <td>Daily habit tracking and consistency management.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Strengths</strong></td>
+                                                    <td>Clean and simple interface, daily streak counters, visual color-coded boards, and easy habit logging across devices.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Limitations</strong></td>
+                                                    <td>Everyday.app focuses purely on binary habit completion (did you do it or not?) and streak maintenance. It does not allow users to track actual skill development, upload media/recordings to analyze technique, or receive feedback on performance.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Progress Tracking</strong></td>
+                                                    <td>Daily streak counters, visual calendar heatmaps, habit completion percentages, and historical consistency grids.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Accomplishments</strong></td>
+                                                    <td>Milestone badges for maintaining daily streaks (e.g., 7-day, 30-day, 100-day streaks).</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>SkillUp opportunity</strong></td>
+                                                    <td>Allows users to track qualitative skill development, upload performance recordings, and analyze technique over time rather than just counting daily habit streaks. SkillUp fills the gap for users who want to know how much better they are getting at a recreational activity, not just how often they do it.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Ranked Switching Triggers</strong></td>
+                                                    <td>
+                                                        1. Focus on Skill Growth vs. Streaks: Users realize that maintaining a daily streak does not mean their skills or techniques are actually improving. SkillUp allows them to track real progress through media uploads, journal entries, and side-by-side performance comparisons.<br /><br />
+                                                        2. Lack of Detailed Activity Logs: Everyday.app only offers basic daily check-ins. Users looking to store media, detailed session notes, or qualitative feedback will switch to SkillUp for a centralized tracking hub.<br /><br />
+                                                        3. Non-Daily Recreational Hobbies: Many recreational skills (like golf, boxing, or jewelry making) are practiced weekly or periodically rather than daily, making streak-based habit trackers frustrating or unmotivated when a streak breaks. SkillUp caters to flexible, non-linear hobby progression.
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -527,7 +581,7 @@ function Sprint3() {
                                             Evidence Log Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view 6 Tier 1 research evidence entries (STR-01 to STR-03, INT-01 to INT-03).
+                                            Click to expand and view 7 Tier 1 research evidence entries (STR-01 to STR-04, INT-01 to INT-03).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
@@ -579,6 +633,11 @@ function Sprint3() {
                                             <tr>
                                                 <td><strong>STR-03</strong></td>
                                                 <td>Strava Webpage Teardown</td>
+                                                <td>Tier 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>STR-04</strong></td>
+                                                <td>Everyday app teardown</td>
                                                 <td>Tier 1</td>
                                             </tr>
                                         </tbody>
@@ -877,6 +936,55 @@ function Sprint3() {
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    {/* 7. Everyday App Teardown */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Everyday App Teardown</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '22%' }}><strong>Evidence ID</strong></td>
+                                                    <td>STR-04</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Evidence Type</strong></td>
+                                                    <td>Tier 1 – Firsthand Observation</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Method</strong></td>
+                                                    <td>Hands-on application teardown</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Date</strong></td>
+                                                    <td>October 15, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Duration</strong></td>
+                                                    <td>30 Minutes</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Account</strong></td>
+                                                    <td>Free tier</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Core Activity</strong></td>
+                                                    <td>Tracking daily habits and maintaining consistency streaks</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Ease of use</strong></td>
+                                                    <td>Extremely clean and minimal interface. Setting up custom habits is fast, and checking off daily tasks requires just a single tap on color-coded calendar grid.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Key findings</strong></td>
+                                                    <td>Visual calendar heatmaps, daily streak counters, consistency percentages, and customizable habit lists. It focuses purely on whether an action was completed each day rather than recording performance data.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Observed Friction</strong></td>
+                                                    <td>Everyday.app is strictly built around binary habit completion (did you do it or not?). It lacks any features for uploading media or recordings or analyzing techniques of growth for recreational skills. Streaks can also feel punishing when a user practices a hobby weekly rather than daily, especially if you do something that is completely weekly instead of daily. Not only that, but the free tier is really limiting, and it's kind of necessary to buy the premium tier if you want to genuinely use this app.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             )}
                         </section>
@@ -890,7 +998,7 @@ function Sprint3() {
                                 <div>
                                     <h2>Interview Notes</h2>
                                     <p style={{ color: 'var(--text-secondary)', margin: '0.35rem 0 0 0', fontSize: '0.95rem' }}>
-                                        Firsthand customer discovery interview notes from team members Isaac Padilla, Karina Rivera, Juan Reyna, and Ricardo Morales.
+                                        Firsthand customer discovery interview notes from team members Isaac Padilla, Karina Rivera, Juan Reyna, Ricardo Morales, and Jonathan Hernandez.
                                     </p>
                                 </div>
                                 <div className="collapsible-header-actions">
@@ -1766,6 +1874,206 @@ function Sprint3() {
                                     </div>
                                 </div>
                             )}
+
+                            {/* Jonathan Hernandez's Interview Notes */}
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
+                                <div>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Interview Notes - Jonathan</h3>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleInterviewSection('jonathan')}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={openInterviewSections.jonathan}
+                                        aria-controls="interview-notes-content-jonathan"
+                                    >
+                                        {openInterviewSections.jonathan ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint3/Interview Notes - Jonathan Hernandez.pdf"
+                                        download="Interview Notes - Jonathan Hernandez.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {!openInterviewSections.jonathan ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => toggleInterviewSection('jonathan')}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleInterviewSection('jonathan'); }}
+                                    aria-label="Expand Jonathan's Interview Notes section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Jonathan&apos;s Interview Notes Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view 3 participant interviews by Jonathan Hernandez (Boxing &amp; Recreational Sports, Piano &amp; Jewelry Making, Golf).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Notes</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="interview-notes-content-jonathan" style={{ marginTop: '1.5rem', marginBottom: '3rem' }}>
+                                    {/* Interview 1 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterviewCard('jonathan_1')}
+                                            aria-expanded={openInterviews.jonathan_1}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
+                                                <span className="interview-pill-badge">9 Behaviors • 4 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.jonathan_1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.jonathan_1 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Participated in touch football (Tochito), soccer, and boxing.</li>
+                                                        <li>Last participated about a month ago, currently busy with school activities.</li>
+                                                        <li>Plays sports at recreational centers in Juárez and visits a boxing gym close to home.</li>
+                                                        <li>Got into boxing because it was recommended by a friend.</li>
+                                                        <li>Participates with friends and in group training or sparring settings.</li>
+                                                        <li>Pays for boxing classes.</li>
+                                                        <li>Purchased boxing hand wraps and learned how to put them on properly from a coach.</li>
+                                                        <li>Stopped going to a previous boxing membership because work and school got in the way.</li>
+                                                        <li>Uses online resources such as YouTube and social media for tutorials and learning.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions &amp; Key Takeaways</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>Gatekeeping:</strong> Prefers not to recommend locations to new friends to keep fewer people around (something to keep in mind for platform design and community building).</li>
+                                                        <li><strong>Progress Tracking:</strong> Does not formally track metrics with apps or step counters, mostly trains until tired or relies on subjective physical observation (e.g., better dodging in touch football, increased resistance and performance in boxing).</li>
+                                                        <li><strong>Tools &amp; Apps:</strong> Open to the idea of a viable tracking app, but currently relies on physical realization rather than digital logs.</li>
+                                                        <li><strong>Instruction &amp; Flexibility (Platform Relevance):</strong> Views online instruction as a viable option when needed, though he strongly prefers hands-on learning for physical activities. This subjectivity highlights how people learn varies from person to person. Emphasizing this insight directly supports our product idea of making portfolio customization as expandable and adaptable as possible to accommodate diverse learning styles and user preferences.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 2 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterviewCard('jonathan_2')}
+                                            aria-expanded={openInterviews.jonathan_2}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
+                                                <span className="interview-pill-badge">8 Behaviors • 3 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.jonathan_2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.jonathan_2 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Took piano classes, with the last activity about three months ago.</li>
+                                                        <li>Participated in an end-of-year piano concert.</li>
+                                                        <li>Learned a piece, practiced it over the next year, and successfully completed it.</li>
+                                                        <li>Recorded progress using phone videos and photos saved in the gallery, tracking the date and time.</li>
+                                                        <li>Started playing after finding a spare keyboard at her grandmother&apos;s house.</li>
+                                                        <li>Began jewelry making by experimenting and making earrings rather than using formal instruction.</li>
+                                                        <li>Considered using a piano application, but ultimately did not use it.</li>
+                                                        <li>Knows a friend who plays piano, tracks sheet notes, and understands improvements.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions &amp; Key Takeaways</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>Measuring Progress:</strong> Finds it difficult to know if skills are actually improving without external validation, relies on feedback from others and observing jewelry and creativity. This is a key thing to mention since it emphasizes another key aspect of our app, which is the ability to have people help you review your portfolio (from professionals to friends and family), which helps the individual progress.</li>
+                                                        <li><strong>Privacy vs. Sharing:</strong> Prefers to keep accomplishments private to avoid pressure, though flexible to eventually sharing work (e.g., drawing courses, finished pieces). This applies to the social aspect of the app and how we need to make sure this type of preference is applied correctly without affecting other users.</li>
+                                                        <li><strong>Memory &amp; Organization:</strong> Notes that writing things down helps with memory since she otherwise relies on keeping track of things in her head. This emphasizes that the app is likely a good idea for many different people.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 3 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterviewCard('jonathan_3')}
+                                            aria-expanded={openInterviews.jonathan_3}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 3 - Golf</h3>
+                                                <span className="interview-pill-badge">7 Behaviors • 3 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.jonathan_3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.jonathan_3 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Participates in golf as a leisure activity (alongside watching movies and staying at home).</li>
+                                                        <li>Active for about two months, picks a golf course, schedules a tee time, and plays 9 or 18 holes.</li>
+                                                        <li>Practices by hitting balls at the driving range weekly and playing on courses.</li>
+                                                        <li>Uses a course golf-tracking application to record strokes, distances, and scores while playing.</li>
+                                                        <li>Sometimes records swings to compare videos for technique adjustments, though it can be hard to spot fine details.</li>
+                                                        <li>Got into golf as a spectator through a brother&apos;s friend.</li>
+                                                        <li>Shares experiences and plays with others who enjoy golf.</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions &amp; Key Takeaways</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li><strong>Tracking &amp; Apps:</strong> Considers tracking apps viable and useful, noting that subscriptions offering advanced metrics (like ball speed and impact force) are common among other golfers. This could lead to adding a way for users to connect other apps for the tracking part of our app, allowing it to become the centralized hub for tracking multiple things.</li>
+                                                        <li><strong>Coaching &amp; Lessons:</strong> Interested in taking professional golf lessons to improve form and rely less on guesswork, but constrained by time availability. He likes the idea of taking lessons, which validates having instructor lessons offered directly in our app.</li>
+                                                        <li><strong>Improvement Assessment:</strong> Relies on memory, comparing past sessions, range statistics, and video comparisons. This connects back to memory and organization, emphasizing that the app is likely a good idea for many different people.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     </div>
 
@@ -1777,7 +2085,7 @@ function Sprint3() {
                                 <div>
                                     <h2>Contradiction Memo</h2>
                                     <p style={{ color: 'var(--text-secondary)', margin: '0.35rem 0 0 0', fontSize: '0.95rem' }}>
-                                        Analysis of contradictions between initial business assumptions and customer discovery findings by team members Isaac Padilla, Karina Rivera, and Juan Reyna.
+                                        Analysis of contradictions between initial business assumptions and customer discovery findings by team members Isaac Padilla, Karina Rivera, Juan Reyna, Ricardo Morales, and Jonathan Hernandez.
                                     </p>
                                 </div>
                                 <div className="collapsible-header-actions">
@@ -2236,6 +2544,131 @@ function Sprint3() {
                                         much progress they have made without feeling the pressure of competing with others.
                                         Finally, we could enable activity tracking to be a quick process for those who do not wish to
                                         devote too much time to document their progress.
+                                    </p>
+                                </div>
+                            )}
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
+                                <div>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Contradiction Memo - Jonathan</h3>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleContradictionMemo('jonathan')}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={openContradictionMemos.jonathan}
+                                        aria-controls="contradiction-memo-content-jonathan"
+                                    >
+                                        {openContradictionMemos.jonathan ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint3/Contradiction Memo - Jonathan Hernandez.pdf"
+                                        download="Contradiction Memo - Jonathan Hernandez.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {!openContradictionMemos.jonathan ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => toggleContradictionMemo('jonathan')}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleContradictionMemo('jonathan'); }}
+                                    aria-label="Expand Jonathan's Contradiction Memo section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Jonathan&apos;s Contradiction Memo Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view the Contradiction Memo by Jonathan Hernandez (October 18, 2026).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Memo</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="contradiction-memo-content-jonathan" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '1.5rem',
+                                        flexWrap: 'wrap',
+                                        marginBottom: '1.5rem',
+                                        padding: '0.85rem 1.25rem',
+                                        background: 'var(--surface)',
+                                        borderRadius: '10px',
+                                        border: '1px solid rgba(124, 58, 237, 0.15)',
+                                        fontSize: '0.92rem',
+                                        color: 'var(--text-secondary)'
+                                    }}>
+                                        <span><strong>Document:</strong> Contradiction Memo</span>
+                                        <span><strong>Date:</strong> October 18, 2026</span>
+                                        <span><strong>Team:</strong> Team 3</span>
+                                        <span><strong>Author:</strong> Jonathan Hernandez</span>
+                                    </div>
+
+                                    <p>
+                                        When looking over our interviews for boxing, piano, jewelry making, and golf, we found some clear
+                                        contradictions in how people practice their hobbies that directly challenged our team&apos;s initial
+                                        assumptions. As computer science students working on a project management assignment, spotting
+                                        these differences early is super helpful because it keeps us from building features people do not
+                                        actually want based on flawed guesses.
+                                    </p>
+
+                                    <p>
+                                        The first major tension is between wanting privacy and wanting to share. While we did take user
+                                        preferences in sharing into consideration during our initial assumptions, it was through these
+                                        interviews that we realized just how crucial a well-thought-out approach is, especially after seeing
+                                        the contradiction in how users wanted to share. In our piano and jewelry interview, the user likes to
+                                        keep things totally private to avoid pressure, while also admitting that getting feedback from others
+                                        helps them improve. Similarly, our boxing user likes to &ldquo;gatekeep&rdquo; gym locations to keep
+                                        crowds small, even though they still enjoy working out in group settings. To fix this, our app needs
+                                        flexible privacy settings so users can easily choose what stays completely private, what goes to a
+                                        small group of friends or family, what gets reviewed by professionals without bothering anyone else,
+                                        and what gets shared publicly.
+                                    </p>
+
+                                    <p>
+                                        The second tension is about how people track their progress. We originally assumed users just wanted
+                                        numbers, stats and in general way to track progress would help them keep working towards their goal,
+                                        but our research showed that is not always true. Our boxing user does not care about step counters or
+                                        digital metrics and instead relies entirely on physical feel and endurance. Meanwhile, our golf user
+                                        uses apps for scores, but when they want to fix their swing, numbers do not help, they have to watch
+                                        and compare video recordings instead. This taught us that raw stats only show the final score, not
+                                        how to actually fix your technique. To solve this, SkillUp should act as a flexible hub where users
+                                        can save photo and video galleries, take notes, and compare past performances side-by-side. In other
+                                        words, its customization settings and expandability need to be well-designed to allow this flexibility
+                                        to flourish and adapt to any user preference.
+                                    </p>
+
+                                    <p>
+                                        Finally, we saw a split between how people prefer to learn versus how they actually find resources.
+                                        We assumed a single learning pathway would work, but for boxing, the user strongly prefers hands-on,
+                                        in-person training while still using YouTube tutorials when they need a quick fix like learning how
+                                        to wrap their hands. For golf, the user really wants professional lessons but cannot fit them into
+                                        their schedule. This proves that learning styles are totally different for everyone. Letting users
+                                        access professional lessons inside SkillUp is a great option, but more importantly, it shows why our
+                                        app&apos;s portfolio customization needs to be as adaptable as possible so it can fit any learning style.
                                     </p>
                                 </div>
                             )}
