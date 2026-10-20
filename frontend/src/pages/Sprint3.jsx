@@ -41,7 +41,8 @@ function Sprint3() {
     const [openContradictionMemos, setOpenContradictionMemos] = useState({
         isaac: true,
         karina: true,
-        juan: true
+        juan: true,
+        ricardo: true
     });
 
     // Collapsible state for AI Use Disclosure section in documents view
@@ -109,7 +110,8 @@ function Sprint3() {
         setOpenContradictionMemos({
             isaac: nextState,
             karina: nextState,
-            juan: nextState
+            juan: nextState,
+            ricardo: nextState
         });
     };
 
@@ -2119,6 +2121,121 @@ function Sprint3() {
                                         already on the user's phone instead of filling out long logs. Sharing, leaderboards, and certificates should be
                                         optional, not the main reason to use the app. Going forward, we should test whether users return to SkillUp when
                                         tracking takes less time, rather than assuming social features and rewards will keep them engaged.
+                                    </p>
+                                </div>
+                            )}
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem', marginTop: '3.5rem' }}>
+                                <div>
+                                    <h3 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, color: 'var(--text-primary)' }}>Contradiction Memo - Ricardo</h3>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleContradictionMemo('ricardo')}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={openContradictionMemos.ricardo}
+                                        aria-controls="contradiction-memo-content-ricardo"
+                                    >
+                                        {openContradictionMemos.ricardo ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint3/Contradiction Memo 1.pdf"
+                                        download="Contradiction Memo - Ricardo Morales Perez.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Collapsible Notice Box when section is collapsed */}
+                            {!openContradictionMemos.ricardo ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => toggleContradictionMemo('ricardo')}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleContradictionMemo('ricardo'); }}
+                                    aria-label="Expand Ricardo's Contradiction Memo section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Ricardo&apos;s Contradiction Memo Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view the Contradiction Memo by Ricardo Morales Perez (October 19, 2026).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Memo</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="contradiction-memo-content-ricardo" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '1.5rem',
+                                        flexWrap: 'wrap',
+                                        marginBottom: '1.5rem',
+                                        padding: '0.85rem 1.25rem',
+                                        background: 'var(--surface)',
+                                        borderRadius: '10px',
+                                        border: '1px solid rgba(124, 58, 237, 0.15)',
+                                        fontSize: '0.92rem',
+                                        color: 'var(--text-secondary)'
+                                    }}>
+                                        <span><strong>Document:</strong> Contradiction Memo</span>
+                                        <span><strong>Date:</strong> October 19, 2026</span>
+                                        <span><strong>Team:</strong> Team 3</span>
+                                        <span><strong>Author:</strong> Ricardo Morales Perez</span>
+                                    </div>
+
+                                    <p>
+                                        In our previous two sprints, we assumed that people wanted to share their achievements
+                                        and follow other people in order to stay motivated. As you can see, our previous
+                                        assumption was that we believed people would like to share their achievements; however,
+                                        after conducting interviews, we found out that there are users who want to keep their
+                                        achievements private. For example, in our interview on piano and cheerleading, the
+                                        participant stated that she wanted to keep everything private because it could bring some
+                                        pressure. Thus, it is obvious that we have to think of other ways to motivate our users that
+                                        do not involve sharing achievements of other people.
+                                    </p>
+
+                                    <p>
+                                        Two more interviews helped us understand other methods of motivation used by our users.
+                                        In the golfing interview, the participant recorded his swing, analyzed it in order to identify
+                                        his mistakes and improve his performance. At the same time, the participant who played
+                                        football and boxing was motivated by repetitions and improvement of his physical form. It
+                                        means that users can be motivated by identifying their own improvements and, therefore,
+                                        they do not have to compete with anyone else.
+                                    </p>
+
+                                    <p>
+                                        For my own advice, I would recommend making social features optional and letting users
+                                        decide whether they wish to share their accomplishments or not. We could introduce
+                                        social features such as letting the users have private profiles where they do not need to
+                                        share everything they achieve, sharing particular accomplishments when they feel like
+                                        doing so, and getting the feedback from friends without having everything about their
+                                        progress made publicly available. I would further recommend incorporating simple
+                                        progress graphs and milestones along with personal summaries to let users assess how
+                                        much progress they have made without feeling the pressure of competing with others.
+                                        Finally, we could enable activity tracking to be a quick process for those who do not wish to
+                                        devote too much time to document their progress.
                                     </p>
                                 </div>
                             )}
