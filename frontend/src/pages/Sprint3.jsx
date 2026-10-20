@@ -1902,7 +1902,7 @@ function Sprint3() {
                                     </button>
 
                                     <a
-                                        href="/documents/sprint3/Interview Notes - Jonathan Hernandez.pdf"
+                                        href="/documents/sprint3/Interview Notes.pdf"
                                         download="Interview Notes - Jonathan Hernandez.pdf"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -2574,7 +2574,7 @@ function Sprint3() {
                                     </button>
 
                                     <a
-                                        href="/documents/sprint3/Contradiction Memo - Jonathan Hernandez.pdf"
+                                        href="/documents/sprint3/Contradiction Memo.pdf"
                                         download="Contradiction Memo - Jonathan Hernandez.pdf"
                                         target="_blank"
                                         rel="noopener noreferrer"
