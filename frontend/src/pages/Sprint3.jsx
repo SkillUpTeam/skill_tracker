@@ -1634,6 +1634,111 @@ function Sprint3() {
                                     </p>
                                 </div>
                             )}
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Contradiction Memo - Karina</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsContradictionMemoOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isContradictionMemoOpen}
+                                        aria-controls="contradiction-memo-content"
+                                    >
+                                        {isContradictionMemoOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint3/Contradiction Memo - Karina Rivera.pdf"
+                                        download="Contradiction Memo - Karina Rivera.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Collapsible Notice Box when section is collapsed */}
+                            {!isContradictionMemoOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsContradictionMemoOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsContradictionMemoOpen(true); }}
+                                    aria-label="Expand Contradiction Memo section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Contradiction Memo Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view the Contradiction Memo by Isaac Padilla (October 18, 2026).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Memo</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="contradiction-memo-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '1.5rem',
+                                        flexWrap: 'wrap',
+                                        marginBottom: '1.5rem',
+                                        padding: '0.85rem 1.25rem',
+                                        background: 'var(--surface)',
+                                        borderRadius: '10px',
+                                        border: '1px solid rgba(124, 58, 237, 0.15)',
+                                        fontSize: '0.92rem',
+                                        color: 'var(--text-secondary)'
+                                    }}>
+                                        <span><strong>Document:</strong> Contradiction Memo</span>
+                                        <span><strong>Date:</strong> October 18, 2026</span>
+                                        <span><strong>Team:</strong> Team 3</span>
+                                        <span><strong>Author:</strong> Karina Rivera</span>
+                                    </div>
+
+                                    <ul>
+                                        <li>Contradiction 1: Not everyone feels the need to track their progress.</li>
+                                        <ul>
+                                            <li>We originally assumed that people struggle to stay motivated because they don't have a way to track or visualize their progress. However, the interviews showed that some people are comfortable recognizing improvement without actively tracking anything. </li>
+                                            <li>Evidence: Interviewee 1 mentioned that they recognize improvement through physical performance rather than statistics. Interviewee 2 said they spend no time documenting their progress and mostly keep everything in their head. Interviewee 3 also relies on memory and occasionally records videos to compare their golf swings. (INT-01, INT-02, INT-03)</li>
+                                        </ul>
+                                        <li>Contradiction 2: Lack of progress tracking isn’t always why people stop practicing their recreational activities.</li>
+                                        <ul>
+                                            <li>We assumed that not being able to see progress was one of the main reasons people lose motivation or stop participating in recreational activities. However, two interviewees mentioned that their schedules were what prevented them from continuing.</li>
+                                            <li>Evidence: Interviewee 1 stopped participating in sports because of schoolwork. Interviewee 3 mentioned that work prevented them from continuing boxing and that time was also a reason they hadn't started golf lessons. (INT–01, INT-03)</li>
+                                        </ul>
+                                        <li>Contradiction 3: Some users already have tools that help them track their activities.</li>
+                                        <ul>
+                                            <li>We assumed that people needed a centralized platform because their current methods of tracking activities weren't enough. However, some interviewees already use tools that help them document their progress.</li>
+                                            <li>Evidence: Interviewee 3 uses a golf application that tracks scores, distances, and other statistics. Interviewee 2 keeps recordings of piano performances in their phone's photo gallery. Both examples show that people already have ways to save information about their activities. (INT-03, INT-02)</li>
+                                        </ul>
+                                        <li>Contradiction 4: Progress means something different depending on the recreational activity .</li>
+                                        <ul>
+                                            <li>We assumed that progress could be tracked and displayed in a similar way across different recreational activities. However, each interviewee described improvement differently depending on what they were doing. </li>
+                                            <li>Evidence:  Interviewee 1 recognizes improvement through physical performance in sports. Interviewee 2 measures progress in piano by learning difficult pieces and with jewelry by becoming more creative. Interviewee 3 uses golf scores, swing recordings, and practice sessions to evaluate improvement. (INT-01, INT-02, INT-03) </li>
+                                        </ul>
+                                    </ul>
+                                </div>
+                            )}
                         </section>
                     </div>
 
