@@ -59,6 +59,78 @@ function Sprint3() {
     // Collapsible state for Competitive Landscape section in documents view
     const [isCompetitiveLandscapeOpen, setIsCompetitiveLandscapeOpen] = useState(true);
 
+    // Collapsible state for Interview Guides section in documents view
+    const [isInterviewGuidesOpen, setIsInterviewGuidesOpen] = useState(true);
+
+    // Interview guide questions (shared by both guide versions; the revised version adds one Last-Time Story question)
+    const interviewGuideParts = (includeTrackingIdea) => [
+        {
+            title: '1. Screening (1 minute)',
+            questions: [
+                'What hobbies or recreational activities have you participated in recently?',
+                'When was the last time you participated in one of those activities?'
+            ]
+        },
+        {
+            title: '2. Last-Time Story (4 minutes)',
+            questions: [
+                'Walk me through the last time you participated in that activity.',
+                'How did you know whether you had improved or made progress?',
+                'Did you record or document anything afterward? Walk me through what you did.'
+            ],
+            followUp: 'Can you show or describe where you kept that information?',
+            extra: includeTrackingIdea
+                ? 'If we were able to provide a way to track recreational activities that would be helpful for you, how would that look like?'
+                : null
+        },
+        {
+            title: '3. Alternatives (3 minutes)',
+            questions: [
+                'What methods or tools have you used to keep track of your activities or achievements?',
+                'What did you use before your current method?',
+                'What difficulties, if any, have you encountered with those methods?'
+            ]
+        },
+        {
+            title: '4. Switching Story (4 minutes)',
+            questions: [
+                'Think about the last time you changed how you tracked your progress. What led to that change?',
+                'What made you choose the new method?',
+                'Was there anything that almost stopped you from switching?',
+                'What would cause you to stop using your current method?'
+            ]
+        },
+        {
+            title: '5. Money and Time (2 minutes)',
+            questions: [
+                'How much time did you spend documenting or reviewing your progress the last time you did it?',
+                'Have you paid for any tools, subscriptions, or services related to tracking your activities? What did you spend?'
+            ]
+        },
+        {
+            title: '6. Closing (1 minute)',
+            questions: [
+                "Is there anything else about your experience that we haven't discussed?",
+                'Do you know anyone else who keeps track of their hobbies or personal achievements and might be willing to share their experience?'
+            ]
+        }
+    ];
+
+    const interviewGuides = [
+        {
+            key: 'original',
+            label: 'Interview Guide - Original',
+            pdf: 'Interview Questions_3614.pdf',
+            parts: interviewGuideParts(false)
+        },
+        {
+            key: 'revised',
+            label: 'Interview Guide - Revised',
+            pdf: 'Interview Questions_9636.pdf',
+            parts: interviewGuideParts(true)
+        }
+    ];
+
     const toggleInterviewSection = (memberKey) => {
         setOpenInterviewSections(prev => ({
             ...prev,
@@ -128,6 +200,7 @@ function Sprint3() {
         { id: 'competitive-landscape', label: 'Competitive Landscape' },
         { id: 'change-note-and-candidate-risks', label: 'Change Note & Candidate Risks' },
         { id: 'evidence-log', label: 'Evidence Log' },
+        { id: 'interview-guides', label: 'Interview Guides' },
         { id: 'interview-notes', label: 'Interview Notes' },
         { id: 'contradiction-memo', label: 'Contradiction Memo' },
         { id: 'ai-use-disclosure', label: 'AI Use Disclosure' }
@@ -592,7 +665,7 @@ function Sprint3() {
                             ) : (
                                 <div id="evidence-log-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '100%' }}>
                                     <p style={{ color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '1.5rem' }}>
-                                        Team 3: Isaac Padilla, Juan Reyna
+                                        Team 3: Isaac Padilla, Karina Rivera, Juan Reyna, Ricardo Morales, Jonathan Hernandez
                                     </p>
 
                                     {/* Summary Table */}
@@ -985,6 +1058,101 @@ function Sprint3() {
                                             </tbody>
                                         </table>
                                     </div>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+
+                    {/* Section: Interview Guides (Collapsible in Documents View) */}
+                    <div className="sprint-content">
+                        <section id="interview-guides" className="sprint-section">
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Interview Guides</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsInterviewGuidesOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isInterviewGuidesOpen}
+                                        aria-controls="interview-guides-content"
+                                    >
+                                        {isInterviewGuidesOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {!isInterviewGuidesOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsInterviewGuidesOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsInterviewGuidesOpen(true); }}
+                                    aria-label="Expand Interview Guides section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Interview Guides Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view the original and revised interview guides.
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Guides</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="interview-guides-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                    {interviewGuides.map((guide) => (
+                                        <div key={guide.key} style={{ marginBottom: '2.5rem' }}>
+                                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                                <h3 style={{ margin: 0 }}>{guide.label}</h3>
+                                                <a
+                                                    href={`/documents/sprint3/${guide.pdf}`}
+                                                    download={`${guide.label}.pdf`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="pdf-button"
+                                                >
+                                                    Download PDF
+                                                </a>
+                                            </div>
+
+                                            <p style={{ color: 'var(--text-secondary)', marginTop: '0.75rem' }}>
+                                                <strong>Interview Guide 1: Progress Tracking and Motivation</strong><br />
+                                                <strong>Duration:</strong> 15 minutes &nbsp; <strong>Focus:</strong> Personal progress, motivation, and recordkeeping
+                                            </p>
+
+                                            {guide.parts.map((part) => (
+                                                <div key={part.title} style={{ marginBottom: '1rem' }}>
+                                                    <h4>{part.title}</h4>
+                                                    <ul>
+                                                        {part.questions.map((question) => (
+                                                            <li key={question}>{question}</li>
+                                                        ))}
+                                                    </ul>
+                                                    {part.followUp && (
+                                                        <p><strong>Follow-up:</strong> {part.followUp}</p>
+                                                    )}
+                                                    {part.extra && <p>{part.extra}</p>}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
                                 </div>
                             )}
                         </section>
