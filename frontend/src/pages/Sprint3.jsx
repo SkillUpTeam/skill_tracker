@@ -1739,6 +1739,107 @@ function Sprint3() {
                                     </ul>
                                 </div>
                             )}
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Contradiction Memo - Juan</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsContradictionMemoOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isContradictionMemoOpen}
+                                        aria-controls="contradiction-memo-content"
+                                    >
+                                        {isContradictionMemoOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Collapsible Notice Box when section is collapsed */}
+                            {!isContradictionMemoOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsContradictionMemoOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsContradictionMemoOpen(true); }}
+                                    aria-label="Expand Contradiction Memo section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Contradiction Memo Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view the Contradiction Memo by Juan Reyna (October 19, 2026).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Memo</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="contradiction-memo-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '900px' }}>
+                                    <div style={{
+                                        display: 'flex',
+                                        gap: '1.5rem',
+                                        flexWrap: 'wrap',
+                                        marginBottom: '1.5rem',
+                                        padding: '0.85rem 1.25rem',
+                                        background: 'var(--surface)',
+                                        borderRadius: '10px',
+                                        border: '1px solid rgba(124, 58, 237, 0.15)',
+                                        fontSize: '0.92rem',
+                                        color: 'var(--text-secondary)'
+                                    }}>
+                                        <span><strong>Document:</strong> Contradiction Memo</span>
+                                        <span><strong>Date:</strong> October 19, 2026</span>
+                                        <span><strong>Team:</strong> Team 3</span>
+                                        <span><strong>Author:</strong> Juan Reyna</span>
+                                    </div>
+
+                                    <p>
+                                        <strong>Original assumption:</strong> Our charter assumed lack of motivation is a main reason people struggle with
+                                        recreational activities, and that social support, accountability, and rewards would keep users engaged. Because of
+                                        this, our scope included sharable progression cards, an activity feed, leaderboards, and certificates.
+                                    </p>
+
+                                    <p>
+                                        <strong>What was found:</strong> Participants were already motivated. In INT-01, the participant does activities for
+                                        fun, love, skill, and protection, "not for fame/awards," and small setbacks don't demotivate them. They also avoid
+                                        sharing their progress because they don't like the pressure, even though they would like to overcome that. What
+                                        actually stopped participants was time. INT-01 hadn't done much since last month because of school, and in INT-03
+                                        work got in the way of going back to boxing, and time was the main reason they hadn't started golf lessons.
+                                    </p>
+
+                                    <p>
+                                        <strong>What it means:</strong> Tracking is still valuable. INT-02 finds it difficult to know if they are improving
+                                        and would like quantitative statistics or reinforcement from others, but spends no time reviewing or documenting
+                                        their progress. INT-03 already uses golf apps to track stats and compares swing form with past videos. The problem
+                                        is not a lack of motivation but a lack of time, and SkillUp's planned features rely on users spending extra time
+                                        logging and sharing, which busy users are unlikely to do.
+                                    </p>
+
+                                    <p>
+                                        <strong>What changes:</strong> SkillUp should make tracking quick and private by default, such as adding a recording
+                                        already on the user's phone instead of filling out long logs. Sharing, leaderboards, and certificates should be
+                                        optional, not the main reason to use the app. Going forward, we should test whether users return to SkillUp when
+                                        tracking takes less time, rather than assuming social features and rewards will keep them engaged.
+                                    </p>
+                                </div>
+                            )}
                         </section>
                     </div>
 
