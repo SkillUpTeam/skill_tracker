@@ -1289,6 +1289,229 @@ function Sprint3() {
                                     </div>
                                 </div>
                             )}
+
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Interview Notes - Juan</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsInterviewSectionOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isInterviewSectionOpen}
+                                        aria-controls="interview-notes-content"
+                                    >
+                                        {isInterviewSectionOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    {isInterviewSectionOpen && (
+                                        <button
+                                            type="button"
+                                            onClick={toggleAllInterviews}
+                                            className="collapsible-toggle-btn"
+                                        >
+                                            <ChevronsUpDown size={16} />
+                                            <span>{areAllInterviewsOpen ? 'Collapse All' : 'Expand All'}</span>
+                                        </button>
+                                    )}
+
+                                    <a
+                                        href="/documents/sprint3/InterviewNotes_Juan.pdf"
+                                        download="InterviewNotes_Juan.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Collapsible Notice Box when section is collapsed */}
+                            {!isInterviewSectionOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsInterviewSectionOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsInterviewSectionOpen(true); }}
+                                    aria-label="Expand Interview Notes section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Interview Notes Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view 3 participant interviews (Boxing & Recreational Sports, Piano & Jewelry Making, Golf).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Notes</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="interview-notes-content" style={{ marginTop: '1.5rem' }}>
+                                    {/* Interview 1 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterview('interview1')}
+                                            aria-expanded={openInterviews.interview1}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 1 - Boxing and Recreational Sports</h3>
+                                                <span className="interview-pill-badge">10 Behaviors • 6 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.interview1 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.interview1 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Haven't done much since last month, school obstacle</li>
+                                                        <li>Set up in Juarez, goes to places that host those sports, box gyms</li>
+                                                        <li>Found out about those places by recommendation from friends</li>
+                                                        <li>Gatekeeps locations, for fast access, no lines</li>
+                                                        <li>Able to determine progress by performance in training/gameplay</li>
+                                                        <li>Divides into groups, each group performs different training, rotates, 2 hours</li>
+                                                        <li>Not really, repeatable until failure</li>
+                                                        <li>Paid classes</li>
+                                                        <li>Took a while to learn hand wrap, though it was mummy hand, taught by coach</li>
+                                                        <li>In person and video sharing from friends' progress</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Kinda like football, rugby, soccer, and boxing. Mostly physical</li>
+                                                        <li>Step tracker similar, doesn't see how it will improve, due to self-reflection</li>
+                                                        <li>Performs activities for the fun/love/skill/protection. Not for fame/awards</li>
+                                                        <li>Small setbacks don't demotivate them at all</li>
+                                                        <li>Can see it for some, but depends on the person and if materials are there. Will of the person</li>
+                                                        <li>Doesn't share with others, doesn't like the pressure, would like to overcome that</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 2 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterview('interview2')}
+                                            aria-expanded={openInterviews.interview2}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 2 - Piano and Jewelry Making</h3>
+                                                <span className="interview-pill-badge">8 Behaviors • 4 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.interview2 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.interview2 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Lately playing piano, last time ~3 months ago, piano class, end-of-year concert</li>
+                                                        <li>Initially, learn and see progress by playing a whole piece</li>
+                                                        <li>Friends? Records kept by video on phone</li>
+                                                        <li>Quantity, have recording later</li>
+                                                        <li>No time for reviewing/documenting</li>
+                                                        <li>Nope, viewed a piano app, but considered</li>
+                                                        <li>Has a friend that keeps track and documents daily</li>
+                                                        <li>Found a spare keyboard, made jewelry from old jewelry scraps for mom, self-taught</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Difficult to know improvement, would like to view quantitative statistics or reinforcement from others</li>
+                                                        <li>Writing it down, tends to forget without scribed records</li>
+                                                        <li>Jewelry activity: feels improvement from more creativity</li>
+                                                        <li>Being able to wear their products from their work</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Interview 3 */}
+                                    <div className="interview-card-accordion">
+                                        <button
+                                            type="button"
+                                            className="interview-card-header"
+                                            onClick={() => toggleInterview('interview3')}
+                                            aria-expanded={openInterviews.interview3}
+                                        >
+                                            <div className="interview-title-group">
+                                                <h3 className="interview-card-title">Interview 3 - Golf</h3>
+                                                <span className="interview-pill-badge">16 Behaviors • 2 Opinions</span>
+                                            </div>
+                                            <span className="interview-chevron-icon">
+                                                {openInterviews.interview3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                            </span>
+                                        </button>
+
+                                        {openInterviews.interview3 && (
+                                            <div className="interview-card-body">
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Behaviors</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Done: golfing, leisure time, relaxing at home or movies</li>
+                                                        <li>2 months ago, last time doing the activity</li>
+                                                        <li>Picked a course, reserved a tee time (schedule play time)</li>
+                                                        <li>Chooses mode, reserves by call or phone</li>
+                                                        <li>Keeps practicing or swings anywhere</li>
+                                                        <li>No written progress/tracking, but uses memory, sometimes records video. Compares swing form with past videos</li>
+                                                        <li>Performs detailed analysis for videos</li>
+                                                        <li>Golf apps track some stats, such as power, ball tracking, etc. Uses those for analysis sometimes</li>
+                                                        <li>Cannot say, doesn't remember trying other activities</li>
+                                                        <li>Depends, often usually goes on weekends, weekly basis</li>
+                                                        <li>Got into golf from family and started going on their own</li>
+                                                        <li>Has friends that share their golf days</li>
+                                                        <li>Knows a few that track their golfing</li>
+                                                        <li>Some have paid subscriptions for more tool analysis</li>
+                                                        <li>Tried going back to boxing, but work got in the way</li>
+                                                        <li>Does use online free resources to learn golfing</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div className="interview-subgroup">
+                                                    <h4 className="interview-subgroup-title">Opinions</h4>
+                                                    <ul className="interview-bullet-list">
+                                                        <li>Considering taking golf lessons, one major consideration will be time</li>
+                                                        <li>Does consider using an app that allows…</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
                         </section>
                     </div>
 
