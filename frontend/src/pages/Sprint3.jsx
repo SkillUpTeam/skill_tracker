@@ -50,6 +50,9 @@ function Sprint3() {
         jonathan: true
     });
 
+    // Collapsible state for Change Log section in documents view
+    const [isChangeLogOpen, setIsChangeLogOpen] = useState(true);
+
     // Collapsible state for AI Use Disclosure section in documents view
     const [isAiDisclosureOpen, setIsAiDisclosureOpen] = useState(true);
 
@@ -203,6 +206,7 @@ function Sprint3() {
         { id: 'interview-guides', label: 'Interview Guides' },
         { id: 'interview-notes', label: 'Interview Notes' },
         { id: 'contradiction-memo', label: 'Contradiction Memo' },
+        { id: 'change-log', label: 'Change Log' },
         { id: 'ai-use-disclosure', label: 'AI Use Disclosure' }
     ];
 
@@ -2838,6 +2842,346 @@ function Sprint3() {
                                         access professional lessons inside SkillUp is a great option, but more importantly, it shows why our
                                         app&apos;s portfolio customization needs to be as adaptable as possible so it can fit any learning style.
                                     </p>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+
+                    {/* Section: Change Log (Collapsible in Documents View) */}
+                    <div className="sprint-content">
+                        <section id="change-log" className="sprint-section">
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Sprint Change Log</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsChangeLogOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isChangeLogOpen}
+                                        aria-controls="change-log-content"
+                                    >
+                                        {isChangeLogOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint3/Sprint 3 Change Log.pdf"
+                                        download="Sprint 3 Change Log.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {!isChangeLogOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsChangeLogOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsChangeLogOpen(true); }}
+                                    aria-label="Expand Change Log section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Change Log Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view the 4 Sprint 3 change entries (CL-3-01 to CL-3-04).
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Change Log</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="change-log-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '100%' }}>
+                                    {/* 1. Change Log Header */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Change Log Header</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Project</strong></td>
+                                                    <td>SkillUp</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Sprint</strong></td>
+                                                    <td>Sprint 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Prior version</strong></td>
+                                                    <td>Sprint 2 Change Log (October 5, 2026), Project Charter v1.0 (09/15/2026), Strategy-to-Project Chain, Sprint 2 Budget</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Date of this version</strong></td>
+                                                    <td>October 19, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Logged by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Reviewed by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* 2. Change Summaries */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Change Summaries</h3>
+                                        <div style={{ overflowX: 'auto' }}>
+                                            <table className="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th style={{ width: '12%' }}>ID</th>
+                                                        <th style={{ width: '18%' }}>Area</th>
+                                                        <th style={{ width: '44%' }}>What changed</th>
+                                                        <th style={{ width: '14%' }}>Reason type</th>
+                                                        <th style={{ width: '12%' }}>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong>CL-3-01</strong></td>
+                                                        <td>Success criteria</td>
+                                                        <td>Engagement now includes users returning to review past activities, not only logging new ones</td>
+                                                        <td>New evidence</td>
+                                                        <td>Active</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>CL-3-02</strong></td>
+                                                        <td>Risks</td>
+                                                        <td>New candidate risk R1: users may stay with current apps or informal tracking</td>
+                                                        <td>New evidence</td>
+                                                        <td>Active</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>CL-3-03</strong></td>
+                                                        <td>Assumptions</td>
+                                                        <td>Social features treated as optional; users may prefer to keep progress private</td>
+                                                        <td>New evidence</td>
+                                                        <td>Proposed</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>CL-3-04</strong></td>
+                                                        <td>Competitive positioning</td>
+                                                        <td>Competitors classified: Strava direct; Skillshare and Everyday.app indirect; manual tracking status quo</td>
+                                                        <td>New information</td>
+                                                        <td>Active</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    {/* 3. Change Entries */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>CL-3-01: Success criterion expanded to include reviewing past activities</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Date decided</strong></td>
+                                                    <td>October 19, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Decided by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Status</strong></td>
+                                                    <td>Active</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Evidence</strong></td>
+                                                    <td>INT-01, INT-02, INT-03</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            The Project Charter defined success partly as high retention rates, where users consistently log activities
+                                            and provide feedback. Interviews showed that participants could already see progress through personal
+                                            experience, coaching, completed work, and recordings without formal logging. The criterion now also counts
+                                            users who return to review their previous activities and accomplishments, even without adding anything new,
+                                            as meaningful engagement with SkillUp.
+                                        </p>
+                                    </div>
+
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>CL-3-02: New candidate risk R1</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Date decided</strong></td>
+                                                    <td>October 19, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Decided by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Status</strong></td>
+                                                    <td>Active</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Evidence</strong></td>
+                                                    <td>STR-01, INT-01, INT-03</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            Potential users might prefer their current applications or informal tracking methods if SkillUp does not
+                                            offer enough value to make switching worth it. Some participants showed little interest in formally recording
+                                            their activities, while others already used existing applications. The risk is owned by the Market Researcher,
+                                            and the mitigation is to compare SkillUp to more existing solutions and test what motivates users to actually use it.
+                                        </p>
+                                    </div>
+
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>CL-3-03: Social features treated as optional</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Date decided</strong></td>
+                                                    <td>Proposed, October 19, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Decided by</strong></td>
+                                                    <td>Raised in team members&apos; contradiction memos</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Status</strong></td>
+                                                    <td>Proposed</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Evidence</strong></td>
+                                                    <td>INT-01, INT-02, INT-03</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            The charter assumed that social support, reminders, or accountability may help users remain engaged, and its
+                                            scope included sharable progression cards, an activity feed, leaderboards, and certificates. Interviews showed
+                                            that some users keep their progress private because sharing creates pressure, and that participants were
+                                            motivated by their own improvement rather than awards or competition. The contradiction memos recommend making
+                                            sharing optional and keeping tracking quick and private by default. This change is proposed and has not yet
+                                            been applied to the charter scope.
+                                        </p>
+                                    </div>
+
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>CL-3-04: Competitors classified</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Date decided</strong></td>
+                                                    <td>October 19, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Decided by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Status</strong></td>
+                                                    <td>Active</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Evidence</strong></td>
+                                                    <td>STR-01, STR-02, STR-03, STR-04</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            The Strategy-to-Project Chain referenced Skillshare as an example of an existing learning platform. This
+                                            sprint&apos;s competitive landscape classified Strava as a direct competitor, Skillshare and Everyday.app as
+                                            indirect competitors, and manual tracking as the status quo, based on four hands-on teardowns.
+                                        </p>
+                                    </div>
+
+                                    {/* New assumptions */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>New Assumptions Introduced This Sprint</h3>
+                                        <div style={{ overflowX: 'auto' }}>
+                                            <table className="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th style={{ width: '27%' }}>Assumption</th>
+                                                        <th style={{ width: '18%' }}>Introduced in</th>
+                                                        <th style={{ width: '30%' }}>Relation to prior documents</th>
+                                                        <th style={{ width: '25%' }}>Why it was needed</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Returning to review past activities counts as engagement</td>
+                                                        <td>Change Note</td>
+                                                        <td>Expands charter success criterion on retention and logging</td>
+                                                        <td>Matches how participants actually see progress</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Some users prefer to keep progress private</td>
+                                                        <td>Contradiction Memos</td>
+                                                        <td>Challenges charter assumption on social support and accountability</td>
+                                                        <td>Shapes how social features are offered</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Users may not switch from current tools without clear value</td>
+                                                        <td>Candidate Risk R1</td>
+                                                        <td>New</td>
+                                                        <td>Basis for testing what motivates adoption</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    {/* Downstream impact */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Downstream Impact</h3>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style={{ width: '28%' }}>Affected page or document</th>
+                                                    <th style={{ width: '47%' }}>What changed there</th>
+                                                    <th style={{ width: '25%' }}>Updated?</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Project Charter: Success Criteria</td>
+                                                    <td>Retention criterion expanded to include reviewing past activities (CL-3-01)</td>
+                                                    <td>Recorded in Sprint 3 Change Note</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Project Charter: Assumptions and Scope</td>
+                                                    <td>Social features proposed as optional (CL-3-03)</td>
+                                                    <td>Not yet</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sprint 2 Budget</td>
+                                                    <td>No change; R1 may be added to the risk list in a later sprint</td>
+                                                    <td>N/A</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             )}
                         </section>
