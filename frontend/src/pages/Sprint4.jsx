@@ -3,6 +3,7 @@ import SubNav from "../components/SubNav";
 import SprintModeToggle from "../components/SprintModeToggle";
 import Sprint4PresentationView from "../components/presentation/Sprint4PresentationView";
 import { Eye, EyeOff } from "lucide-react";
+import sprint4Activities from "../data/sprint4Activities";
 
 function Sprint4() {
     const [viewMode, setViewMode] = useState(() => {
@@ -16,8 +17,30 @@ function Sprint4() {
     // Collapsible state for Delivery Metrics section in documents view
     const [isDeliveryMetricsOpen, setIsDeliveryMetricsOpen] = useState(true);
 
+    // Collapsible state for Sprint 4 Activities section in documents view
+    const [isActivitiesOpen, setIsActivitiesOpen] = useState(true);
+
+    // Renders a bordered table from a header row and body rows; the first column is bolded like the other Sprint tables
+    const renderTable = (head, rows) => (
+        <table className="table table-bordered">
+            <thead>
+                <tr>
+                    {head.map((cell) => <th key={cell}>{cell}</th>)}
+                </tr>
+            </thead>
+            <tbody>
+                {rows.map((row, i) => (
+                    <tr key={i}>
+                        {row.map((cell, j) => <td key={j}>{j === 0 ? <strong>{cell}</strong> : cell}</td>)}
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
+
     const subNavLinks = [
-        { id: 'delivery-metrics', label: 'Delivery Metrics' }
+        { id: 'delivery-metrics', label: 'Delivery Metrics' },
+        { id: 'sprint-4-activities', label: 'Sprint 4 Activities' }
     ];
 
     return (
@@ -28,7 +51,7 @@ function Sprint4() {
             <div className="sprint-header" style={{ paddingBottom: '1rem' }}>
                 <h1>Sprint 4</h1>
                 <p>
-                    Explore our delivery metrics for Sprints 1 to 3 and the decisions each metric triggers for Sprint 4.
+                    Explore our delivery metrics for Sprints 1 to 3, the decisions each metric triggers, and our Sprint 4 service levels, escalation path, and incident review.
                 </p>
             </div>
 
@@ -218,6 +241,127 @@ function Sprint4() {
                                             </tbody>
                                         </table>
                                         <p><strong>Next for Sprint 4:</strong> use the host's deploy list instead of commits, log breaks as GitHub issues, and prefix fix commits with "fix:".</p>
+                                    </div>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+
+                    {/* Section 2: Sprint 4 Activities */}
+                    <div className="sprint-content">
+                        <section id="sprint-4-activities" className="sprint-section">
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Sprint 4 Activities</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsActivitiesOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isActivitiesOpen}
+                                        aria-controls="sprint-4-activities-content"
+                                    >
+                                        {isActivitiesOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint4/Sprint 4 Activities.pdf"
+                                        download="Sprint 4 Activities.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {!isActivitiesOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsActivitiesOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsActivitiesOpen(true); }}
+                                    aria-label="Expand Sprint 4 Activities section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Sprint 4 Activities Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view our delivery metric notes, SLI/SLO tables, targets, error budgets, escalation path, and incident review.
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Activities</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="sprint-4-activities-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '100%' }}>
+                                    {/* 1. Delivery Metrics */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Delivery Metrics</h3>
+                                        {sprint4Activities.metrics.map(([metric, text]) => (
+                                            <p key={metric}><strong>{metric}:</strong> {text}</p>
+                                        ))}
+                                    </div>
+
+                                    {/* 2. Part A */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Service Levels: Part A Table</h3>
+                                        {renderTable(['#', 'Statement', 'Answer', 'Why'], [...sprint4Activities.partA, sprint4Activities.partARewrite])}
+                                    </div>
+
+                                    {/* 3. Part B */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Service Levels: Part B Table</h3>
+                                        <p><em>{sprint4Activities.partBNote}</em></p>
+                                        {renderTable(['Field', 'SLI 1', 'SLI 2'], sprint4Activities.partB)}
+                                    </div>
+
+                                    {/* 4. Targets */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Step 1: Targets</h3>
+                                        {renderTable(['Indicator', 'Target', 'Window', 'Who measures'], sprint4Activities.targets)}
+                                    </div>
+
+                                    {/* 5. Budgets and Policy */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Step 2: Budgets and Policy</h3>
+                                        {renderTable(['Field', 'Objective 1', 'Objective 2'], sprint4Activities.budgets)}
+                                    </div>
+
+                                    {/* 6. Escalation Path */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Step 3: Escalation Path</h3>
+                                        {renderTable(['Level', 'Example', 'Start Fixing', 'Notify Project Manager'], sprint4Activities.severity)}
+                                        {renderTable(['Role', 'Responsibility', 'Assigned'], sprint4Activities.roles)}
+                                    </div>
+
+                                    {/* 7. Incident Review */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Step 4: Incident Review</h3>
+                                        {sprint4Activities.review.map(([heading, paragraphs], i) => (
+                                            <div key={heading}>
+                                                <h4>{i + 1}. {heading}</h4>
+                                                {paragraphs.map((text) => <p key={text}>{text}</p>)}
+                                            </div>
+                                        ))}
+                                        <h4>6. Action Items</h4>
+                                        {renderTable(['Action Item', 'Owner', 'Due Date'], sprint4Activities.actions)}
                                     </div>
                                 </div>
                             )}

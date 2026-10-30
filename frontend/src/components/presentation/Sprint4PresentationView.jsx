@@ -6,14 +6,16 @@ import {
     AlertTriangle,
     RotateCcw,
     LifeBuoy,
-    CheckCircle2
+    CheckCircle2,
+    ClipboardList
 } from 'lucide-react';
 import './Presentation.css';
 
 function Sprint4PresentationView() {
     const quickLinks = [
         { id: 'pres-delivery-metrics', label: 'Delivery Metrics' },
-        { id: 'pres-delivery-decisions', label: 'Metric Decisions' }
+        { id: 'pres-delivery-decisions', label: 'Metric Decisions' },
+        { id: 'pres-sprint-4-activities', label: 'Sprint 4 Activities' }
     ];
 
     const metricCards = [
@@ -126,6 +128,34 @@ function Sprint4PresentationView() {
                             </p>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* 3. Sprint 4 Activities */}
+            <section id="pres-sprint-4-activities" className="presentation-section-card">
+                <div className="slide-header-block">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+                        <div>
+                            <div className="slide-badge-pill">
+                                <ClipboardList size={14} />
+                                <span>Service Levels and Escalation</span>
+                            </div>
+                            <h2 className="slide-title">Sprint 4 Activities</h2>
+                            <p className="slide-subtitle">
+                                Our SLIs and SLOs, error budgets, escalation path, and a blameless review of the Sprint 3 broken download links. Full tables are in the Detailed Spec view.
+                            </p>
+                        </div>
+                        <a
+                            href="/documents/sprint4/Sprint 4 Activities.pdf"
+                            download="Sprint 4 Activities.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                            style={{ alignSelf: 'flex-start' }}
+                        >
+                            Download PDF
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>
