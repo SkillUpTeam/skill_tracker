@@ -5,6 +5,14 @@ import Sprint4PresentationView from "../components/presentation/Sprint4Presentat
 import { Eye, EyeOff } from "lucide-react";
 import sprint4Activities from "../data/sprint4Activities";
 
+const sketches = [
+    { file: 'Sketch - Analysis.pdf', title: 'Analysis Sketch' },
+    { file: 'Course Information Sketch .pdf', title: 'Course Information Sketch' },
+    { file: 'Add Activity Sketch.pdf', title: 'Add Activity Sketch' },
+    { file: 'Community View Sketch.jpeg', title: 'Community View Sketch' },
+    { file: 'Media Sketch.jpeg', title: 'Media Sketch' }
+];
+
 function Sprint4() {
     const [viewMode, setViewMode] = useState(() => {
         return localStorage.getItem('sprint_view_mode') || 'presentation';
@@ -40,7 +48,8 @@ function Sprint4() {
 
     const subNavLinks = [
         { id: 'delivery-metrics', label: 'Delivery Metrics' },
-        { id: 'sprint-4-activities', label: 'Sprint 4 Activities' }
+        { id: 'sprint-4-activities', label: 'Sprint 4 Activities' },
+        { id: 'sprint-4-sketches', label: 'Sketches' }
     ];
 
     return (
@@ -369,6 +378,53 @@ function Sprint4() {
                     </div>
                 </>
             )}
+            <div className="sprint-content">
+                <section id="sprint-4-sketches" className="sprint-section">
+                    <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                        <h2>Sprint 4 Sketches</h2>
+                        <a
+                            href="/documents/sprint4/Sprint%204%20Sketches.zip"
+                            download="Sprint 4 Sketches.zip"
+                            className="pdf-button"
+                        >
+                            Download All (ZIP)
+                        </a>
+                    </div>
+                    <p>View the sketches below or download the original PDFs and JPEGs. The ZIP includes all five files.</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem' }}>
+                        {sketches.map(({ file, title }) => {
+                            const url = `/documents/sprint4/sketches/${encodeURIComponent(file)}`;
+                            const isPdf = file.toLowerCase().endsWith('.pdf');
+
+                            return (
+                                <article key={file} style={{ minWidth: 0 }}>
+                                    <h3>{title}</h3>
+                                    {isPdf ? (
+                                        <iframe
+                                            src={url}
+                                            title={title}
+                                            loading="lazy"
+                                            style={{ width: '100%', height: '480px', border: '1px solid var(--text-secondary)', borderRadius: '8px' }}
+                                        />
+                                    ) : (
+                                        <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title}`}>
+                                            <img
+                                                src={url}
+                                                alt={title}
+                                                loading="lazy"
+                                                style={{ width: '100%', height: '480px', objectFit: 'contain', borderRadius: '8px' }}
+                                            />
+                                        </a>
+                                    )}
+                                    <a href={url} download={file} className="pdf-button" style={{ marginTop: '1rem' }}>
+                                        Download {isPdf ? 'PDF' : 'JPEG'}
+                                    </a>
+                                </article>
+                            );
+                        })}
+                    </div>
+                </section>
+            </div>
         </main>
     );
 }
