@@ -49,6 +49,24 @@ const mockups = [
         title: 'My Feed & Skill Progress Mockup',
         path: '/documents/sprint5/Mockups/MyFeed.png',
         description: 'High-fidelity skill feed showcasing Level 32 XP progress bar (1,420 / 2,000 XP), summary metric cards (24 Activities, 356 Hours, 21 Flower Types, 36 Orders, 14 Week Streak), and detailed activity cards with session stats.'
+    },
+    {
+        file: 'Add_Activity.png',
+        title: 'Add Activity Mockup',
+        path: '/documents/sprint5/Mockups/Add_Activity.png',
+        description: 'Refined mobile form for logging an activity incorporating peer feedback: spacious notes section, streamlined Activity and Type inputs, structured Date picker, Start/End time selectors, and primary Submit button.'
+    },
+    {
+        file: 'Analysis.png',
+        title: 'Skill Analysis & Tracking Mockup',
+        path: '/documents/sprint5/Mockups/Analysis.png',
+        description: 'Sport and activity progress view featuring photo/video carousel, interactive Statistic and Yearly dropdown filters, line chart with numeric Y-axis values showing Dribbles/Losses ratio over time, and dated coach feedback cards.'
+    },
+    {
+        file: 'Portfolio_Management.png',
+        title: 'Portfolio Project Management Mockup',
+        path: '/documents/sprint5/Mockups/Portfolio_Management.png',
+        description: 'Project management screen under user portfolio with filter tabs for Projects (4), Skills (8), and Certificates (4), project list with category badges (Woodcutting, Geometry), and prominent + Add Project button.'
     }
 ];
 
@@ -373,7 +391,7 @@ function Sprint5() {
                                             Mockups Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view our high-fidelity mobile mockups (Portfolio and My Feed).
+                                            Click to expand and view our 5 high-fidelity mobile mockups (Portfolio, My Feed, Add Activity, Skill Analysis, and Portfolio Management).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>

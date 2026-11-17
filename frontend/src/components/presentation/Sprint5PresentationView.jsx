@@ -55,6 +55,24 @@ const mockups = [
         title: 'Skill & Activity Feed Mockup',
         path: '/documents/sprint5/Mockups/MyFeed.png',
         description: 'High-fidelity skill detail and feed view featuring Level & XP progress bar, summary stat pills (Activities, Hours, Flower Types, Orders, Week Streak), and detailed activity cards with metrics.'
+    },
+    {
+        file: 'Add_Activity.png',
+        title: 'Add Activity Mockup',
+        path: '/documents/sprint5/Mockups/Add_Activity.png',
+        description: 'Redesigned form flow responding to peer critique: generous notes input, stacked Activity and Type fields, structured Date picker, Start/End time cards, and bottom navigation.'
+    },
+    {
+        file: 'Analysis.png',
+        title: 'Skill Analysis & Tracking Mockup',
+        path: '/documents/sprint5/Mockups/Analysis.png',
+        description: 'Physical sport and skill tracking view with media carousel, explicit dropdown menus for Statistic and Yearly timeframes, ratio trend graph with numeric scales, and dated feedback entries.'
+    },
+    {
+        file: 'Portfolio_Management.png',
+        title: 'Portfolio Project Management Mockup',
+        path: '/documents/sprint5/Mockups/Portfolio_Management.png',
+        description: 'Portfolio project showcase with category pill filters (Projects, Skills, Certificates), tagged project cards (Woodcutting, Geometry), contextual menus, and a prominent "+ Add Project" action.'
     }
 ];
 
@@ -229,7 +247,7 @@ function Sprint5PresentationView() {
                     </p>
                 </div>
 
-                <div className="slide-columns-2">
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '1.75rem' }}>
                     {mockups.map(({ file, title, path, description }) => (
                         <div className="slide-card" key={file} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                             <div>
