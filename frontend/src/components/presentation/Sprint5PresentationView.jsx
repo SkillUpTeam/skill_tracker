@@ -4,7 +4,11 @@ import {
     MessageSquare,
     Layers,
     Download,
-    Sparkles
+    Sparkles,
+    ShieldAlert,
+    AlertTriangle,
+    Users,
+    FileCheck
 } from 'lucide-react';
 import './Presentation.css';
 
@@ -178,7 +182,8 @@ function Sprint5PresentationView() {
     const quickLinks = [
         { id: 'pres-wireframes', label: 'Wireframes' },
         { id: 'pres-wireframe-feedback', label: 'Wireframe Feedback' },
-        { id: 'pres-mockups', label: 'High-Fidelity Mockups' }
+        { id: 'pres-mockups', label: 'High-Fidelity Mockups' },
+        { id: 'pres-crisis-response', label: 'Crisis Response' }
     ];
 
     return (
@@ -358,6 +363,119 @@ function Sprint5PresentationView() {
                             </a>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* 4. Crisis Response Section */}
+            <section id="pres-crisis-response" className="presentation-section-card">
+                <div className="slide-header-block">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+                        <div>
+                            <div className="slide-badge-pill">
+                                <ShieldAlert size={14} />
+                                <span>Incident Triage &amp; Governance</span>
+                            </div>
+                            <h2 className="slide-title">Crisis Response Memo</h2>
+                            <p className="slide-subtitle">
+                                Triage response to the external provider progress-report outage, EU AI Act High Risk classification, 10-day developer offboarding transition, updated risk register, and executive CEO brief.
+                            </p>
+                        </div>
+                        <a
+                            href="/documents/sprint5/Crisis/Crisis_Response_Memo_Team_3.pdf"
+                            download="Crisis_Response_Memo_Team_3.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                            style={{ alignSelf: 'flex-start' }}
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div className="slide-columns-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <AlertTriangle size={18} />
+                            </div>
+                            <h4 className="slide-card-title">Three Prioritized Emergencies</h4>
+                        </div>
+                        <ol style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.5rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Incorrect Analysis (Top Priority):</strong> External provider update produced faulty reports used by institutions for certifications. Reassessing processed users; $408 contingency reserve remains.
+                            </li>
+                            <li style={{ marginBottom: '0.5rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Disproportionate Impact (Priority 2):</strong> Certification users had higher error rates than recreational users; identified as disproportionately affected group.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Waldo’s Resignation (Priority 3):</strong> Lead developer leaving in 10 business days; manages critical-path undocumented external API integration.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <ShieldAlert size={18} />
+                            </div>
+                            <h4 className="slide-card-title">AI Governance &amp; Reliability Impact</h4>
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>EU AI Act:</strong> Classified as <em>High Risk</em> due to certification eligibility decisions; requires human audit, logging, and ~10 days teamwork.
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Incident Owner:</strong> Isaac Padilla (Project Manager &amp; Incident Commander).
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>SLO Target:</strong> 97% monthly accuracy (max 3/100 incorrect). 4/100 misses at 96%.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Error Budget Policy:</strong> Pause new feature development if error budget is exhausted until fixed and retested.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <Users size={18} />
+                            </div>
+                            <h4 className="slide-card-title">10-Day Personnel Transition Plan</h4>
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Days 1–5:</strong> Waldo resolves and retests the outage; Ricardo Morales shadows and documents all processes.
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Days 6–10:</strong> Waldo transfers API and integration knowledge to Ricardo Morales and Juan Reyna, completing tasks under Waldo's supervision.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Reassignment:</strong> Ricardo Morales becomes primary owner of API integration with Juan Reyna as backup; managed by Isaac Padilla.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <FileCheck size={18} />
+                            </div>
+                            <h4 className="slide-card-title">CEO Brief &amp; Executive Recommendation</h4>
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Recommendation:</strong> Request CEO approval for a 2-week pause to resolve institutional defects and onboard developers without cutting project scope.
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>What NOT to Say:</strong> Will not say customer data was exposed (unverified), will not claim system is fixed prematurely, and will not claim all certification decisions were wrong.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Signatures:</strong> Isaac Padilla, Karina Rivera, Juan Reyna, Jonathan Hernandez, Ricardo Morales.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </div>

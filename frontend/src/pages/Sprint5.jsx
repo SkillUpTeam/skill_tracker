@@ -3,6 +3,7 @@ import SubNav from "../components/SubNav";
 import SprintModeToggle from "../components/SprintModeToggle";
 import Sprint5PresentationView from "../components/presentation/Sprint5PresentationView";
 import { Eye, EyeOff } from "lucide-react";
+import crisisResponseData from "../data/sprint5Crisis";
 
 const wireframes = [
     {
@@ -154,11 +155,13 @@ function Sprint5() {
     const [isWireframesOpen, setIsWireframesOpen] = useState(true);
     const [isFeedbackOpen, setIsFeedbackOpen] = useState(true);
     const [isMockupsOpen, setIsMockupsOpen] = useState(true);
+    const [isCrisisOpen, setIsCrisisOpen] = useState(true);
 
     const subNavLinks = [
         { id: 'wireframes', label: 'Wireframes' },
         { id: 'wireframe-feedback', label: 'Wireframe Feedback' },
-        { id: 'mockups', label: 'Mockups' }
+        { id: 'mockups', label: 'Mockups' },
+        { id: 'crisis-response', label: 'Crisis Response' }
     ];
 
     return (
@@ -169,7 +172,7 @@ function Sprint5() {
             <div className="sprint-header" style={{ paddingBottom: '1rem' }}>
                 <h1>Sprint 5</h1>
                 <p>
-                    Explore our Sprint 5 mobile wireframes, peer wireframe feedback synthesis from cross-team reviews, and high-fidelity UI mockups.
+                    Explore our Sprint 5 mobile wireframes, peer wireframe feedback synthesis from cross-team reviews, high-fidelity UI mockups, and our Crisis Response Memo.
                 </p>
             </div>
 
@@ -506,6 +509,342 @@ function Sprint5() {
                                                 </a>
                                             </article>
                                         ))}
+                                    </div>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+
+                    {/* Section 4: Crisis Response Memo */}
+                    <div className="sprint-content">
+                        <section id="crisis-response" className="sprint-section">
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Crisis Response Memo</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsCrisisOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isCrisisOpen}
+                                        aria-controls="crisis-response-content"
+                                    >
+                                        {isCrisisOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint5/Crisis/Crisis_Response_Memo_Team_3.pdf"
+                                        download="Crisis_Response_Memo_Team_3.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {!isCrisisOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsCrisisOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsCrisisOpen(true); }}
+                                    aria-label="Expand Crisis Response Memo section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Crisis Response Memo Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand and view our situation triage, decision log, AI governance plan, reliability impact, updated risk register, personnel transition, and CEO brief.
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Crisis Memo</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="crisis-response-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '100%' }}>
+                                    {/* Memo Header */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '22%' }}><strong>To</strong></td>
+                                                    <td>{crisisResponseData.header.to}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>From</strong></td>
+                                                    <td>{crisisResponseData.header.from}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Subject</strong></td>
+                                                    <td>{crisisResponseData.header.subject}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Date</strong></td>
+                                                    <td>{crisisResponseData.header.date}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* 1. Situation and Triage */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>1. Situation and Triage</h3>
+                                        <p>{crisisResponseData.situation.intro}</p>
+                                        <p><strong>Identified emergencies, in order of priority:</strong></p>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1rem' }}>
+                                            {crisisResponseData.situation.emergencies.map(em => (
+                                                <div key={em.priority} style={{ padding: '1.25rem 1.5rem', borderRadius: '10px', background: 'var(--surface)', border: '1px solid rgba(124, 58, 237, 0.15)' }}>
+                                                    <h4 style={{ margin: '0 0 0.5rem', color: 'var(--purple)' }}>
+                                                        {em.priority}. {em.title}
+                                                    </h4>
+                                                    <p style={{ margin: '0 0 0.5rem' }}>{em.details}</p>
+                                                    <p style={{ margin: '0 0 0.5rem' }}><strong>Impact:</strong> {em.impact}</p>
+                                                    {em.action && <p style={{ margin: '0 0 0.5rem' }}><strong>Action:</strong> {em.action}</p>}
+                                                    {em.finances && <p style={{ margin: 0, fontStyle: 'italic', color: 'var(--text-secondary)' }}><strong>Finances:</strong> {em.finances}</p>}
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <h4 style={{ marginTop: '1.75rem', marginBottom: '0.75rem' }}>Risk Register Review</h4>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style={{ width: '28%' }}>Risk Area</th>
+                                                    <th>Review &amp; Root Cause</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {crisisResponseData.situation.riskReview.map(rr => (
+                                                    <tr key={rr.name}>
+                                                        <td><strong>{rr.name}</strong></td>
+                                                        <td>{rr.review}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* 2. Decision Log */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>2. Decision Log</h3>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>Emergency</th>
+                                                    <th>Decision</th>
+                                                    <th>Options Rejected</th>
+                                                    <th>Reasoning</th>
+                                                    <th>Owner</th>
+                                                    <th>Reversible?</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {crisisResponseData.decisionLog.map((d, i) => (
+                                                    <tr key={i}>
+                                                        <td><strong>{d.time}</strong></td>
+                                                        <td>{d.emergency}</td>
+                                                        <td>{d.decision}</td>
+                                                        <td>{d.optionsRejected}</td>
+                                                        <td>{d.reasoning}</td>
+                                                        <td><strong>{d.owner}</strong></td>
+                                                        <td>{d.reversible}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* 3. Governance Response */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>3. Governance Response</h3>
+                                        <p><em>{crisisResponseData.governance.intro}</em></p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>3.1 Incident Owner</h4>
+                                        <p><strong>{crisisResponseData.governance.incidentOwner.name}</strong> ({crisisResponseData.governance.incidentOwner.role})</p>
+                                        <p>{crisisResponseData.governance.incidentOwner.powers}</p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>3.2 Risk Classification</h4>
+                                        <p><strong>{crisisResponseData.governance.riskClassification.classification}</strong></p>
+                                        <p>{crisisResponseData.governance.riskClassification.explanation}</p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>3.3 Bias Monitoring Plan</h4>
+                                        <ul>
+                                            <li><strong>Metric:</strong> {crisisResponseData.governance.biasMonitoring.metric}</li>
+                                            <li><strong>Threshold:</strong> {crisisResponseData.governance.biasMonitoring.threshold}</li>
+                                            <li><strong>Reviewers:</strong> {crisisResponseData.governance.biasMonitoring.reviewers}</li>
+                                            <li><strong>Frequency:</strong> {crisisResponseData.governance.biasMonitoring.frequency}</li>
+                                        </ul>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>3.4 Transparency Response</h4>
+                                        <ul>
+                                            <li><strong>What we know:</strong> {crisisResponseData.governance.transparency.whatWeKnow}</li>
+                                            <li><strong>What we can't determine:</strong> {crisisResponseData.governance.transparency.whatWeCantDetermine}</li>
+                                            <li><strong>What we lacked:</strong> {crisisResponseData.governance.transparency.whatWeLacked}</li>
+                                        </ul>
+                                    </div>
+
+                                    {/* 4. Delivery and Reliability Impact */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>4. Delivery and Reliability Impact</h3>
+                                        <h4 style={{ marginTop: '1rem' }}>SLO Breach</h4>
+                                        <p>{crisisResponseData.deliveryImpact.sloBreach}</p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>Error Budget</h4>
+                                        <p>{crisisResponseData.deliveryImpact.errorBudget}</p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>Dashboard Metrics</h4>
+                                        <p>{crisisResponseData.deliveryImpact.dashboardMetrics}</p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>Early Detection</h4>
+                                        <p>{crisisResponseData.deliveryImpact.earlyDetection}</p>
+                                    </div>
+
+                                    {/* 5. Updated Risk Register */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>5. Updated Risk Register</h3>
+                                        <p>New candidate risks added to our risk register to handle emergencies:</p>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style={{ width: '18%' }}>Field</th>
+                                                    <th>R1 - External Provider Errors</th>
+                                                    <th>R2 - Disproportionate Errors</th>
+                                                    <th>R3 - Developer Knowledge Loss</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {crisisResponseData.riskRegister.map(row => (
+                                                    <tr key={row.field}>
+                                                        <td><strong>{row.field}</strong></td>
+                                                        <td>{row.r1}</td>
+                                                        <td>{row.r2}</td>
+                                                        <td>{row.r3}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* 6. Personnel Transition Plan */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>6. Personnel Transition Plan</h3>
+                                        <h4>Knowledge Transfer</h4>
+                                        <p>{crisisResponseData.personnelTransition.knowledgeTransfer}</p>
+
+                                        <h4>10-Business-Day Handoff</h4>
+                                        <p>{crisisResponseData.personnelTransition.handoff}</p>
+
+                                        <h4>Reassignment Responsibility &amp; Cognitive Load</h4>
+                                        <p>{crisisResponseData.personnelTransition.reassignment}</p>
+                                        <p>{crisisResponseData.personnelTransition.cognitiveLoad}</p>
+
+                                        <h4>Scope Adjustment</h4>
+                                        <p>{crisisResponseData.personnelTransition.scopeAdjustment}</p>
+                                    </div>
+
+                                    {/* 7. CEO Brief */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>7. CEO Brief</h3>
+                                        <h4>Part A: Five Key Messages</h4>
+                                        <ol>
+                                            {crisisResponseData.ceoBrief.keyMessages.map((msg, i) => (
+                                                <li key={i} style={{ marginBottom: '0.4rem' }}>{msg}</li>
+                                            ))}
+                                        </ol>
+
+                                        <h4>Part B: What You Will Not Say</h4>
+                                        <ol>
+                                            {crisisResponseData.ceoBrief.whatNotToSay.map((msg, i) => (
+                                                <li key={i} style={{ marginBottom: '0.4rem' }}>{msg}</li>
+                                            ))}
+                                        </ol>
+
+                                        <h4>Part C: Executive Recommendation</h4>
+                                        <p>{crisisResponseData.ceoBrief.executiveRecommendation}</p>
+
+                                        <h4 style={{ marginTop: '1.25rem' }}>Signatures</h4>
+                                        <p>
+                                            {crisisResponseData.ceoBrief.signatures.join(" • ")}
+                                        </p>
+                                    </div>
+
+                                    {/* Appendices */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Appendix A: Response Log</h3>
+                                        <p>{crisisResponseData.appendixA.description}</p>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th style={{ width: '35%' }}>Team Member</th>
+                                                    <th>Assigned Responsibilities</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {crisisResponseData.appendixA.distribution.map(d => (
+                                                    <tr key={d.member}>
+                                                        <td><strong>{d.member}</strong></td>
+                                                        <td>{d.responsibilities}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+
+                                        <h3 style={{ marginTop: '2rem' }}>Appendix B: AI Use Disclosure</h3>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>AI Tool Used</th>
+                                                    <th>Sections Assisted</th>
+                                                    <th>How it was used and PM AI Protocol Stages</th>
+                                                    <th>Changes to AI Output</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {crisisResponseData.appendixB.map((item, i) => (
+                                                    <tr key={i}>
+                                                        <td><strong>{item.tool}</strong></td>
+                                                        <td>{item.sections}</td>
+                                                        <td>{item.protocol}</td>
+                                                        <td>{item.changes}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* Original PDF Preview */}
+                                    <div>
+                                        <h3>Original Crisis Response Document (PDF Preview)</h3>
+                                        <iframe
+                                            src="/documents/sprint5/Crisis/Crisis_Response_Memo_Team_3.pdf"
+                                            title="Sprint 5 Crisis Response Memo PDF"
+                                            loading="lazy"
+                                            style={{
+                                                width: '100%',
+                                                height: '600px',
+                                                border: '1px solid var(--text-secondary)',
+                                                borderRadius: '8px',
+                                                marginTop: '0.75rem'
+                                            }}
+                                        />
                                     </div>
                                 </div>
                             )}
