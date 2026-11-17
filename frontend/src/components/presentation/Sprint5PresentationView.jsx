@@ -1,0 +1,486 @@
+import {
+    Layout,
+    Smartphone,
+    MessageSquare,
+    Layers,
+    Download,
+    Sparkles,
+    ShieldAlert,
+    AlertTriangle,
+    Users,
+    FileCheck
+} from 'lucide-react';
+import './Presentation.css';
+
+const wireframes = [
+    {
+        file: 'Add_Activity.png',
+        title: 'Add Activity',
+        path: '/documents/sprint5/Wireframe/Add_Activity.png',
+        description: 'Form flow for logging a new activity with reading progress, photos, notes, activity category/type, date, and time.'
+    },
+    {
+        file: 'Analysis.png',
+        title: 'Activity Analysis',
+        path: '/documents/sprint5/Wireframe/Analysis.png',
+        description: 'Progress tracking view featuring media uploads, metric trend charts (Dribbles, Shots, Distance, Speed), and coach/teammate feedback.'
+    },
+    {
+        file: 'Community.png',
+        title: 'Community Feed',
+        path: '/documents/sprint5/Wireframe/Community.png',
+        description: 'Social feed displaying peer milestones and project updates with Cheer, Comment, and Save actions plus bottom navigation.'
+    },
+    {
+        file: 'Course_Details.png',
+        title: 'Course Details',
+        path: '/documents/sprint5/Wireframe/Course_Details.png',
+        description: 'Structured course overview showing course banner, instructor/institution, schedule date, description, content details, and enrollment CTA.'
+    },
+    {
+        file: 'Portfolio_Up.png',
+        title: 'Portfolio Post',
+        path: '/documents/sprint5/Wireframe/Portfolio_Up.png',
+        description: 'Focused milestone card for sharing a newly published project or portfolio version and requesting community feedback.'
+    }
+];
+
+const mockups = [
+    {
+        file: 'Portfolio.png',
+        title: 'User Portfolio Mockup',
+        path: '/documents/sprint5/Mockups/Portfolio.png',
+        description: 'High-fidelity mobile view showcasing user profile stats (Activities, Skills, Followers, Following), skill highlight rings (Basketball, Flowers, Certs, Projects, Training), and a clean 3-column visual activity grid.'
+    },
+    {
+        file: 'MyFeed.png',
+        title: 'Skill & Activity Feed Mockup',
+        path: '/documents/sprint5/Mockups/MyFeed.png',
+        description: 'High-fidelity skill detail and feed view featuring Level & XP progress bar, summary stat pills (Activities, Hours, Flower Types, Orders, Week Streak), and detailed activity cards with metrics.'
+    },
+    {
+        file: 'Add_Activity.png',
+        title: 'Add Activity Mockup',
+        path: '/documents/sprint5/Mockups/Add_Activity.png',
+        description: 'Redesigned form flow responding to peer critique: generous notes input, stacked Activity and Type fields, structured Date picker, Start/End time cards, and bottom navigation.'
+    },
+    {
+        file: 'Analysis.png',
+        title: 'Skill Analysis & Tracking Mockup',
+        path: '/documents/sprint5/Mockups/Analysis.png',
+        description: 'Physical sport and skill tracking view with media carousel, explicit dropdown menus for Statistic and Yearly timeframes, ratio trend graph with numeric scales, and dated feedback entries.'
+    },
+    {
+        file: 'Portfolio_Management.png',
+        title: 'Portfolio Project Management Mockup',
+        path: '/documents/sprint5/Mockups/Portfolio_Management.png',
+        description: 'Portfolio project showcase with category pill filters (Projects, Skills, Certificates), tagged project cards (Woodcutting, Geometry), contextual menus, and a prominent "+ Add Project" action.'
+    },
+    {
+        file: 'Community_General.png',
+        title: 'Community Feed (All) Mockup',
+        path: '/documents/sprint5/Mockups/Community_General.png',
+        description: 'High-fidelity community feed with the All filter selected, mixing milestone and project posts from different learning paths (Coding, Design, Data) with highlighted milestone cards, path tags, and Cheer, Comment, and Save actions above the Explore / Community / Add Activity / Portfolio bottom navigation shared with the other mockups.'
+    },
+    {
+        file: 'Community_Questions.png',
+        title: 'Community Questions Mockup',
+        path: '/documents/sprint5/Mockups/Community_Questions.png',
+        description: 'Community feed filtered to Questions, where each post leads with a highlighted question card (dribbling, guitar calluses, 5K rest days) followed by context from the asker, so peers can quickly spot and answer questions in their skill area.'
+    },
+    {
+        file: 'Community_Milestones.png',
+        title: 'Community Milestones Mockup',
+        path: '/documents/sprint5/Mockups/Community_Milestones.png',
+        description: 'Community feed filtered to Milestones, celebrating completed goals such as a first full sketchbook and a first three-course dinner with a check-marked milestone banner, an optional progress photo, and a short reflection.'
+    },
+    {
+        file: 'Community_Practice.png',
+        title: 'Community Practice Mockup',
+        path: '/documents/sprint5/Mockups/Community_Practice.png',
+        description: 'Community feed filtered to Practice, showing photo-forward practice updates (guitar daily streak, basketball drills) with skill and time stamps, Practice tags, and quick Cheer, Comment, and Save actions to encourage consistency.'
+    },
+    {
+        file: 'Course Details.png',
+        title: 'Course Details Mockup',
+        path: '/documents/sprint5/Mockups/Course Details.png',
+        description: 'Course details screen for reviewing course information.'
+    },
+    {
+        file: 'Discover.png',
+        title: 'Discover Mockup',
+        path: '/documents/sprint5/Mockups/Discover.png',
+        description: 'Screen for exploring learning opportunities.'
+    },
+    {
+        file: 'Filters.png',
+        title: 'Filters Mockup',
+        path: '/documents/sprint5/Mockups/Filters.png',
+        description: 'Filter screen for refining discovery results.'
+    },
+    {
+        file: 'Search.png',
+        title: 'Search Mockup',
+        path: '/documents/sprint5/Mockups/Search.png',
+        description: 'Search screen for finding learning opportunities.'
+    },
+    {
+        file: 'Community_Post_Practice.png',
+        title: 'Practice Post Detail Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Practice.png',
+        description: 'Opened practice post (Day 21 of daily practice) showing the full photo, Cheer and Comment counts, a Best sort and comment search bar, and threaded replies where the author answers peers directly.'
+    },
+    {
+        file: 'Community_Post_Question.png',
+        title: 'Question Post Detail Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Question.png',
+        description: 'Opened question post on keeping a low dribble when tired, with the question as the headline, community answers sorted by Best, upvote counts on each reply, and the asker following up in-thread.'
+    },
+    {
+        file: 'Community_Post_Milestone.png',
+        title: 'Milestone Post Detail Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Milestone.png',
+        description: 'Opened milestone post for a first finished sketchbook, pairing the celebration photo with Cheer and Comment totals and a threaded discussion where peers ask about technique and the author shares tips.'
+    },
+    {
+        file: 'Community_Post_Portfolio.png',
+        title: 'Portfolio Feedback Post Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Portfolio.png',
+        description: 'Opened portfolio milestone (Portfolio v1) with a linked project card and View button, so peers can open the work and leave focused feedback on layout, case studies, and mobile contrast in the comment thread.'
+    }
+];
+
+const feedbackHighlights = [
+    {
+        area: 'General Navigation',
+        teams: 'Team 1',
+        summary: 'Back navigation arrow was too large relative to the header bar and needed proportional scaling.'
+    },
+    {
+        area: 'Analysis Screen',
+        teams: 'Team 1, Team 6, Team 8',
+        summary: 'Add clearer axis values/numbers to the graph, style metric labels as clickable options, make "Yearly" an explicit dropdown, declutter text/props with collapsible sections, and separate feedback sender avatars with an anonymous comment option. Team 8 praised the media + feedback combination for physical sports.'
+    },
+    {
+        area: 'Course Information',
+        teams: 'Team 4, Team 8',
+        summary: 'Praised as simple, effective, and easy to navigate. Suggested maintaining a consistent bottom navigation bar, adding a collapsible dropdown for detailed course schedules, and allowing users to create and share their own courses.'
+    },
+    {
+        area: 'Add Activity',
+        teams: 'Team 1, Team 6',
+        summary: 'Reduce icon/logo and text sizes relative to the mobile viewport, expand the description and notes input boxes, and stack Activity, Type, Date, and Time vertically rather than in a cramped 2x2 grid.'
+    },
+    {
+        area: 'Discussion / Community Feed',
+        teams: 'Team 1, Team 6',
+        summary: 'Make action buttons collapsible to save vertical space and reduce visual clutter by increasing spacing between text and icons and focusing on primary titles.'
+    }
+];
+
+function Sprint5PresentationView() {
+    const quickLinks = [
+        { id: 'pres-wireframes', label: 'Wireframes' },
+        { id: 'pres-wireframe-feedback', label: 'Wireframe Feedback' },
+        { id: 'pres-mockups', label: 'High-Fidelity Mockups' },
+        { id: 'pres-crisis-response', label: 'Crisis Response' }
+    ];
+
+    return (
+        <div className="presentation-page-container">
+            {/* Visual Section Navigation Bar */}
+            <nav className="presentation-subnav" aria-label="Presentation Section Navigation">
+                {quickLinks.map(link => (
+                    <a key={link.id} href={`#${link.id}`} className="presentation-subnav-link">
+                        {link.label}
+                    </a>
+                ))}
+            </nav>
+
+            {/* 1. Wireframes Section */}
+            <section id="pres-wireframes" className="presentation-section-card">
+                <div className="slide-header-block">
+                    <div className="slide-badge-pill">
+                        <Layout size={14} />
+                        <span>Low-Fidelity Design Exploration</span>
+                    </div>
+                    <h2 className="slide-title">Sprint 5 Wireframes</h2>
+                    <p className="slide-subtitle">
+                        Five core mobile wireframes translating our Sprint 4 sketches into structured screen layouts for activity logging, skill analysis, community sharing, course discovery, and portfolio updates.
+                    </p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
+                    {wireframes.map(({ file, title, path, description }) => (
+                        <div className="slide-card" key={file} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                            <div>
+                                <div className="slide-card-header" style={{ marginBottom: '0.75rem' }}>
+                                    <div className="slide-card-icon">
+                                        <Layers size={18} />
+                                    </div>
+                                    <h4 className="slide-card-title">{title}</h4>
+                                </div>
+                                <a href={path} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} wireframe in new tab`}>
+                                    <img
+                                        src={path}
+                                        alt={`${title} Wireframe`}
+                                        loading="lazy"
+                                        style={{
+                                            width: '100%',
+                                            height: '380px',
+                                            objectFit: 'contain',
+                                            borderRadius: '10px',
+                                            background: 'rgba(0, 0, 0, 0.2)',
+                                            padding: '0.5rem',
+                                            marginBottom: '0.85rem'
+                                        }}
+                                    />
+                                </a>
+                                <p className="slide-card-body" style={{ marginBottom: '1rem' }}>
+                                    {description}
+                                </p>
+                            </div>
+                            <a
+                                href={path}
+                                download={file}
+                                className="pdf-button"
+                                style={{ alignSelf: 'flex-start', gap: '0.4rem' }}
+                            >
+                                <Download size={15} />
+                                <span>Download PNG</span>
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* 2. Peer Wireframe Feedback Section */}
+            <section id="pres-wireframe-feedback" className="presentation-section-card">
+                <div className="slide-header-block">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+                        <div>
+                            <div className="slide-badge-pill">
+                                <MessageSquare size={14} />
+                                <span>Cross-Team Critique & Synthesis</span>
+                            </div>
+                            <h2 className="slide-title">Wireframe Feedback</h2>
+                            <p className="slide-subtitle">
+                                Constructive critique gathered from Teams 1, 4, 6, and 8 across our wireframe screens, guiding our transition from dark low-fidelity wireframes to clean, scannable high-fidelity mockups.
+                            </p>
+                        </div>
+                        <a
+                            href="/documents/sprint5/Wireframe_Feedback.pdf"
+                            download="Wireframe_Feedback.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                            style={{ alignSelf: 'flex-start' }}
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div className="slide-columns-2">
+                    {feedbackHighlights.map(({ area, teams, summary }) => (
+                        <div className="slide-card" key={area}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                <h4 style={{ margin: 0, fontSize: '1.1rem', color: 'var(--purple)', fontWeight: 700 }}>
+                                    {area}
+                                </h4>
+                                <span style={{
+                                    padding: '0.2rem 0.65rem',
+                                    borderRadius: '999px',
+                                    background: 'rgba(124, 58, 237, 0.1)',
+                                    color: 'var(--purple)',
+                                    fontSize: '0.75rem',
+                                    fontWeight: 800,
+                                    textTransform: 'uppercase',
+                                    whiteSpace: 'nowrap'
+                                }}>
+                                    {teams}
+                                </span>
+                            </div>
+                            <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                                {summary}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* 3. High-Fidelity Mockups Section */}
+            <section id="pres-mockups" className="presentation-section-card">
+                <div className="slide-header-block">
+                    <div className="slide-badge-pill">
+                        <Sparkles size={14} />
+                        <span>High-Fidelity UI Design</span>
+                    </div>
+                    <h2 className="slide-title">Sprint 5 Mockups</h2>
+                    <p className="slide-subtitle">
+                        Polished mobile mockups incorporating peer feedback: unified bottom navigation bar, decluttered card hierarchy, clear typography scales, and scannable progress metrics.
+                    </p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '1.75rem' }}>
+                    {mockups.map(({ file, title, path, description }) => (
+                        <div className="slide-card" key={file} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                            <div>
+                                <div className="slide-card-header" style={{ marginBottom: '0.75rem' }}>
+                                    <div className="slide-card-icon">
+                                        <Smartphone size={18} />
+                                    </div>
+                                    <h4 className="slide-card-title">{title}</h4>
+                                </div>
+                                <a href={path} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} in new tab`}>
+                                    <img
+                                        src={path}
+                                        alt={title}
+                                        loading="lazy"
+                                        style={{
+                                            width: '100%',
+                                            height: '520px',
+                                            objectFit: 'contain',
+                                            borderRadius: '12px',
+                                            background: 'rgba(124, 58, 237, 0.04)',
+                                            padding: '0.75rem',
+                                            marginBottom: '1rem'
+                                        }}
+                                    />
+                                </a>
+                                <p className="slide-card-body" style={{ marginBottom: '1rem' }}>
+                                    {description}
+                                </p>
+                            </div>
+                            <a
+                                href={path}
+                                download={file}
+                                className="pdf-button"
+                                style={{ alignSelf: 'flex-start', gap: '0.4rem' }}
+                            >
+                                <Download size={15} />
+                                <span>Download PNG</span>
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* 4. Crisis Response Section */}
+            <section id="pres-crisis-response" className="presentation-section-card">
+                <div className="slide-header-block">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+                        <div>
+                            <div className="slide-badge-pill">
+                                <ShieldAlert size={14} />
+                                <span>Incident Triage &amp; Governance</span>
+                            </div>
+                            <h2 className="slide-title">Crisis Response Memo</h2>
+                            <p className="slide-subtitle">
+                                Triage response to the external provider progress-report outage, EU AI Act High Risk classification, 10-day developer offboarding transition, updated risk register, and executive CEO brief.
+                            </p>
+                        </div>
+                        <a
+                            href="/documents/sprint5/Crisis/Crisis_Response_Memo_Team_3.pdf"
+                            download="Crisis_Response_Memo_Team_3.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="pdf-button"
+                            style={{ alignSelf: 'flex-start' }}
+                        >
+                            Download PDF
+                        </a>
+                    </div>
+                </div>
+
+                <div className="slide-columns-2" style={{ gap: '1.5rem', marginBottom: '1.5rem' }}>
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <AlertTriangle size={18} />
+                            </div>
+                            <h4 className="slide-card-title">Three Prioritized Emergencies</h4>
+                        </div>
+                        <ol style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.5rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Incorrect Analysis (Top Priority):</strong> External provider update produced faulty reports used by institutions for certifications. Reassessing processed users; $408 contingency reserve remains.
+                            </li>
+                            <li style={{ marginBottom: '0.5rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Disproportionate Impact (Priority 2):</strong> Certification users had higher error rates than recreational users; identified as disproportionately affected group.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Waldo’s Resignation (Priority 3):</strong> Lead developer leaving in 10 business days; manages critical-path undocumented external API integration.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <ShieldAlert size={18} />
+                            </div>
+                            <h4 className="slide-card-title">AI Governance &amp; Reliability Impact</h4>
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>EU AI Act:</strong> Classified as <em>High Risk</em> due to certification eligibility decisions; requires human audit, logging, and ~10 days teamwork.
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Incident Owner:</strong> Isaac Padilla (Project Manager &amp; Incident Commander).
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>SLO Target:</strong> 97% monthly accuracy (max 3/100 incorrect). 4/100 misses at 96%.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Error Budget Policy:</strong> Pause new feature development if error budget is exhausted until fixed and retested.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <Users size={18} />
+                            </div>
+                            <h4 className="slide-card-title">10-Day Personnel Transition Plan</h4>
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Days 1–5:</strong> Waldo resolves and retests the outage; Ricardo Morales shadows and documents all processes.
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Days 6–10:</strong> Waldo transfers API and integration knowledge to Ricardo Morales and Juan Reyna, completing tasks under Waldo's supervision.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Reassignment:</strong> Ricardo Morales becomes primary owner of API integration with Juan Reyna as backup; managed by Isaac Padilla.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="slide-card">
+                        <div className="slide-card-header">
+                            <div className="slide-card-icon">
+                                <FileCheck size={18} />
+                            </div>
+                            <h4 className="slide-card-title">CEO Brief &amp; Executive Recommendation</h4>
+                        </div>
+                        <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '0.92rem' }}>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>Recommendation:</strong> Request CEO approval for a 2-week pause to resolve institutional defects and onboard developers without cutting project scope.
+                            </li>
+                            <li style={{ marginBottom: '0.45rem' }}>
+                                <strong style={{ color: 'var(--text-primary)' }}>What NOT to Say:</strong> Will not say customer data was exposed (unverified), will not claim system is fixed prematurely, and will not claim all certification decisions were wrong.
+                            </li>
+                            <li>
+                                <strong style={{ color: 'var(--text-primary)' }}>Signatures:</strong> Isaac Padilla, Karina Rivera, Juan Reyna, Jonathan Hernandez, Ricardo Morales.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+}
+
+export default Sprint5PresentationView;
+

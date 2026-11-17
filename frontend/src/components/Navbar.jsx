@@ -46,6 +46,7 @@ function Navbar() {
                             <Link to="/sprint-2">Sprint 2</Link>
                             <Link to="/sprint-3">Sprint 3</Link>
                             <Link to="/sprint-4">Sprint 4</Link>
+                            <Link to="/sprint-5">Sprint 5</Link>
                         </div>
                     )}
                 </div>
