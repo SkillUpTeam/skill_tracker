@@ -156,12 +156,14 @@ function Sprint5() {
     const [isFeedbackOpen, setIsFeedbackOpen] = useState(true);
     const [isMockupsOpen, setIsMockupsOpen] = useState(true);
     const [isCrisisOpen, setIsCrisisOpen] = useState(true);
+    const [isChangeLogOpen, setIsChangeLogOpen] = useState(true);
 
     const subNavLinks = [
         { id: 'wireframes', label: 'Wireframes' },
         { id: 'wireframe-feedback', label: 'Wireframe Feedback' },
         { id: 'mockups', label: 'Mockups' },
-        { id: 'crisis-response', label: 'Crisis Response' }
+        { id: 'crisis-response', label: 'Crisis Response' },
+        { id: 'change-log', label: 'Change Log' }
     ];
 
     return (
@@ -172,7 +174,7 @@ function Sprint5() {
             <div className="sprint-header" style={{ paddingBottom: '1rem' }}>
                 <h1>Sprint 5</h1>
                 <p>
-                    Explore our Sprint 5 mobile wireframes, peer wireframe feedback synthesis from cross-team reviews, high-fidelity UI mockups, and our Crisis Response Memo.
+                    Explore our Sprint 5 mobile wireframes, peer wireframe feedback synthesis from cross-team reviews, high-fidelity UI mockups, our Crisis Response Memo, and the sprint change log.
                 </p>
             </div>
 
@@ -845,6 +847,149 @@ function Sprint5() {
                                                 marginTop: '0.75rem'
                                             }}
                                         />
+                                    </div>
+                                </div>
+                            )}
+                        </section>
+                    </div>
+
+                    {/* Section 5: Change Log */}
+                    <div className="sprint-content">
+                        <section id="change-log" className="sprint-section">
+                            <div className="section-heading" style={{ flexWrap: 'wrap', gap: '1rem' }}>
+                                <div>
+                                    <h2>Sprint Change Log</h2>
+                                </div>
+                                <div className="collapsible-header-actions">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsChangeLogOpen(prev => !prev)}
+                                        className="collapsible-toggle-btn"
+                                        aria-expanded={isChangeLogOpen}
+                                        aria-controls="change-log-content"
+                                    >
+                                        {isChangeLogOpen ? (
+                                            <>
+                                                <EyeOff size={16} />
+                                                <span>Collapse Section</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Eye size={16} />
+                                                <span>Expand Section</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <a
+                                        href="/documents/sprint5/Sprint 5 Change Log.pdf"
+                                        download="Sprint 5 Change Log.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pdf-button"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            {!isChangeLogOpen ? (
+                                <div
+                                    className="collapsed-notice-box"
+                                    onClick={() => setIsChangeLogOpen(true)}
+                                    role="button"
+                                    tabIndex={0}
+                                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setIsChangeLogOpen(true); }}
+                                    aria-label="Expand Change Log section"
+                                >
+                                    <div>
+                                        <strong style={{ color: 'var(--purple)', display: 'block', fontSize: '1.05rem', marginBottom: '0.25rem' }}>
+                                            Change Log Section Collapsed
+                                        </strong>
+                                        <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                                            Click to expand. No changes were made during Sprint 5.
+                                        </span>
+                                    </div>
+                                    <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
+                                        <Eye size={15} />
+                                        <span>Show Change Log</span>
+                                    </span>
+                                </div>
+                            ) : (
+                                <div id="change-log-content" className="sprint-topic" style={{ marginTop: '1.5rem', maxWidth: '100%' }}>
+                                    {/* 1. Change Log Header */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Change Log Header</h3>
+                                        <table className="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td style={{ width: '24%' }}><strong>Project</strong></td>
+                                                    <td>SkillUp</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Sprint</strong></td>
+                                                    <td>Sprint 5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Prior version</strong></td>
+                                                    <td>Sprint 4 Change Log (November 2, 2026)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Date of this version</strong></td>
+                                                    <td>November 16, 2026</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Logged by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Reviewed by</strong></td>
+                                                    <td>Team 3</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    {/* 2. Change Summaries */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Change Summaries</h3>
+                                        <table className="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Area</th>
+                                                    <th>What changed</th>
+                                                    <th>Reason type</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>None</strong></td>
+                                                    <td>N/A</td>
+                                                    <td>No changes were made this sprint</td>
+                                                    <td>N/A</td>
+                                                    <td>N/A</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            No changes were made during Sprint 5. The project scope, success criteria, assumptions, risks, budget,
+                                            and competitive positioning remain as recorded in the Sprint 3 Change Log and carried forward unchanged
+                                            through the Sprint 4 Change Log. Entries CL-3-01 to CL-3-04 carry forward with no status changes.
+                                        </p>
+                                    </div>
+
+                                    {/* 3. New Assumptions */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>New Assumptions Introduced This Sprint</h3>
+                                        <p>None.</p>
+                                    </div>
+
+                                    {/* 4. Downstream Impact */}
+                                    <div style={{ marginBottom: '2.5rem' }}>
+                                        <h3>Downstream Impact</h3>
+                                        <p>None. Because nothing changed, no project documents need to be updated as a result of this change log.</p>
                                     </div>
                                 </div>
                             )}
