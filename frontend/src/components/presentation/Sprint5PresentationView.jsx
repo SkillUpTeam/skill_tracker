@@ -73,6 +73,30 @@ const mockups = [
         title: 'Portfolio Project Management Mockup',
         path: '/documents/sprint5/Mockups/Portfolio_Management.png',
         description: 'Portfolio project showcase with category pill filters (Projects, Skills, Certificates), tagged project cards (Woodcutting, Geometry), contextual menus, and a prominent "+ Add Project" action.'
+    },
+    {
+        file: 'Community_General.png',
+        title: 'Community Feed (All) Mockup',
+        path: '/documents/sprint5/Mockups/Community_General.png',
+        description: 'High-fidelity community feed with the All filter selected, mixing milestone and project posts from different learning paths (Coding, Design, Data) with highlighted milestone cards, path tags, and Cheer, Comment, and Save actions above a Paths / Projects / Community / Mentors bottom navigation.'
+    },
+    {
+        file: 'Community_Questions.png',
+        title: 'Community Questions Mockup',
+        path: '/documents/sprint5/Mockups/Community_Questions.png',
+        description: 'Community feed filtered to Questions, where each post leads with a highlighted question card (dribbling, guitar calluses, 5K rest days) followed by context from the asker, so peers can quickly spot and answer questions in their skill area.'
+    },
+    {
+        file: 'Community_Milestones.png',
+        title: 'Community Milestones Mockup',
+        path: '/documents/sprint5/Mockups/Community_Milestones.png',
+        description: 'Community feed filtered to Milestones, celebrating completed goals such as a first full sketchbook and a first three-course dinner with a check-marked milestone banner, an optional progress photo, and a short reflection.'
+    },
+    {
+        file: 'Community_Practice.png',
+        title: 'Community Practice Mockup',
+        path: '/documents/sprint5/Mockups/Community_Practice.png',
+        description: 'Community feed filtered to Practice, showing photo-forward practice updates (guitar daily streak, basketball drills) with skill and time stamps, Practice tags, and quick Cheer, Comment, and Save actions to encourage consistency.'
     }
 ];
 
