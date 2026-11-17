@@ -78,7 +78,7 @@ const mockups = [
         file: 'Community_General.png',
         title: 'Community Feed (All) Mockup',
         path: '/documents/sprint5/Mockups/Community_General.png',
-        description: 'High-fidelity community feed with the All filter selected, mixing milestone and project posts from different learning paths (Coding, Design, Data) with highlighted milestone cards, path tags, and Cheer, Comment, and Save actions above a Paths / Projects / Community / Mentors bottom navigation.'
+        description: 'High-fidelity community feed with the All filter selected, mixing milestone and project posts from different learning paths (Coding, Design, Data) with highlighted milestone cards, path tags, and Cheer, Comment, and Save actions above the Explore / Community / Add Activity / Portfolio bottom navigation shared with the other mockups.'
     },
     {
         file: 'Community_Questions.png',
