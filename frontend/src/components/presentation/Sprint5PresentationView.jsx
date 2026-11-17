@@ -119,6 +119,30 @@ const mockups = [
         title: 'Search Mockup',
         path: '/documents/sprint5/Mockups/Search.png',
         description: 'Search screen for finding learning opportunities.'
+    },
+    {
+        file: 'Community_Post_Practice.png',
+        title: 'Practice Post Detail Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Practice.png',
+        description: 'Opened practice post (Day 21 of daily practice) showing the full photo, Cheer and Comment counts, a Best sort and comment search bar, and threaded replies where the author answers peers directly.'
+    },
+    {
+        file: 'Community_Post_Question.png',
+        title: 'Question Post Detail Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Question.png',
+        description: 'Opened question post on keeping a low dribble when tired, with the question as the headline, community answers sorted by Best, upvote counts on each reply, and the asker following up in-thread.'
+    },
+    {
+        file: 'Community_Post_Milestone.png',
+        title: 'Milestone Post Detail Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Milestone.png',
+        description: 'Opened milestone post for a first finished sketchbook, pairing the celebration photo with Cheer and Comment totals and a threaded discussion where peers ask about technique and the author shares tips.'
+    },
+    {
+        file: 'Community_Post_Portfolio.png',
+        title: 'Portfolio Feedback Post Mockup',
+        path: '/documents/sprint5/Mockups/Community_Post_Portfolio.png',
+        description: 'Opened portfolio milestone (Portfolio v1) with a linked project card and View button, so peers can open the work and leave focused feedback on layout, case studies, and mobile contrast in the comment thread.'
     }
 ];
 
