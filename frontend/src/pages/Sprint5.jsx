@@ -67,6 +67,30 @@ const mockups = [
         title: 'Portfolio Project Management Mockup',
         path: '/documents/sprint5/Mockups/Portfolio_Management.png',
         description: 'Project management screen under user portfolio with filter tabs for Projects (4), Skills (8), and Certificates (4), project list with category badges (Woodcutting, Geometry), and prominent + Add Project button.'
+    },
+    {
+        file: 'Course Details.png',
+        title: 'Course Details Mockup',
+        path: '/documents/sprint5/Mockups/Course Details.png',
+        description: 'Course details screen for reviewing course information.'
+    },
+    {
+        file: 'Discover.png',
+        title: 'Discover Mockup',
+        path: '/documents/sprint5/Mockups/Discover.png',
+        description: 'Screen for exploring learning opportunities.'
+    },
+    {
+        file: 'Filters.png',
+        title: 'Filters Mockup',
+        path: '/documents/sprint5/Mockups/Filters.png',
+        description: 'Filter screen for refining discovery results.'
+    },
+    {
+        file: 'Search.png',
+        title: 'Search Mockup',
+        path: '/documents/sprint5/Mockups/Search.png',
+        description: 'Search screen for finding learning opportunities.'
     }
 ];
 
@@ -391,7 +415,7 @@ function Sprint5() {
                                             Mockups Section Collapsed
                                         </strong>
                                         <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                                            Click to expand and view our 5 high-fidelity mobile mockups (Portfolio, My Feed, Add Activity, Skill Analysis, and Portfolio Management).
+                                            Click to expand and view our {mockups.length} high-fidelity mobile mockups (Portfolio, My Feed, Add Activity, Skill Analysis, Portfolio Management, Course Details, Discover, Filters, and Search).
                                         </span>
                                     </div>
                                     <span className="collapsible-toggle-btn" style={{ pointerEvents: 'none' }}>
