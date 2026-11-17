@@ -1,9 +1,7 @@
-import React from 'react';
 import {
     Layout,
     Smartphone,
     MessageSquare,
-    CheckCircle2,
     Layers,
     Download,
     Sparkles
@@ -97,6 +95,30 @@ const mockups = [
         title: 'Community Practice Mockup',
         path: '/documents/sprint5/Mockups/Community_Practice.png',
         description: 'Community feed filtered to Practice, showing photo-forward practice updates (guitar daily streak, basketball drills) with skill and time stamps, Practice tags, and quick Cheer, Comment, and Save actions to encourage consistency.'
+    },
+    {
+        file: 'Course Details.png',
+        title: 'Course Details Mockup',
+        path: '/documents/sprint5/Mockups/Course Details.png',
+        description: 'Course details screen for reviewing course information.'
+    },
+    {
+        file: 'Discover.png',
+        title: 'Discover Mockup',
+        path: '/documents/sprint5/Mockups/Discover.png',
+        description: 'Screen for exploring learning opportunities.'
+    },
+    {
+        file: 'Filters.png',
+        title: 'Filters Mockup',
+        path: '/documents/sprint5/Mockups/Filters.png',
+        description: 'Filter screen for refining discovery results.'
+    },
+    {
+        file: 'Search.png',
+        title: 'Search Mockup',
+        path: '/documents/sprint5/Mockups/Search.png',
+        description: 'Search screen for finding learning opportunities.'
     }
 ];
 
