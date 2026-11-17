@@ -1,0 +1,87 @@
+[33mbc69ae4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelopment[m[33m)[m Update Sprint 5 Community mockups with final Figma screens
+[33mbb1f196[m Add Community feed mockups to Sprint 5
+[33m0ed6764[m[33m ([m[1;31morigin/development[m[33m)[m Added add activity, analysis and portfolio management screen
+[33mb37e601[m Template for mockups, added wireframes and feedback
+[33m685bc9f[m Add Sprint 4 change log (no changes this sprint)
+[33m38d7ef6[m Added sketches to Sprint 4 page
+[33ma7bff54[m Added sketches: Isaac, Ricardo, Karina
+[33m35dee95[m Added Sprint 4 Activities
+[33mf1bf2f2[m Add Sprint 4 Activities section with downloadable PDF
+[33m7500c88[m Add Sprint 4 page with downloadable delivery metrics PDF
+[33mb661cf2[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Added change log
+[33mc39cda1[m Interview Guide added
+[33m4129677[m fixed download buttons for jonathan files
+[33m3a554f7[m added all of jonathans sections to the webstie with documents
+[33mff4cdec[m Ricardos memo
+[33m17568f7[m Uploaded ricardo's interviews and fixed expand collapse actions
+[33m4101f42[m Added downloadable pdf - Juan
+[33m7183d06[m Contradiction memo - Juan
+[33m6d54143[m Merge branch 'main' of https://github.com/SkillUpTeam/skill_tracker
+[33m7204d0e[m Juan's interview notes added
+[33m5e51421[m Karina Contradiction Memo
+[33m7af32b3[m Karina interview notes
+[33m4ef586d[m Updaded Evidence Log
+[33m48f166d[m Uploaded current documents and created template fro sprint 3
+[33m4da3d28[m Created new presentation view
+[33ma903e7a[m Added sprint 2 analysis pdf and download capabilities
+[33m4df028f[m added ROI analysis section
+[33m6e5c587[m Merge branch 'main' of https://github.com/SkillUpTeam/skill_tracker
+[33m0fdae3e[m Add Project Estimation Starter and Lesson 9 Activity to Sprint 2
+[33m397af75[m Added Change Log, and its pdf file
+[33m8df4c3f[m Add Business Case
+[33m1ad93b8[m Update Sprint 2 with AI Use Disclosure and Sprint2AIUse.pdf
+[33m85ec831[m Update Sprint 2 with Budget Estimation, Estimation Appendix, and premium table styles
+[33mc75dc05[m Add Sprint 2 skeleton and sub-nav component
+[33mbf40c7f[m Merge branch 'main' of https://github.com/SkillUpTeam/skill_tracker
+[33m9238859[m Uploaded missing documents as pdfs for download
+[33m52f27e5[m updated about me section for jonathan
+[33m3ffb385[m Merge branch 'main' of https://github.com/JuanReyna1/skill_tracker
+[33m1e45a0e[m added jonathan section for individual contributions and added the Aggregate findings section
+[33mfb77413[m uploaded market research and adjusted scope in charter
+[33m28a058a[m Updated about us (Juan)
+[33m8026999[m Individual Contributions, Juan
+[33m22e9e40[m Individual Contributions, Juan
+[33mc724d56[m feat: add multi-document download support, style download buttons, and organize sprint 1 files
+[33m0cde4d6[m feat: update home layout, refine messaging based on sprint 1, add level-up easter egg
+[33me312c11[m Update team member roles in Sprint 1 and About Us
+[33m7dcf339[m Filled in Top Pick, Deep Dive
+[33m5777d29[m Add Sprint 1 individual contributions for Ricardo
+[33m1e459a6[m Add Sprint 1 individual contributions for Karina
+[33mec7781b[m Add Sprint 1 individual contributions section and guide
+[33mb1ffaf6[m Update What Didn't Work section in Sprint 1
+[33m2fbfed6[m Updated Chain to Project Section with attached pdf
+[33m9bb6548[m Merge branch 'main' of https://github.com/JuanReyna1/skill_tracker # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit.
+[33me9ce280[m Updated Isaac's About Us page. Updated browser logo and app title
+[33m12f94cd[m Merge branch 'main' of https://github.com/SkillUpTeam/skill_tracker
+[33ma64a82e[m Updatetd about me (Juan)
+[33maae858b[m added success criteria section and info
+[33mb3fcea1[m Merge branch 'main' of https://github.com/JuanReyna1/skill_tracker
+[33m048b4d3[m added about us section to jonathan
+[33md221c97[m Added Scope Boundary
+[33m6b885de[m Juan's about me
+[33mcdf7586[m Constraints Section V5
+[33me981b28[m Constraints Section V4
+[33m7271b32[m Constraints Section V3
+[33mbc77078[m Constraints Section V2
+[33mfc55e46[m Constraints Section
+[33m3c4f0e1[m Project Charter (Business Objective & Assumptions)
+[33me0c71d7[m Add profile image for Karina
+[33m7ce744c[m Merge branch 'main' of https://github.com/JuanReyna1/skill_tracker
+[33m7d1e7d8[m Hero background and added profile image
+[33m4c51994[m Profile
+[33me61c377[m Fixed dropdown-menu background
+[33mb816910[m Sprint 1 Content and Navigation
+[33me06ca0f[m Added Profile Photo
+[33m1054b7b[m Updated Bio for Team 5
+[33mc24f69d[m Bio Change
+[33m621b853[m Merge origin/main into main
+[33m8554d97[m Team member card
+[33m17336fe[m Home screen
+[33m5c239ae[m Edit Team 5
+[33m69dc7b8[m Edit Team 5
+[33mf024f31[m Add project name and description
+[33m964f22a[m Connect Isaac's profile image and add team member guide
+[33m5069fe6[m Added team member cards
+[33m682109a[m Set up main pages and navigation bar
+[33mcce9ba2[m Set up React frontend
+[33m1a9dbd9[m Initial commit
